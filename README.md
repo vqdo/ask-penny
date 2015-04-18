@@ -41,4 +41,12 @@ Andrew Wilson, Danny Hsiung, Eric Fonseca, Victoria Do, Nate Bradbury
 SASS is a [CSS extension language](http://sass-lang.com). We're using SCSS, so you can write it exactly the same way as regular CSS. You can also take advantage of its great features such as variables, mixins, functions, etc. 
 
 ### Folders
-Reusable chunks are stored in layout. Regular pages go in pages/ or their respective directories. 
+3. Go to the src/ directory and make changes. Refresh the site to see changes.
+
+### SASS
+style.scss concatenates all the CSS files together.
+
+If you're not sure, add CSS to breakpoints/_base.scss
+
+### HTML
+Partials (reusable blocks) go in src/layout. Pages to in pages/, except for index.html
