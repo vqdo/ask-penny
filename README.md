@@ -14,7 +14,7 @@ Andrew Wilson, Danny Hsiung, Eric Fonseca, Victoria Do, Nate Bradbury
 1. Install the Compass and SASS gems.
 
 	```
-	$ gem update system
+	$ gem update --system
 	$ gem install sass
 	$ gem install compass
 	```
@@ -48,11 +48,6 @@ SASS is a [CSS extension language](http://sass-lang.com). We're using SCSS, so y
 
 ### Folders
 3. Go to the src/ directory and make changes. Refresh the site to see changes.
-
-### SASS
-style.scss concatenates all the CSS files together.
-
-If you're not sure, add CSS to breakpoints/_base.scss
 
 ### HTML
 Partials (reusable blocks) go in src/layout. Pages to in pages/, except for index.html
