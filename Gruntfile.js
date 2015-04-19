@@ -72,7 +72,7 @@ module.exports = function(grunt) {
 
       // I think this is buggy, but it kind of works
       includes: {
-        files: ['**/*.html', 'pages/{,*/}*.html'],
+        files: ['<%= project.src.root %>/**/*.html'],
         tasks: ['includes:build']        
       }
     },   
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
     includes: {
       build: {
         cwd: 'src',
-        src: [ '*.html', 'pages/**/*.html' ],
+        src: [ '*.html', 'pages/{,*/}*.html', 'tests/{,*/}*.html' ],
         dest: 'dist/',
         options: {
           flatten: true,
