@@ -100,7 +100,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('default', [
     'sass:dev',
-    //'includes',
+    'includes',
     'watch'
   ]);
 
