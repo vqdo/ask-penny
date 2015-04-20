@@ -1,3 +1,61 @@
 body {
-	background: #CCC;
+    background: #566163;
+}
+#content {
+    padding: 2em 0;
+}
+.container {
+    background: #FFF;
+}
+#conformance-table {
+    width: 100%;
+    margin: 1em 0 2em 0;
+    thead {
+        border-bottom: 1px solid #EEE;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 5px;
+    }
+}
+header {
+    #logo {
+        background: #3D2B30;
+        .container {
+            background: 0;
+        }
+    }
+    h1 {
+        color: #A5E8D4;
+        display: block;
+        font: bold 16px Helvetica;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 10px;
+        padding: 0 !important;
+    }
+    nav {
+        .container {
+            background: #A5E8D4;        
+        }
+        &.subnav {
+            .container {
+                border-bottom: 1px dashed #A5E8D4;            
+                background: #FFF;
+            }
+        }
+    }
+}
+footer {
+    color: #CCC;
+    min-height: 150px;
+
+    .container {
+        background: #3D2B30;    
+        span {
+            display: block;
+            padding: 15px;
+        }
+    }
 }
