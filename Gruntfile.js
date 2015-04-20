@@ -100,7 +100,6 @@ module.exports = function(grunt) {
         options: {
           flatten: true,
           includePath: 'src/layout',
-          banner: '<!-- Spring 2015 - CSE 134B -->\n'
         }
       }
     }
