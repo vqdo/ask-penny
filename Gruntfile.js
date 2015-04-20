@@ -69,6 +69,10 @@ module.exports = function(grunt) {
         files: '<%= project.src.css %>/{,*/}*.{scss,sass}',
         tasks: ['sass:dev']
       },
+      images: {
+        files: '<%= project.src.assets %>/images/*',
+        tasks: ['copy:main']
+      },      
 
       // I think this is buggy, but it kind of works
       includes: {
@@ -76,6 +80,15 @@ module.exports = function(grunt) {
         tasks: ['includes:build']        
       }
     },   
+
+    copy: {
+      main: {
+        images: [
+          // includes files within path
+          {expand: true, src: ['<%= project.src.assets %>/images/*'], dest: '<%= project.dest.assets %>/images'},
+        ]
+      }
+    },    
 
 
     // Build the site using grunt-includes
@@ -100,9 +113,11 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('default', [
     'sass:dev',
+    'copy:main',
     'includes',
     'watch'
   ]);
 
   grunt.loadNpmTasks('grunt-includes');  
+  grunt.loadNpmTasks('grunt-contrib-copy');
 };
