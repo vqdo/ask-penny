@@ -1,5 +1,60 @@
 body {
-  background: #CCC;
+  background: #566163;
+}
+
+#content {
+  padding: 2em 0;
+}
+
+.container {
+  background: #FFF;
+}
+
+#conformance-table {
+  width: 100%;
+  margin: 1em 0 2em 0;
+}
+#conformance-table thead {
+  border-bottom: 1px solid #EEE;
+  font-weight: bold;
+}
+#conformance-table td {
+  padding: 5px;
+}
+
+header #logo {
+  background: #3D2B30;
+}
+header #logo .container {
+  background: 0;
+}
+header h1 {
+  color: #A5E8D4;
+  display: block;
+  font: bold 16px Helvetica;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 10px;
+  padding: 0 !important;
+}
+header nav .container {
+  background: #A5E8D4;
+}
+header nav.subnav .container {
+  border-bottom: 1px dashed #A5E8D4;
+  background: #FFF;
+}
+
+footer {
+  color: #CCC;
+  min-height: 150px;
+}
+footer .container {
+  background: #3D2B30;
+}
+footer .container span {
+  display: block;
+  padding: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
