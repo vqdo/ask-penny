@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+  <head> 
+    <meta charset="UTF-8">
+    <title> Ask Penny Forms </title>
+  </head>
+  <form>
+    <p><label>Full name: </label><input type=text required></p>
+    <p><label>Input is hidden </label><input type=hidden></p>
+    <p><label>Search(read only): </label><input type=search readonly="readonly"></p>
+    <p><label>Telephone number: </label><input type=tel required pattern="[0-9]" data-x="Enter telephone number using ONLY numbers."></p>
+    <p><label>Email: </label><input type=email required></p>
+    <p><label>Password: </label><input type=password required maxlength=21></p>
+    <p><label>Numbers: </label><input type=number step=2></p>
+    <p><label>Range: </label><input type=range></p>
+    <p><label>Color: </label><input type=color></p>
+    <p><label>Checkbox: </label><input type=checkbox></p>
+    <p>
+      <label>My role:
+        <input name=myRole list=theRoles>
+      </label>
+      <datalist id=theRoles>
+        <label> or select from the list:
+          <select name=myRole>
+            <option>Carry
+            <option>Mid
+            <option>Offlane
+            <option>Support
+            <option>Feeder
+          </select>
+        </label>
+        </datalist>
+      </p>
+    <button type=submit>Submit</button><button type=reset>Reset</button>
+  </form>
+</html>
