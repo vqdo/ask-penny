@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    include "meta.html"
+    <title>Ask Penny</title>
+  </head>
+  <body>
+
+    include "header.html"
+
+    <script>
+      alert("really basic example of something that can be done with the script tag");
+    </script>
+
+    <noscript> You have scripting disabled if you can see this </noscript>
+
+    <template id="script-template">
+      <script>
+        alert("this script is wrapped in a template!");
+      </script>
+    </template>
+
+    <div id="template-activated"></div>
+
+    <script>
+      var template = document.querySelector("#script-template");
+      var clone = document.importNode(template.content, true);
+      var host = document.querySelector("#template-activated");
+      host.appendChild(clone);
+    </script>
+
+    <canvas id="canvas-circle"></canvas>
+
+    <script>
+      var canvas = document.querySelector("#canvas-circle");
+      var context = canvas.getContext("2d");
+      context.beginPath();
+      context.arc(95,50,40,0,2*Math.PI);  
+      context.stroke();
+    </script>
+
+
+    include "footer.html"
+
+  </body>
+</html>

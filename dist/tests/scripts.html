@@ -1,0 +1,61 @@
+<!-- Spring 2015 - CSE 134B -->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <base href="/">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <title>Ask Penny</title>
+  </head>
+  <body>
+
+    <header>
+    	<div class="container">
+    	<nav>
+    		<ul class="nav nav-pills">
+    			<li><a href="">Home</a></li>
+    			<li><a href="tests/index.html">Tests</a></li>
+    		</ul>
+    	</nav>
+    	</div>
+    </header>
+
+    <script>
+      alert("really basic example of something that can be done with the script tag");
+    </script>
+
+    <noscript> You have scripting disabled if you can see this </noscript>
+
+    <template id="script-template">
+      <script>
+        alert("this script is wrapped in a template!");
+      </script>
+    </template>
+
+    <div id="template-activated"></div>
+
+    <script>
+      var template = document.querySelector("#script-template");
+      var clone = document.importNode(template.content, true);
+      var host = document.querySelector("#template-activated");
+      host.appendChild(clone);
+    </script>
+
+    <canvas id="canvas-circle"></canvas>
+
+    <script>
+      var canvas = document.querySelector("#canvas-circle");
+      var context = canvas.getContext("2d");
+      context.beginPath();
+      context.arc(95,50,40,0,2*Math.PI);  
+      context.stroke();
+    </script>
+
+
+    <footer>
+    	<div class="container">
+    		This is the footer
+    	</div>
+    </footer>
+
+  </body>
+</html>
