@@ -21,7 +21,6 @@
 			  <h2> iframe </h2>
 			  <iframe width="427" height="255" src="https://www.youtube.com/embed/DO1Q7F23DxM" frameborder="0" allowfullscreen></iframe>
 
-			  <h2> audio </h2>
 			  <audio>
 			  	<source src="http%3A%2F%2Fdrownradio.com%2Fmedia%2Fbarack%2520roll.mp3">
 			  		Your browser does not support the audio element
@@ -31,6 +30,9 @@
 				  <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
 				  Sorry, your browser does not support inline SVG.  
 			</svg> 
+			<canvas id="myCanvas"></canvas>
+
+
 			<div>
 				<embed width="420" height="315"
 				src="https://www.youtube.com/v/dQw4w9WgXcQ">
@@ -39,4 +41,10 @@
         </div>
 		include "footer.html"
 	</body>
+	<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(0, 0, 80, 80);
+</script>
 </html>			
