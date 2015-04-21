@@ -1,14 +1,32 @@
+$white: #FFFFFF;
+$plum:  #3D2B30;
+$blue: #5A7E89;
+$font-stack: 'alternate-gothic-no-3-d', Helvetica, sans-serif;
+
 body {
     background: #566163;
+    font-size: 16px;
+}
+h1, h2, h3 {
+    color: $plum;
+    font-family: $font-stack;
 }
 #content {
-    padding: 2em 0;
+    .container {
+        padding: 1em;
+    }
 }
 .container {
     background: #FFF;
 }
-#conformance-table {
+table {
     width: 100%;
+}
+
+/****
+ * Conformance page 
+ ************************/
+#conformance-table {
     margin: 1em 0 2em 0;
     thead {
         border-bottom: 1px solid #EEE;
@@ -19,17 +37,75 @@ body {
         padding: 5px;
     }
 }
+/************************
+ * Team page
+ ************************/
+.emphbox {
+    margin: auto;
+    width: 80%;
+}
+.profile {
+    h1 {
+        border-bottom: 1px dotted #CCC;
+        color: $blue;
+        font: normal 20px $font-stack;
+        margin: 10px 0 5px 0;
+        text-transform: uppercase;
+
+        .last {
+            color: #CCC;
+        }
+    }
+
+    .profile-image {
+        max-width: 100%;
+        height: 180px;
+        overflow: hidden;
+        margin: auto;
+        position: relative;
+
+        img {
+            max-width: 100%;
+            transform: translate(0, -10%);
+        }
+        .overlay {
+            background: $blue;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+            position: absolute;
+                top: 0;
+                left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            z-index: 1;
+
+        }
+    }
+    .email {
+        color: #999;
+        text-transform: uppercase;
+        font: normal 16px $font-stack;
+        letter-spacing: 1px;
+    }
+}
 header {
+    a, a:hover, a:active {
+        color: $white;
+    }
+    .nav > li > a:hover {
+        background: $plum;
+        border-radius: 0;
+    }
     #logo {
-        background: #3D2B30;
+        background: $plum;
         .container {
             background: 0;
         }
     }
     h1 {
-        color: #A5E8D4;
+        color: $white;
         display: block;
-        font: bold 16px Helvetica;
+        font: normal 20px $font-stack;
         text-transform: uppercase;
         letter-spacing: 2px;
         margin: 10px;
@@ -37,13 +113,20 @@ header {
     }
     nav {
         .container {
-            background: #A5E8D4;        
+            background: $blue;        
         }
         &.subnav {
             .container {
                 border-bottom: 1px dashed #A5E8D4;            
                 background: #FFF;
             }
+            a, a:hover, a:active {
+                color: $blue;
+            }            
+            .nav > li > a:hover {
+                background: $blue;
+                color: $white;
+            }            
         }
     }
 }
@@ -52,7 +135,7 @@ footer {
     min-height: 150px;
 
     .container {
-        background: #3D2B30;    
+        background: $plum;    
         span {
             display: block;
             padding: 15px;
