@@ -35,6 +35,9 @@ table {
 #conformance-table thead td {
   padding: 10px 10px 5px 10px;
 }
+#conformance-table thead td:last-child {
+  width: 50%;
+}
 #conformance-table td {
   border-bottom: 1px solid #EEE;
   padding: 5px;
