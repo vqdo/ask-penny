@@ -33,7 +33,6 @@
             <h1>Browser Conformance</h1>
             <p>Only presentational elements with noticable issues are included on this page.</p>
             
-            <h2>4.4 Grouping</h2>
             <table id="conformance-table">
                 <thead>
                     <tr>
@@ -44,10 +43,30 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>wbr (REPLACE THIS, I made it up!)</td>
-                        <td>IE11, Firefox</td>
-                        <td>wbr is not supported</td>
+                        <td>canvas</td>
+                        <td>IE11</td>
+                        <td>The circle in the canvas is rendered differently in IE. It is on the left side instead of the right.</td>
                     </tr>
+                    <tr>
+                        <td>script</td>
+                        <td>IE11</td>
+                        <td>The second script should write a String concatenated with the result of a Date() function, but nothing appears in IE.</td>
+                    </tr>  
+                    <tr>
+                        <td>input (validation)</td>
+                        <td>Chrome 39, Firefox 37, IE11</td>
+                        <td>Only Firefox displays a visible effect when an inproperly filled out form field loses focus (e.g. a badly formatted email address). The other browsers only warn the user once the form has been submitted.</td>
+                    </tr>     
+                    <tr>
+                        <td>form (UI)</td>
+                        <td>IE11</td>
+                        <td>Only Internet explorer has extra buttons for quickly clearing the field or toggling between plaintext and hidden format for password fields. </td>
+                    </tr>  
+                    <tr>
+                        <td>meter</td>
+                        <td>IE11</td>
+                        <td>The 'meter' tag does not do anything.</td>
+                    </tr>                                                                                
                 </tbody>
             </table>
         </div>
