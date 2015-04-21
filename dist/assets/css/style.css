@@ -49,6 +49,10 @@ table {
   padding: 30px 10%;
 }
 
+.profile {
+  margin-bottom: 10px;
+  min-height: 250px;
+}
 .profile h1 {
   border-bottom: 1px dotted #CCC;
   color: #5A7E89;

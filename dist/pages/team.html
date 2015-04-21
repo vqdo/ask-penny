@@ -1,18 +1,38 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        include "meta.html"
-        <title>Ask Penny</title>
-    </head>
-    <body>
-        include "header.html"
+	<head>
+        <base href="/">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta charset="utf-8">
+
+        <script src="http://use.typekit.net/ppz4eaa.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+		<title>Ask Penny</title>
+	</head>
+	<body>
+		<header>
+		    <div id="logo" class="container">
+		        <h1 class="container">Ask Penny</h1>
+		    </div>
+			<nav>
+			    <div class="container">
+				<ul class="nav nav-pills">
+					<li><a href="">Home</a></li>
+			        <li><a href="pages/team.html">Team</a></li>        
+			        <li><a href="pages/conformance.html">Conformance</a></li>
+					<li><a href="tests/index.html">Tests</a></li>
+				</ul>
+			    </div>
+			</nav>
+		</header>
 
         <main id="content">
             <div class="container">
-              <h1>Our Culture</h1>
+    		  <h1 >Our Culture</h1>
                 <p>We are a team of web developers collaborating to create a responsive and user-friendly web application to better inform novice buillion traders and collectors before they make a transaction. Through delegation, coordination, and cooperation we plan to stay on top of our schedule and finish our project in a timely manner. Our team is committed to combining our individual talents and strengths and working together to deliver a great application. </p>
-
-            <h1 class="text-center">Our Team</h1>             
+	  
               <div class="emphbox">
 
                     <div class="col-xs-12 col-sm-6 col-lg-4 profile">
@@ -62,6 +82,10 @@
             </div>
         </main>
 
-        include "footer.html"
-    </body>
+		<footer>
+			<div class="container">
+				<span>Andrew Wilson, Eric Fonseca, Danny Hsiung, Victoria Do, Nate Bradbury</span>
+			</div>
+		</footer>
+	</body>
 </html>
