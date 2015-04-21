@@ -6,65 +6,72 @@
     </head>
     <body>
         include "tests_header.html"
-  <form>
-    <p><label>Full name: </label><input type=text required></p>
-    <p><label>Input is hidden </label><input type=hidden></p>
-    <p><label>Search(read only): </label><input type=search readonly="readonly"></p>
-    <p><label>Telephone number: </label><input type=tel required pattern="[0-9]" data-x="Enter telephone number using ONLY numbers."></p>
-    <p><label>Email: </label><input type=email required></p>
-    <p><label>Password: </label><input type=password required maxlength=21></p>
-    <p><label>Numbers: </label><input type=number step=2></p>
-    <p><label>Range: </label><input type=range></p>
-    <p><label>Color: </label><input type=color></p>
-    <p><label>Checkbox: </label><input type=checkbox></p>
-    <p>
-      <label>My role:
-        <input name=myRole list=theRoles>
-      </label>
-      <datalist id=theRoles>
-        <label> or select from the list:
-          <select name=myRole>
-            <option>Carry
-            <option>Mid
-            <option>Offlane
-            <option>Support
-            <option>Feeder
-          </select>
-        </label>
-        </datalist>
-    </p>
-    <p><textarea readonly>I am a text area that can only be read.</textarea></p>
-    <p><label>Key Generator: </label><keygen name="key"></p>
-    <p><input name=a type=number> +
-    <input name=b type=number> = 
-    <output name=o for="a b"></output>
-    <button type=button onclick="o.value = a.valueAsNumber + b.valueAsNumber">Calculate Sum</button>
-    </p>
-    <section>
- <h1>Practice Progress Bar</h1>
- <p>Progress: <progress id="p" max=100><span>0</span>%</progress></p>
- <script>
-  var progressBar = document.getElementById('p');
-  function updateProgress(newValue) {
-    progressBar.value = newValue;
-    progressBar.getElementsByTagName('span')[0].textContent = newValue;
-  }
- </script>
-</section>
-<p><label>Innings completed: </label><meter min="0" max="9" value="4"></meter></p>
-    <fieldset>
- <legend>Display</legend>
- <div><label><input type=radio name=c value=0 checked> Black on White</label></div>
- <div><label><input type=radio name=c value=1> White on Black</label></div>
- <div><label><input type=checkbox name=g> Use grayscale</label></div>
- <div><label>Enhance contrast <input type=range name=e list=contrast min=0 max=100 value=0 step=1></label></div>
- <datalist id=contrast>
-  <option label=Normal value=0>
-  <option label=Maximum value=100>
- </datalist>
-</fieldset>
-    <button type=submit>Submit</button><button type=reset>Reset</button>
-</form>
+
+    <main id="content">
+      <div class="container">
+      <h1>Forms</h1>
+
+      <form>
+        <p><label>Full name: </label><input type=text required></p>
+        <p><label>Input is hidden </label><input type=hidden></p>
+        <p><label>Search(read only): </label><input type=search readonly="readonly"></p>
+        <p><label>Telephone number: </label><input type=tel required pattern="[0-9]" data-x="Enter telephone number using ONLY numbers."></p>
+        <p><label>Email: </label><input type=email required></p>
+        <p><label>Password: </label><input type=password required maxlength=21></p>
+        <p><label>Numbers: </label><input type=number step=2></p>
+        <p><label>Range: </label><input type=range></p>
+        <p><label>Color: </label><input type=color></p>
+        <p><label>Checkbox: </label><input type=checkbox></p>
+        <p>
+          <label>My role:
+            <input name=myRole list=theRoles>
+          </label>
+          <datalist id=theRoles>
+            <label> or select from the list:
+              <select name=myRole>
+                <option>Carry
+                <option>Mid
+                <option>Offlane
+                <option>Support
+                <option>Feeder
+              </select>
+            </label>
+            </datalist>
+        </p>
+        <p><textarea readonly>I am a text area that can only be read.</textarea></p>
+        <p><label>Key Generator: </label><keygen name="key"></p>
+        <p><input name=a type=number> +
+        <input name=b type=number> = 
+        <output name=o for="a b"></output>
+        <button type=button onclick="o.value = a.valueAsNumber + b.valueAsNumber">Calculate Sum</button>
+        </p>
+        <section>
+     <h1>Practice Progress Bar</h1>
+     <p>Progress: <progress id="p" max=100><span>0</span>%</progress></p>
+     <script>
+      var progressBar = document.getElementById('p');
+      function updateProgress(newValue) {
+        progressBar.value = newValue;
+        progressBar.getElementsByTagName('span')[0].textContent = newValue;
+      }
+     </script>
+    </section>
+    <p><label>Innings completed: </label><meter min="0" max="9" value="4"></meter></p>
+        <fieldset>
+     <legend>Display</legend>
+     <div><label><input type=radio name=c value=0 checked> Black on White</label></div>
+     <div><label><input type=radio name=c value=1> White on Black</label></div>
+     <div><label><input type=checkbox name=g> Use grayscale</label></div>
+     <div><label>Enhance contrast <input type=range name=e list=contrast min=0 max=100 value=0 step=1></label></div>
+     <datalist id=contrast>
+      <option label=Normal value=0>
+      <option label=Maximum value=100>
+     </datalist>
+    </fieldset>
+        <button type=submit>Submit</button><button type=reset>Reset</button>
+    </form>
+  </div>
+</main>
         include "footer.html"
 </body>
 </html>

@@ -6,38 +6,45 @@
   </head>
   <body>
 
-    include "header.html"
+    include "tests_header.html"
 
-    <script>
-      alert("really basic example of something that can be done with the script tag");
-    </script>
+    <main id="content">
+      <div class="container">
+        <h1>Scripts</h1>
+        <p id="insert-p"></p>
 
-    <noscript> You have scripting disabled if you can see this </noscript>
+        <script>
+          document.write("really basic example of something that can be done with the script tag");
+        </script>
 
-    <template id="script-template">
-      <script>
-        alert("this script is wrapped in a template!");
-      </script>
-    </template>
+        <noscript> You have scripting disabled if you can see this </noscript>
 
-    <div id="template-activated"></div>
+        <template id="script-template">
+          <script>
+            document.write("This was written with JS at " + Date());
+          </script>
+        </template>
 
-    <script>
-      var template = document.querySelector("#script-template");
-      var clone = document.importNode(template.content, true);
-      var host = document.querySelector("#template-activated");
-      host.appendChild(clone);
-    </script>
+        <div id="template-activated"></div>
 
-    <canvas id="canvas-circle"></canvas>
+        <script>
+          var template = document.querySelector("#script-template");
+          var clone = document.importNode(template.content, true);
+          var host = document.querySelector("#template-activated");
+          host.appendChild(clone);
+        </script>
 
-    <script>
-      var canvas = document.querySelector("#canvas-circle");
-      var context = canvas.getContext("2d");
-      context.beginPath();
-      context.arc(95,50,40,0,2*Math.PI);  
-      context.stroke();
-    </script>
+        <canvas id="canvas-circle"></canvas>
+
+        <script>
+          var canvas = document.querySelector("#canvas-circle");
+          var context = canvas.getContext("2d");
+          context.beginPath();
+          context.arc(95,50,40,0,2*Math.PI);  
+          context.stroke();
+        </script>
+      </div>
+    </main>
 
 
     include "footer.html"
