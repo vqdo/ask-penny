@@ -29,11 +29,18 @@ table {
 #conformance-table {
     margin: 1em 0 2em 0;
     thead {
-        border-bottom: 1px solid #EEE;
-        font-weight: bold;
+        background: #DDD;
+        color: $blue;
+        font: normal 24px $font-stack;
+        text-transform: uppercase;
+
+        td {
+            padding: 10px 10px 5px 10px;            
+        }
     }
 
     td {
+        border-bottom: 1px solid #EEE;
         padding: 5px;
     }
 }
@@ -41,8 +48,9 @@ table {
  * Team page
  ************************/
 .emphbox {
-    margin: auto;
-    width: 80%;
+    border-top: 1px solid $blue;
+    margin: 30px auto;
+    padding: 30px 10%;
 }
 .profile {
     h1 {

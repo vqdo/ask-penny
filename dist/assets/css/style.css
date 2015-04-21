@@ -27,10 +27,16 @@ table {
   margin: 1em 0 2em 0;
 }
 #conformance-table thead {
-  border-bottom: 1px solid #EEE;
-  font-weight: bold;
+  background: #DDD;
+  color: #5A7E89;
+  font: normal 24px "alternate-gothic-no-3-d", Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+#conformance-table thead td {
+  padding: 10px 10px 5px 10px;
 }
 #conformance-table td {
+  border-bottom: 1px solid #EEE;
   padding: 5px;
 }
 
@@ -38,8 +44,9 @@ table {
  * Team page
  ************************/
 .emphbox {
-  margin: auto;
-  width: 80%;
+  border-top: 1px solid #5A7E89;
+  margin: 30px auto;
+  padding: 30px 10%;
 }
 
 .profile h1 {
