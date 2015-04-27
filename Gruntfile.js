@@ -72,12 +72,10 @@ module.exports = function(grunt) {
       images: {
         files: '<%= project.src.assets %>/images/*',
         tasks: ['copy:main']
-      },      
-
-      // I think this is buggy, but it kind of works
-      includes: {
-        files: ['<%= project.src.root %>/**/*.html'],
-        tasks: ['includes:build']        
+      },
+      jade: {
+        files: "<%= project.src.root %>/**/*.jade",
+        tasks: ['jade:compile']
       }
     },   
 
@@ -88,19 +86,28 @@ module.exports = function(grunt) {
           {expand: true, src: ['<%= project.src.assets %>/images/*'], dest: '<%= project.dest.assets %>/images'},
         ]
       }
-    },    
+    },
 
-
-    // Build the site using grunt-includes
-    includes: {
-      build: {
-        cwd: 'src',
-        src: [ '*.html', 'pages/{,*/}*.html', 'tests/{,*/}*.html' ],
-        dest: 'dist/',
+    jade: {
+      compile: {
         options: {
-          flatten: true,
-          includePath: 'src/layout',
-        }
+          pretty: true,
+          compileDebug: true,
+          data: function(dest, src) {
+            return {
+              from: src, 
+              to: dest
+            }
+          }
+        },
+        files: [{
+            cwd: "<%= project.src.root %>",
+            dest: "<%= project.dest.root %>",
+            src: ["**/*.jade", "!templates/*"],
+            expand: true,
+            ext: ".html"
+          
+        }]
       }
     }
 
@@ -113,10 +120,10 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass:dev',
     'copy:main',
-    'includes',
+    'jade:compile',
     'watch'
   ]);
 
-  grunt.loadNpmTasks('grunt-includes');  
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-jade');  
 };

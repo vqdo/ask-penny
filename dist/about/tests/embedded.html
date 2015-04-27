@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-        <base href="../">
-
+		<base href="../">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta charset="utf-8">
 
@@ -46,37 +45,64 @@
 			</nav>
 
 		</header>
+		<div id="content">
+	        <div class="container">
+			  <h1>Embedded elements</h1>
 
-        <main id="content">
-            <div class="container">
-                <h1>W3 Tests</h1>
-                <p>The subnavigation above will take you to each distinct testing page. We dedicated one page to each subsection of <a href="http://www.w3.org/TR/html5/semantics.html#semantics">Section 4: The Elements of HTML</a>.</p>
-                <p><strong>Note:</strong> This site uses the Twitter Bootstrap stylesheet, which may have overridden and normalized some default browser styles.</p> 
+			  <h2>Image within figure with figcaption</h2>
+			  <figure>
+				  <img src="http://i.imgur.com/EpsifIU.jpg" height="500" alt="" title="woof"> 
+				  <figcaption> this is a very cute puppy</figcaption>
+			  </figure>
+			  <h2> object! </h2>
+			  <object width="500" height="300"
+			  		data="https://www.youtube.com/v/PwuckTkE7T4"
+			  		type="application/x-shockwave-flash">
+			  </object>
 
-                <h2>Exceptions</h2>
-                <p>Some tags were not explicitly tested.</p>
+			  <h2>Video</h2>
+			  <video width="320" height="240" autoplay>
+				  <source src="https://www.youtube.com/v/OQhS2q7IHQM" type="video/mp4">
+				Your browser does not support the video tag.
+				</video>
 
-                <h3>Used on every page</h3>
-                <p>These tags are used on every page on this site, and therefore do not require their own section.</p>
-                <ul>
-                    <li>html, head, body</li>
-                    <li>title</li>
-                    <li>base</li>
-                    <li>link (used to link stylesheets)</li>
-                    <li>meta</li>
-                    <li>header</li>
-                    <li>footer</li>
-                    <li>nav</li>
-                    <li>main</li>
-                </ul>
+				  <h2> iframe </h2>
+				  <iframe width="427" height="255" src="https://www.youtube.com/embed/DO1Q7F23DxM" allowfullscreen></iframe>
 
-            </div>
-        </main>
+			  <h2>Audio</h2>
+			  <audio>
+			  	<source src="http%3A%2F%2Fdrownradio.com%2Fmedia%2Fbarack%2520roll.mp3">
+			  		Your browser does not support the audio element
+			  </audio>
 
+			  <h2>Inline SVG</h2>
+			  <svg height="100" width="100">
+				  <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+			</svg> 
+
+			<h2>Canvas</h2>
+			<canvas id="myCanvas"></canvas>
+
+
+			<h2>embed</h2>
+			<div>
+				<embed width="420" height="315"
+				src="https://www.youtube.com/v/dQw4w9WgXcQ">
+			</div>
+
+
+	        </div>
+        </div>
 		<footer>
 			<div class="container">
 				<span>Andrew Wilson, Eric Fonseca, Danny Hsiung, Victoria Do, Nate Bradbury</span>
 			</div>
 		</footer>
+		<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		ctx.fillStyle = "#FF0000";
+		ctx.fillRect(0, 0, 80, 80);
+		</script>
 	</body>
 </html>			
