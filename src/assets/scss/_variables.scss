@@ -1,0 +1,28 @@
+// Breakpoints
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+/**********************
+ * Colors
+ **********************/
+$white:      #FFF;
+$smoke:      #CCC;
+$light_gray: #999;
+$gray:       #666;
+$dark_gray:  #333;
+
+$red: #AD2719;
+
+@mixin center-col() {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}

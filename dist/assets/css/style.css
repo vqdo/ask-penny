@@ -1,3 +1,37 @@
+/**********************
+ * Colors
+ **********************/
+.ungrid {
+  float: none;
+  margin: auto;
+}
 
+/**********************************
+ * Login screen
+ *********************************/
+.login-button {
+  color: #FFF;
+  display: block;
+}
+.login-button button {
+  border: 0;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+.login-button #login {
+  background: #333;
+}
+.login-button #register {
+  background: #AD2719;
+}
+
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
 
 /*# sourceMappingURL=style.css.map */

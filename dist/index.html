@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <base href="/">
   <head>
-    <title></title>
-    <script type="text/javascript">
-      if (foo) {
-         bar(1 + 5)
-      }
-    </script>
+    <title>Ask Penny</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>Jade - node template engine</h1>
-    <div id="container" class="col">
-      <p>Get on it!</p>
-      <p>
-        Jade is a terse and simple
-        templating language with a
-        strong focus on performance
-        and powerful features.
-      </p>
+    <header>
+      <div class="container"></div>
+    </header>
+    <div id="content"> 
+      <div class="container">
+        <div class="col-xs-12 col-sm-6 ungrid">
+          <div class="row">
+            <h1>Ask Penny</h1>
+            <p>Manage your something bullions with just one click!</p>
+          </div>
+          <div class="row">
+            <div class="login-button">
+              <button id="register">Sign Up    </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="login-button"> 
+              <button id="login">Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <footer>
+      <div class="container">
+        <p>this is the footer</p>
+      </div>
+    </footer>
+    <!-- include JQuery-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Include Bootstrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -94,10 +94,7 @@ module.exports = function(grunt) {
           pretty: true,
           compileDebug: true,
           data: function(dest, src) {
-            return {
-              from: src, 
-              to: dest
-            }
+              return require('./data.json');
           }
         },
         files: [{

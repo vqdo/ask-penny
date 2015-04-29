@@ -1,0 +1,28 @@
+.ungrid {
+    float: none;
+    margin: auto;
+}
+
+/**********************************
+ * Login screen
+ *********************************/
+.login-button {
+    color: $white;
+    display: block;
+
+    button {
+        border: 0;
+        margin: 10px;
+        padding: 10px;
+        width: 100%;
+
+        @include border-radius(10px);        
+    }
+
+    #login {
+        background: $dark_gray;
+    }
+    #register {
+        background: $red;
+    }        
+}
