@@ -1,13 +1,14 @@
 extends templates/layout.jade
 
 block content
-  .col-xs-12.col-sm-6.ungrid
-    .row
-      h1= pagetitle
-      p= subtitle
-    .row
-      .login-button
-        button#register Sign Up    
-    .row
-      .login-button 
-        button#login Login
+  .container 
+    .col-xs-12.col-sm-6.ungrid
+      .row
+        h1= pagetitle
+        p= subtitle
+      .row
+        .login-button
+          a#register(href="dashboard.html") Sign Up    
+      .row
+        .login-button 
+          a#login(href="dashboard.html") Login

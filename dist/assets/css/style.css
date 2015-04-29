@@ -10,18 +10,22 @@
  * Login screen
  *********************************/
 .login-button {
-  color: #FFF;
   display: block;
 }
-.login-button button {
-  border: 0;
+.login-button a {
+  color: #FFF;
+  display: inline-block;
   margin: 10px;
   padding: 10px;
+  text-align: center;
   width: 100%;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   border-radius: 10px;
+}
+.login-button a:hover {
+  text-decoration: none;
 }
 .login-button #login {
   background: #333;
@@ -30,7 +34,29 @@
   background: #AD2719;
 }
 
+/**********************************
+ * Footer
+ *********************************/
+footer {
+  background: #CCC;
+  height: 30px;
+}
+
 /* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /******************
+   * Dashboard
+   ******************/
+  #menu .nav > li {
+    background: #CCC;
+    margin: 10px;
+    width: 60px;
+    height: 60px;
+  }
+  #menu .nav > li.active {
+    background: #999;
+  }
+}
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
 

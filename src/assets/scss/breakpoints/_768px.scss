@@ -1,0 +1,15 @@
+/******************
+ * Dashboard
+ ******************/
+#menu {
+    .nav > li {
+        background: $smoke;
+        margin: 10px;
+        width: 60px;
+        height: 60px;
+
+        &.active {
+            background: $light_gray;
+        }
+    }
+}

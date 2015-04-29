@@ -7,14 +7,19 @@
  * Login screen
  *********************************/
 .login-button {
-    color: $white;
     display: block;
 
-    button {
-        border: 0;
+    a {
+        color: $white;        
+        display: inline-block;
         margin: 10px;
         padding: 10px;
+        text-align: center;
         width: 100%;
+
+        &:hover {
+            text-decoration: none;
+        }
 
         @include border-radius(10px);        
     }
@@ -25,4 +30,12 @@
     #register {
         background: $red;
     }        
+}
+
+/**********************************
+ * Footer
+ *********************************/
+footer {
+    background: $smoke;
+    height: 30px;
 }
