@@ -70,7 +70,7 @@ module.exports = function(grunt) {
         tasks: ['sass:dev']
       },
       copy: {
-        files: ['<%= project.src.assets %>/images/*', '<%= project.src.js %>/*'],
+        files: ['<%= project.src.root %>/**/*.html', '<%= project.src.assets %>/images/*', '<%= project.src.js %>/**/*'],
         tasks: ['copy:main']
       },
       jade: {
@@ -93,7 +93,13 @@ module.exports = function(grunt) {
             expand: true, 
             src: ['images/*'], 
             dest: '<%= project.dest.assets %>/images'
-          }       
+          },
+          {
+            cwd: '<%= project.src.root %>',            
+            expand: true, 
+            src: ['**/*.html'], 
+            dest: '<%= project.dest.root %>'
+          }          
         ] // end files
       }
     },
