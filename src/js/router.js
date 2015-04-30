@@ -3,7 +3,9 @@ define(["backbone", "app"], function(Backbone, app) {
 
       routes: {
         "dashboard/gold(/)":  "viewGold",        
-        "dashboard(/)":       "dashboard"    
+        "dashboard(/)":       "dashboard",  
+        "dashboard/add":  "add" 
+
       }
 
     });
@@ -19,6 +21,12 @@ define(["backbone", "app"], function(Backbone, app) {
     router.on('route:dashboard', function(id) {
       require(['view/dashboard'], function(Dashboard) {        
         app.changeView(Dashboard);
+      });
+    });
+
+    router.on('route:add', function(id) {
+      require(['view/add_item'], function(View) {        
+        app.updateDashboard(View);
       });
     });
 

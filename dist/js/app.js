@@ -71,6 +71,21 @@ function   (Backbone) {
          
         }
 
+        this.updateDashboard = function(View) {
+        var wrapper = $('#wrapper');
+          if(this.currentView) {
+            // this.currentView.close();
+          }
+
+          // this.currentView = 
+          var view = new View({
+            el: wrapper
+          });
+          view.render();
+
+          // console.log(this.currentView); 
+        }
+
         this.updateView = function(data) {
 
         } 
