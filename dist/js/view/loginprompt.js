@@ -12,6 +12,12 @@ define(['vendor/tpl!../../templates/login.html', 'app'], function (template) {
           // hardcoded attrs
       }));
       return this;
+    },
+
+    close: function() {
+      this.$el.children().remove();
+      this.unbind();
+      //this.model.unbind("change", this.modelChanged);
     }
   });                 
 

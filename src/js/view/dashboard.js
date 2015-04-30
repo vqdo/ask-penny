@@ -1,4 +1,4 @@
-define(['vendor/tpl!../../dashboard.html', 'app'], function (template) {
+define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template) {
   var Dashboard = Backbone.View.extend({
     template: template,
     id: "dashboard",
@@ -12,7 +12,13 @@ define(['vendor/tpl!../../dashboard.html', 'app'], function (template) {
           // hardcoded attrs
       }));
       return this;
-    }
+    },
+
+    close: function() {
+      this.children().remove();
+      this.unbind();
+      this.model.unbind("change", this.modelChanged);
+    }    
   });                 
 
   return Dashboard;

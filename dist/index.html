@@ -15,12 +15,8 @@
 
     <script data-main="js/app.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.js"></script>      
     <script type="text/javascript">
-      require(['app', 'view/loginprompt'], function(app, LoginPrompt) {
-        var prompt = new LoginPrompt({ 
-          el: $('#frame') 
-        });
-      
-        prompt.render();
+      require(['app'], function(app) {
+        app.init();
       })
     </script>    
   </body>
