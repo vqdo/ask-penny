@@ -33,9 +33,82 @@
 }
 
 /**********************************
+ * My Stack
+ *********************************/
+.my-stack {
+    background: $white;
+    min-height: 300px;
+    padding-bottom: 30px;
+}
+
+.bullion-summary {
+    width: 100%;
+    padding-top: 30px;
+
+    h1 {
+        border-bottom: 1px solid $gray;
+        font: paragraph(14px);
+        margin-top: 0;
+        padding: 5px 0;
+    }
+}
+.stack-value {
+    background: $smoke;
+    margin: 10px 0;
+    padding: 10px;
+
+    h1 {
+        font: paragraph(12px);
+        margin: 0;
+    }
+}
+
+#value-total {
+    font-size: 175%;
+}
+
+#value-change {
+    font-size: 80%;
+    color: $gray;
+}
+
+#market-time-change {
+    font-style: italic;
+    font-size: 80%;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+.table-headers {
+    font-size: 80%;
+}
+
+td {
+    width: 33%;
+}
+
+.hline {
+    width: 100%;
+    height: 1px;
+    background: $light-gray;
+}
+
+
+
+/**********************************
  * Footer
  *********************************/
 footer {
     background: $smoke;
     height: 30px;
+}
+
+.fr {
+    float: right;
+}
+.fl {
+    float: left;
 }

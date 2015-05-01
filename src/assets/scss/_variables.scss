@@ -7,12 +7,23 @@ $screen-lg-min: 1200px;
  * Colors
  **********************/
 $white:      #FFF;
-$smoke:      #CCC;
+$smoke:      #F2F2F2;
 $light_gray: #999;
 $gray:       #666;
 $dark_gray:  #333;
+$black:		 #000;
 
 $red: #AD2719;
+
+/**********************
+ * Fonts
+ **********************/
+$font-stack: Helvetica, Arial, sans-serif;
+
+@function paragraph($size) {
+    @return normal $size $font-stack;
+}
+
 
 @mixin center-col() {
     float: none;
@@ -26,3 +37,4 @@ $red: #AD2719;
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
+
