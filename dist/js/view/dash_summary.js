@@ -10,19 +10,21 @@ define(['vendor/tpl!../../templates/dash_summary.html', 'view/bullion/spot_overv
       //   this.collection.fetch();
       // }
 
-      // this.collection.on('change', this.render, this);
-
     },
 
     render: function() {
       this.$el.html(this.template());
 
+      //TODO: Buggy
       if(!this.subviews.spotOverview) {
         this.subviews.spotOverview = new SpotOverview({
-          el: this.$el.find('#bullion-summaries')
+
         });
-        
-      } 
+        this.subviews.spotOverview.$el
+          .appendTo(this.$el.find('#bullion-summaries'));
+      } else {
+        this.subviews.spotOverview.render();
+      }
 
       return this;
     },

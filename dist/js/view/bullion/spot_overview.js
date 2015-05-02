@@ -17,7 +17,7 @@ define(['vendor/tpl!/templates/bullion/spot_overview.html', 'model/bulliontypes'
         //template(item);
         this.$el.append(template(item));
       }, this);
-      console.log(this.$el);
+      console.log(this.collection.attributes);
 
       return this;
     },

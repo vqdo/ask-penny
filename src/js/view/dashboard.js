@@ -22,6 +22,8 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template)
 
     setContentView: function(View) {
       if(this.currentView) {
+        //TODO: dont close if its the same view
+
         this.currentView.close();
       }
 

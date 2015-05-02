@@ -56,6 +56,9 @@
   margin-top: 0;
   padding: 5px 0;
 }
+.bullion-summary td {
+  width: 33%;
+}
 
 .stack-value {
   background: #F2F2F2;
@@ -90,14 +93,59 @@ table {
   font-size: 80%;
 }
 
-td {
-  width: 33%;
+.col-image td {
+  width: 15%;
+}
+
+.col-item td {
+  width: 20%;
+}
+
+.col-qty td {
+  width: 15%;
+}
+
+.col-weight td {
+  width: 15%;
+}
+
+.col-percent td {
+  width: 15%;
+}
+
+.col-value td {
+  width: 20%;
+}
+
+.current-spot-box {
+  width: 80%;
 }
 
 .hline {
   width: 100%;
   height: 1px;
   background: #999;
+}
+
+path {
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.search-box {
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
 }
 
 /**********************************
@@ -114,6 +162,10 @@ footer {
 
 .fl {
   float: left;
+}
+
+.border {
+  border: 1px;
 }
 
 /* Small devices (tablets, 768px and up) */
