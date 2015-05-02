@@ -8,10 +8,6 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
     },
 
     render: function() {
-      console.log("are you here?");
-      console.log(this.$el);
-      console.log(this.template);
-
       this.$el.html(this.template({
           // hardcoded attrs
       }));
@@ -19,9 +15,11 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
     },
 
     close: function() {
-      this.children().remove();
+      this.remove();
       this.unbind();
-      this.model.unbind("change", this.modelChanged);
+      if(this.model) {
+        this.model.unbind("change", this.modelChanged);
+      }
     }    
   });                 
 

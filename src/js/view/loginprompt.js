@@ -15,9 +15,11 @@ define(['vendor/tpl!../../templates/login.html', 'app'], function (template) {
     },
 
     close: function() {
-      this.$el.children().remove();
+      this.remove();
       this.unbind();
-      //this.model.unbind("change", this.modelChanged);
+      if(this.model) {
+        this.model.unbind("change", this.modelChanged);
+      }
     }
   });                 
 

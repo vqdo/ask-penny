@@ -1,5 +1,5 @@
-define(['vendor/tpl!../../templates/dashboardpanel.html', 'app'], function (template) {
-  var Panel = Backbone.View.extend({
+define(['vendor/tpl!../../templates/dash_summary.html', 'app'], function (template) {
+  var SummaryPanel = Backbone.View.extend({
     template: template,
     id: "ap-home",
 
@@ -15,11 +15,13 @@ define(['vendor/tpl!../../templates/dashboardpanel.html', 'app'], function (temp
     },
 
     close: function() {
-      this.children().remove();
+      this.remove();
       this.unbind();
-      this.model.unbind("change", this.modelChanged);
+      if(this.model) {
+        this.model.unbind("change", this.modelChanged);
+      }
     }    
   });                 
 
-  return Panel;
+  return SummaryPanel;
 });

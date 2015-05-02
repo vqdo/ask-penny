@@ -49,42 +49,52 @@ function   (Backbone) {
           // for now, always prompt login
           require(['view/loginprompt'], function(LoginPrompt) {
             var prompt = new LoginPrompt({ 
-              el: frame 
+  
             });
           
-            prompt.render();
+            prompt.render().$el.appendTo(frame);
             self.currentView = prompt;
           });
         }
 
         this.changeView = function(View) {
           if(this.currentView) {
+            // If already on this screen, ignore call
+            if(View.prototype.isPrototypeOf(this.currentView)) {
+              return;  
+            }
+
             this.currentView.close();
           }
 
           this.currentView = new View({
-            el: frame
+            //el: frame
           });
-          this.currentView.render();
+          this.currentView.render().$el.appendTo(frame);
 
-          console.log(this.currentView);          
+
+          //console.log(this.currentView);          
          
         }
 
-        this.updateDashboard = function(View) {
-        var wrapper = $('#wrapper');
-          if(this.currentView) {
-            // this.currentView.close();
-          }
-
-          // this.currentView = 
-          var view = new View({
-            el: wrapper
-          });
-          view.render();
-
-          // console.log(this.currentView); 
+        this.getView = function() {
+          return this.currentView;
         }
+
+        // this.updateDashboard = function(View) {
+        // var wrapper = $('#wrapper');
+        //   if(this.currentView) {
+        //     // this.currentView.close();
+        //   }
+
+        //   // this.currentView = 
+        //   var view = new View({
+        //     el: wrapper
+        //   });
+        //   view.render();
+
+        //   // console.log(this.currentView); 
+        // }
 
         this.updateView = function(data) {
 

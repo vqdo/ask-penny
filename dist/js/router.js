@@ -4,7 +4,7 @@ define(["backbone", "app"], function(Backbone, app) {
       routes: {
         "dashboard/gold(/)":  "viewGold",        
         "dashboard(/)":       "dashboard",  
-        "dashboard/add":  "add" 
+        "dashboard/add":      "add" 
 
       }
 
@@ -12,22 +12,24 @@ define(["backbone", "app"], function(Backbone, app) {
 
     var router = new APRouter();
 
-    // router.on('route', function() {
-    //   if(!app.currentView) {
-    //     app.init();
-    //   }
-    // });
-
-    router.on('route:dashboard', function(id) {
-      require(['view/dashboard'], function(Dashboard) {        
+    /**
+     * Dashboard routing
+     */
+    require([
+      'view/dashboard', 
+      'view/dash_summary',
+      'view/add_item'
+    ], 
+    function(Dashboard, DashSummary, AddPanel) {    
+      router.on('route:dashboard', function(id) {    
         app.changeView(Dashboard);
+        app.getView().setContentView(DashSummary);
       });
-    });
 
-    router.on('route:add', function(id) {
-      require(['view/add_item'], function(View) {        
-        app.updateDashboard(View);
-      });
+      router.on('route:add', function(id) {     
+        app.changeView(Dashboard);
+        app.getView().setContentView(AddPanel);
+      });      
     });
 
     Backbone.history.start();

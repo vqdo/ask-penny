@@ -1,10 +1,10 @@
-define(['vendor/tpl!../../templates/login.html', 'app'], function (template) {
-  var LoginPrompt = Backbone.View.extend({
+define(['vendor/tpl!../../templates/dash_summary.html', 'app'], function (template) {
+  var SummaryPanel = Backbone.View.extend({
     template: template,
-    id: "dashboard",
+    id: "ap-home",
 
     initialize: function() {
-      // optional ctor
+
     },
 
     render: function() {
@@ -20,8 +20,8 @@ define(['vendor/tpl!../../templates/login.html', 'app'], function (template) {
       if(this.model) {
         this.model.unbind("change", this.modelChanged);
       }
-    }
+    }    
   });                 
 
-  return LoginPrompt;
+  return SummaryPanel;
 });
