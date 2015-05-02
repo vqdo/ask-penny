@@ -25,7 +25,7 @@ define(["backbone", "app"], function(Backbone, app) {
       router.on('route:dashboard', function(id) {    
         app.changeView(Dashboard);
         app.getView().setContentView(DashSummary);
-        app.navigate("dashboard");
+        this.navigate("dashboard");
       });
 
       router.on('route:add', function(id) {     

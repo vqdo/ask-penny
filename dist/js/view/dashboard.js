@@ -24,12 +24,11 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template)
       if(this.currentView) {
         this.currentView.close();
       }
-      
+
       this.currentView = new View({
       });
 
       this.currentView.render().$el.appendTo(this.contentFrame);
-
     },
 
     getContentView: function() {

@@ -1,0 +1,26 @@
+[
+    {
+       "name": "gold",
+       "spot": {
+            "bid": 1206,
+            "ask": 1207.1,
+            "change": 23.5
+       } 
+    },
+    {
+       "name": "silver",
+       "spot": {
+            "bid": 16.1,
+            "ask": 16.4,
+            "change": 10.5
+       } 
+    },
+    {
+       "name": "platinum",
+       "spot": {
+            "bid": 1129,
+            "ask": 1131.9,
+            "change": -1.9
+       } 
+    }        
+]
