@@ -4,6 +4,9 @@
 /**********************
  * Fonts
  **********************/
+/**********************************
+ * Sidebar
+ *********************************/
 .ungrid {
   float: none;
   margin: auto;
@@ -181,6 +184,12 @@ footer {
   }
   #menu .nav > li.active {
     background: #999;
+  }
+
+  .glyphicon {
+    zoom: 2.7;
+    display: block;
+    text-align: center;
   }
 }
 /* Medium devices (desktops, 992px and up) */
