@@ -4,8 +4,7 @@ define(["backbone", "app"], function(Backbone, app) {
       routes: {
         "dashboard/gold(/)":  "viewGold",        
         "dashboard(/)":       "dashboard",  
-        "dashboard/add":      "add" 
-
+        "dashboard/add":      "add"
       }
 
     });
@@ -16,20 +15,25 @@ define(["backbone", "app"], function(Backbone, app) {
      * Dashboard routing
      */
     require([
+      //- dependencies
       'view/dashboard', 
       'view/dash_summary',
       'view/add_item'
     ], 
     function(Dashboard, DashSummary, AddPanel) {    
+
       router.on('route:dashboard', function(id) {    
         app.changeView(Dashboard);
         app.getView().setContentView(DashSummary);
+        app.navigate("dashboard");
       });
 
       router.on('route:add', function(id) {     
         app.changeView(Dashboard);
         app.getView().setContentView(AddPanel);
+        this.navigate("dashboard/add");
       });      
+
     });
 
     Backbone.history.start();
