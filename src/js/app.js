@@ -10,8 +10,7 @@ requirejs.config({
         bootstrap: '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min',
         underscore: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore',
         backbone: '//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone',
-        canvasjs: '//cdnjs.cloudflare.com/ajax/libs/canvasjs/1.4.1/canvas.min'
-
+        canvasjs: './vendor/canvas/jquery.canvasjs.min'
     },
 
     shim: {
@@ -85,25 +84,6 @@ function   (Backbone) {
         this.getView = function() {
           return this.currentView;
         }
-
-        // this.updateDashboard = function(View) {
-        // var wrapper = $('#wrapper');
-        //   if(this.currentView) {
-        //     // this.currentView.close();
-        //   }
-
-        //   // this.currentView = 
-        //   var view = new View({
-        //     el: wrapper
-        //   });
-        //   view.render();
-
-        //   // console.log(this.currentView); 
-        // }
-
-        this.updateView = function(data) {
-
-        } 
     }
 
     var controller = new APCtrl();
