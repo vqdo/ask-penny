@@ -56,6 +56,10 @@ define(
         this.subviews.spotOverview.close();
         this.subviews.spotOverview = null;
       }
+      if(this.subviews.graph) {
+        this.subviews.graph.close();
+        this.subviews.graph = null;
+      }      
       this.unbind();
       if(this.model) {
         this.model.unbind("change", this.modelChanged);
