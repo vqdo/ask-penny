@@ -3,7 +3,7 @@
 requirejs.config({
     //By default load any module IDs from js/
     baseUrl: 'js',
-    
+
     paths: {
         tpl: './vendor/tpl',
         text: './vendor/text',        
@@ -11,7 +11,8 @@ requirejs.config({
         bootstrap: '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min',
         underscore: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore',
         backbone: '//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone',
-        canvasjs: './vendor/canvas/jquery.canvasjs.min'
+        canvasjs: './vendor/canvas/jquery.canvasjs.min',
+        typekit: '//use.typekit.net/ppz4eaa'
     },
 
     shim: {
@@ -30,8 +31,13 @@ requirejs.config({
 });
 
 // Start the main app logic.
-define(['backbone'],
+define(['backbone', 'typekit'],
 function   (Backbone) {
+
+    // Initialize typekit
+    try{Typekit.load();}catch(e){
+      console.err(e);
+    }     
 
     // Initialize router
     require(['router']);
@@ -77,7 +83,7 @@ function   (Backbone) {
         }
     }
 
-    var controller = new APCtrl();
+    var controller = new APCtrl(); 
 
     return controller;
 
