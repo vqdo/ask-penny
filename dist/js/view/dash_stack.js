@@ -2,30 +2,39 @@ define(
   [
     'vendor/tpl!../../templates/dash_stack.html', 
     'view/bullion/graph',
+    'view/bullion/spot_overview',
     'app' 
   ],
 
-  function (template, BullionGraph) {
-  
-  var SummaryPanel = Backbone.View.extend({
+  function (template, BullionGraph, SpotOverview) {
+  var StackPanel = Backbone.View.extend({
     template: template,
     id: "dashboard-stack",
     subviews: {},
     pageId: "",
 
     initialize: function(options) {
-      // if(!this.collection) {
-      //   this.collection = new BullionTypes();
-      //   this.collection.fetch();
-      // }
       this.options = options;
-      console.log(this.pageId);
 
     },
 
     render: function() {
       this.$el.html(this.template());
+      
+      if(!this.subviews.spotOverview) {
+        this.subviews.spotOverview = new SpotOverview({
+          id: this.options.pageId
+        });
+        this.subviews.spotOverview.$el
+          .appendTo(this.$el.find('#bullion-summaries'));
+      } else {
+        this.subviews.spotOverview.render();
+      }
+
       this.renderGraph();
+
+      console.log(this.subviews.spotOverview.collection.attributes)
+      // this.renderGraph();
       return this;
     },
 
@@ -38,10 +47,14 @@ define(
       } else {
         this.subviews.graph.render();
       }
-
     },
        
     close: function() {
+      if(this.subviews.spotOverview) {
+        this.subviews.spotOverview.close();
+        this.subviews.spotOverview = null;
+      }
+
       this.remove();
       if(this.subviews.graph) {
         this.subviews.graph.close();
@@ -55,5 +68,5 @@ define(
     }
   });                 
 
-  return SummaryPanel;
+  return StackPanel;
 });
