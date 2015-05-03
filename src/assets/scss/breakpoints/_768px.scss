@@ -2,22 +2,95 @@
  * Dashboard
  ******************/
 #menu {
-    .nav > li {
-        background: $smoke;
-        margin: 10px;
+
+    padding-left: 5px;
+    
+    .nav > a {
+        background-color: red;
         width: 60px;
         height: 60px;
+    }
+
+    .box {
+        height: 60px;
+        width: 60px;
+        // background-color: yellow;
+        text-align: center;
+
+        .glyphicon {
+            line-height: 20px;
+            display: block;
+            zoom: 2;
+        }
+
+    }
+
+
+
+    .nav > li {
+        // background: $smoke;
+        // margin: 10px;
+        // width: 60px;
+        // height: 60px;
+
+        // .icon {
+
+        //     width: 40px;
+        //     height: 40px;
+
+        //     margin: 0 auto;
+        //     padding-top: 10px;
+
+        //     a {
+        //         width: 40px;
+        //         height: 40px;
+
+        //         display: block;
+
+        //         .glyphicon {
+        //             padding-top: 2px;
+        //             padding-left: 2px;
+        //             zoom: 2;
+        //         }
+        //     }
+        // }
+
+        // a {
+        //     width: 60px;
+        //     height: 60px;
+        // }
+
+        // .symbol {
+        //     height: 30px;
+        //     width: 40px;
+        //     margin: auto;
+        //     // padding-top: 10px;
+        //     padding-left: 5px;
+        //     font-size: 120%;
+        // }
+
+        // .text {
+        //     height: 20px;
+        //     width: 40px;
+        //     font-size: 75%;
+        // }
+
+
 
         &.active {
             background: $light_gray;
         }
     }
-
 }
 
-.glyphicon {
-    zoom: 2.7;
-    display: block;
-    text-align: center;  
 
-}
+
+
+
+
+
+
+
+
+
+
