@@ -3,8 +3,9 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
     template: template,
     id: "add",
 
-    initialize: function() {
+    initialize: function(options) {
       // optional ctor
+      this.options = options;
     },
 
     render: function() {

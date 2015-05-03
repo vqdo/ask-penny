@@ -14,21 +14,19 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template)
 
       // Container for subviews
       this.contentFrame = this.$el.find('#wrapper');
-      console.log(this.$el);
-      console.log(this.contentFrame);
 
       return this;
     },
 
-    setContentView: function(View) {
+    setContentView: function(View, options) {
       if(this.currentView) {
         //TODO: dont close if its the same view
 
         this.currentView.close();
       }
 
-      this.currentView = new View({
-      });
+      
+      this.currentView = new View(options);
 
       this.currentView.render().$el.appendTo(this.contentFrame);
     },

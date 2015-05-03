@@ -5,7 +5,7 @@ define(["backbone", "app"], function(Backbone, app) {
         "":                            "login",   
         "login(/)":                    "login", 
         "dashboard(/)":                "dashboard",  
-        "dashboard/add":               "add",
+        "dashboard/stack/:bullion/add": "add",
         "dashboard/stack/:bullion":    "stack"
       }
 
@@ -35,15 +35,19 @@ define(["backbone", "app"], function(Backbone, app) {
         this.navigate("dashboard", {trigger: true});
       });
 
-      router.on('route:add', function(id) {     
+      router.on('route:add', function(bullionType) {     
         app.changeView(Dashboard);
-        app.getView().setContentView(AddPanel);
-        this.navigate("dashboard/add", {trigger: true});
+        app.getView().setContentView(AddPanel, {
+          pageId: bullionType
+        });
+        this.navigate("dashboard/stack/" + bullionType + "/add", {trigger: true});
       });  
 
       router.on('route:stack', function(bullionType) {     
         app.changeView(Dashboard);
-        app.getView().setContentView(DashStack);
+        app.getView().setContentView(DashStack, {
+          pageId: bullionType
+        });
         this.navigate("dashboard/stack/" + bullionType, {trigger: true});
       });     
 
