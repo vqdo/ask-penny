@@ -4,6 +4,24 @@
 
 
 
+.middle {
+    text-align: center;
+    background-color: gray;
+    .tabular {
+        background-color: white;
+    }
+    .graph {
+        background-color: black;
+    }
+}
+
+
+
+
+.btn {
+    // square buttons
+    // border-radius: 0;
+}
 
 .ungrid {
     float: none;
