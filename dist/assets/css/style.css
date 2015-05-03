@@ -79,6 +79,15 @@
   margin-top: 0;
   padding: 5px 0;
 }
+.bullion-summary h2 {
+  font: normal 11px Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin: 7px 0;
+}
+.bullion-summary .data {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
 .bullion-summary td {
   width: 33%;
 }
@@ -107,36 +116,19 @@
   font-size: 80%;
 }
 
-table {
+.table-prices {
   width: 100%;
   text-align: center;
 }
-
-.table-headers {
-  font-size: 80%;
+.table-prices th {
+  text-align: center;
 }
 
-.col-image td {
+.col-image td, .col-qty td, .col-weight td, .col-percent td {
   width: 15%;
 }
 
-.col-item td {
-  width: 20%;
-}
-
-.col-qty td {
-  width: 15%;
-}
-
-.col-weight td {
-  width: 15%;
-}
-
-.col-percent td {
-  width: 15%;
-}
-
-.col-value td {
+.col-item td, .col-value td {
   width: 20%;
 }
 
@@ -144,31 +136,15 @@ table {
   width: 80%;
 }
 
-.hline {
-  width: 100%;
-  height: 1px;
-  background: #999;
-}
-
-path {
-  stroke: steelblue;
-  stroke-width: 2;
-  fill: none;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: grey;
-  stroke-width: 1;
-  shape-rendering: crispEdges;
-}
-
 .search-box {
   width: 300px;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
+}
+
+#bullion-graph {
+  min-height: 400px;
 }
 
 /**********************************
