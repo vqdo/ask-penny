@@ -1,6 +1,6 @@
 <div class="bullion-summary">
   <h1>
-    <%- name %> <span class="next fr">-></span>
+    <%- name %> <a class="next fr glyphicon glyphicon-chevron-right" href="#/<%-name%>"></a>
   </h1>
   <table class="table-prices">
     <tr class="table-headers">
@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <td><%- spot.bid %></td>
-      <td><%-spot.ask %></td>
+      <td><%- spot.ask %></td>
       <td><%- spot.change %></td>
     </tr>
   </table>
