@@ -72,11 +72,11 @@ module.exports = function(grunt) {
       copy: {
         files: ['<%= project.src.root %>/**/*.{html,csv}', '<%= project.src.assets %>/images/*', '<%= project.src.js %>/**/*'],
         tasks: ['copy:main']
-      },
-      jade: {
-        files: "<%= project.src.root %>/**/*.jade",
-        tasks: ['jade:compile']
       }
+      // ,jade: {
+      //   files: "<%= project.src.root %>/**/*.jade",
+      //   tasks: ['jade:compile']
+      // }
     },   
 
     copy: {
@@ -108,27 +108,27 @@ module.exports = function(grunt) {
           }          
         ] // end files
       }
-    },
-
-    jade: {
-      compile: {
-        options: {
-          pretty: true,
-          compileDebug: true,
-          data: function(dest, src) {
-              return require('./data.json');
-          }
-        },
-        files: [{
-            cwd: "<%= project.src.root %>",
-            dest: "<%= project.dest.root %>",
-            src: ["**/*.jade", "!templates/*"],
-            expand: true,
-            ext: ".html"
-          
-        }]
-      }
     }
+
+    // ,jade: {
+    //   compile: {
+    //     options: {
+    //       pretty: true,
+    //       compileDebug: true,
+    //       data: function(dest, src) {
+    //           return require('./data.json');
+    //       }
+    //     },
+    //     files: [{
+    //         cwd: "<%= project.src.root %>",
+    //         dest: "<%= project.dest.root %>",
+    //         src: ["**/*.jade", "!templates/*"],
+    //         expand: true,
+    //         ext: ".html"
+          
+    //     }]
+    //   }
+    // }
 
   });
 
@@ -139,10 +139,9 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass:dev',
     'copy:main',
-    'jade:compile',
+    //'jade:compile',
     'watch'
   ]);
 
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-jade');  
+  grunt.loadNpmTasks('grunt-contrib-copy'); 
 };

@@ -50,15 +50,15 @@ function   (Backbone) {
             return;
           }
 
-          // for now, always prompt login
-          require(['view/loginprompt'], function(LoginPrompt) {
-            var prompt = new LoginPrompt({ 
+          // // for now, always prompt login
+          // require(['view/loginprompt'], function(LoginPrompt) {
+          //   var prompt = new LoginPrompt({ 
   
-            });
+          //   });
           
-            prompt.render().$el.appendTo(frame);
-            self.currentView = prompt;
-          });
+          //   prompt.render().$el.appendTo(frame);
+          //   self.currentView = prompt;
+          // });
         }
 
         this.changeView = function(View) {
