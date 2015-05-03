@@ -12,7 +12,10 @@
         </div>
       </div>
 
-      <div class="bullion-summary border">
+      <div id="bullion-summaries" class="col-sm-5 col-lg-4"></div>
+
+
+<!--       <div class="bullion-summary border">
       <h1>Current Spot</h1>
       <table class="table-prices">
         <tr class="table-headers">
@@ -28,14 +31,17 @@
       </table>
       </div>
     </div>
-
+ -->
     <div class="col-sm-7 col-lg-8">
       <div id="bullion-graph"></div>
       <div class="search-box">
         <span>Mag glass</span>
         <input type="search" placeholder="Search...">
+
+        <a class="add glyphicon glyphicon-plus" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>
+
       </div>
-      <p>PLUS SIGN</p>
+      <!-- <a class="next fr glyphicon glyphicon-chevron-right" href="#/<%-name%>"></a> -->
     </div>
 
     <h1>My Stack</h1>

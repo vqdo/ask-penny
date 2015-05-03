@@ -1,10 +1,11 @@
 define(
   [
     'vendor/tpl!../../templates/dash_stack.html', 
+    'view/bullion/spot_overview',
     'app' 
   ],
 
-  function (template) {
+  function (template, SpotOverview) {
   
   var SummaryPanel = Backbone.View.extend({
     template: template,
@@ -12,18 +13,36 @@ define(
     subviews: {},
     pageId: "",
 
-    initialize: function() {
+    initialize: function(options) {
+      this.options = options;
+
       // if(!this.collection) {
       //   this.collection = new BullionTypes();
       //   this.collection.fetch();
       // }
-      console.log(this.pageId);
+      // console.log(this.pageId);
+      console.log(this);
+
 
     },
 
     render: function() {
       this.$el.html(this.template());
+      
+      if(!this.subviews.spotOverview) {
+        this.subviews.spotOverview = new SpotOverview({
+          id: this.options.pageId
+        });
+        this.subviews.spotOverview.$el
+          .appendTo(this.$el.find('#bullion-summaries'));
+      } else {
+        this.subviews.spotOverview.render();
+      }
+
       this.renderGraph();
+
+      console.log(this.subviews.spotOverview.collection.attributes)
+      // this.renderGraph();
       return this;
     },
 
@@ -31,10 +50,10 @@ define(
       var graph = this.$el.find('#bullion-graph');
       graph.CanvasJSChart( 
       {
-        title: {
-          text: "Gold Prices",
-          fontSize: 30
-        },
+        // title: {
+        //   text: "Gold Prices",
+        //   fontSize: 30
+        // },
 
         animationEnabled: true,
 
@@ -115,6 +134,11 @@ define(
     },
        
     close: function() {
+      if(this.subviews.spotOverview) {
+        this.subviews.spotOverview.close();
+        this.subviews.spotOverview = null;
+      }
+
       this.remove();
       this.unbind();
       if(this.model) {
