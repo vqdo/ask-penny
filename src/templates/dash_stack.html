@@ -2,16 +2,37 @@
   <div class="row">
     <div class="col-xs-12 col-sm-5 col-lg-4"> 
       <div class="row stack-value">
-        <div id="value-total" class="col-xs-6">
+        <% if (this.options.pageId == 'gold') { %>
+        <div id="gold-value-total" class="col-xs-6">
           $18,234.10
           <h1>My Total Gold Value</h1>
         </div>
-        <div id="value-change" class="col-xs-6 text-right"> 
+        <div id="gold-value-change" class="col-xs-6 text-right"> 
           Daily +3.5% <br>
           Overall +1.2%
         </div>
+        <% } %>
+        <% if (this.options.pageId == 'silver') { %>
+        <div id="silver-value-total" class="col-xs-6">
+          $7,583.37
+          <h1>My Total Silver Value</h1>
+        </div>
+        <div id="silver-value-change" class="col-xs-6 text-right"> 
+          Daily +0.4% <br>
+          Overall +0.2%
+        </div>
+        <% } %>
+        <% if (this.options.pageId == 'platinum') { %>
+        <div id="platinum-value-total" class="col-xs-6">
+          $3,128.84
+          <h1>My Total Platinum Value</h1>
+        </div>
+        <div id="platinum-value-change" class="col-xs-6 text-right"> 
+          Daily +5.6% <br>
+          Overall +2.4%
+        </div>
+        <% } %>
       </div>
-
 
 
       <div class="visible-xs col-xs-12 middle">
