@@ -41,7 +41,8 @@ define(
     },
 
     renderGraph: function() {
-      var spotPrices = this.$el.find('#bullion-graph').CanvasJSChart( 
+      var graph = this.$el.find('#bullion-graph');
+      graph.CanvasJSChart( 
       {
         title: {
           text: "Bullion Prices",
@@ -140,8 +141,12 @@ define(
           ]    
         }]
       });
+      var canvasGraph = graph.CanvasJSChart();
+      
+      setTimeout(function() {
+        canvasGraph.render();
+      }, 0)
 
-      //spotPrices.render();
     },
 
     close: function() {

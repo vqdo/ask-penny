@@ -26,19 +26,19 @@ define(["backbone", "app"], function(Backbone, app) {
       router.on('route:dashboard', function(id) {    
         app.changeView(Dashboard);
         app.getView().setContentView(DashSummary);
-        this.navigate("dashboard");
+        this.navigate("dashboard", {trigger: true});
       });
 
       router.on('route:add', function(id) {     
         app.changeView(Dashboard);
         app.getView().setContentView(AddPanel);
-        this.navigate("dashboard/add");
+        this.navigate("dashboard/add", {trigger: true});
       });  
 
       router.on('route:stack', function(bullionType) {     
         app.changeView(Dashboard);
         app.getView().setContentView(DashStack);
-        this.navigate("dashboard/stack/" + bullionType);
+        this.navigate("dashboard/stack/" + bullionType, {trigger: true});
       });     
 
     });
