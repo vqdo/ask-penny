@@ -10,12 +10,14 @@ define(
     template: template,
     id: "dashboard-stack",
     subviews: {},
+    pageId: "",
 
     initialize: function() {
       // if(!this.collection) {
       //   this.collection = new BullionTypes();
       //   this.collection.fetch();
       // }
+      console.log(this.pageId);
 
     },
 

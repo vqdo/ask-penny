@@ -3,6 +3,7 @@
 requirejs.config({
     //By default load any module IDs from js/
     baseUrl: 'js',
+    
     paths: {
         tpl: './vendor/tpl',
         text: './vendor/text',        
@@ -49,16 +50,6 @@ function   (Backbone) {
             console.warn("Already initialized!");
             return;
           }
-
-          // // for now, always prompt login
-          // require(['view/loginprompt'], function(LoginPrompt) {
-          //   var prompt = new LoginPrompt({ 
-  
-          //   });
-          
-          //   prompt.render().$el.appendTo(frame);
-          //   self.currentView = prompt;
-          // });
         }
 
         this.changeView = function(View) {
