@@ -2,7 +2,14 @@
  * Sidebar
  *********************************/
 
+.nav-col {
+    width: 80px;
+    float: left;
+}
 
+.fluid {
+    overflow: hidden;
+}
 
 .middle {
     text-align: center;
