@@ -69,7 +69,7 @@
  *********************************/
 
 .add {
-    padding: 10xp;
+    padding: 5px;
 }
 
 .my-stack {
@@ -162,12 +162,21 @@
 }
 
 
+
 /**********************************
  * Footer
  *********************************/
-footer {
+footer, header {
     background: $smoke;
     height: 30px;
+    margin-bottom: 20px;
+
+    h1 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+        color: $gray;
+    }
 }
 
 .fr {

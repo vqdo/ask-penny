@@ -6,8 +6,11 @@ define(
     'app' 
   ],
 
+
   function (template, BullionGraph, SpotOverview) {
   var StackPanel = Backbone.View.extend({
+  
+
     template: template,
     id: "dashboard-stack",
     subviews: {},
@@ -15,6 +18,14 @@ define(
 
     initialize: function(options) {
       this.options = options;
+
+      // if(!this.collection) {
+      //   this.collection = new BullionTypes();
+      //   this.collection.fetch();
+      // }
+      // console.log(this.pageId);
+      console.log(this);
+
 
     },
 

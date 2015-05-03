@@ -64,7 +64,7 @@
  * My Stack
  *********************************/
 .add {
-  padding: 10xp;
+  padding: 5px;
 }
 
 .my-stack {
@@ -153,9 +153,16 @@
 /**********************************
  * Footer
  *********************************/
-footer {
+footer, header {
   background: #F2F2F2;
   height: 30px;
+  margin-bottom: 20px;
+}
+footer h1, header h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
 }
 
 .fr {
