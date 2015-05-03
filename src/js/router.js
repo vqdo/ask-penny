@@ -1,10 +1,10 @@
 define(["backbone", "app"], function(Backbone, app) {
     var APRouter = Backbone.Router.extend({
 
-      routes: {
-        "dashboard/gold(/)":  "viewGold",        
-        "dashboard(/)":       "dashboard",  
-        "dashboard/add":      "add"
+      routes: {       
+        "dashboard(/)":                "dashboard",  
+        "dashboard/add":               "add",
+        "dashboard/stack/:bullion":    "stack"
       }
 
     });
@@ -18,9 +18,10 @@ define(["backbone", "app"], function(Backbone, app) {
       //- dependencies
       'view/dashboard', 
       'view/dash_summary',
-      'view/add_item'
+      'view/add_item',
+      'view/dash_stack'
     ], 
-    function(Dashboard, DashSummary, AddPanel) {    
+    function(Dashboard, DashSummary, AddPanel, DashStack) {    
 
       router.on('route:dashboard', function(id) {    
         app.changeView(Dashboard);
@@ -32,7 +33,13 @@ define(["backbone", "app"], function(Backbone, app) {
         app.changeView(Dashboard);
         app.getView().setContentView(AddPanel);
         this.navigate("dashboard/add");
-      });      
+      });  
+
+      router.on('route:stack', function(bullionType) {     
+        app.changeView(Dashboard);
+        app.getView().setContentView(DashStack);
+        this.navigate("dashboard/stack/" + bullionType);
+      });     
 
     });
 
