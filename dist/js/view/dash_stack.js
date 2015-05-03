@@ -10,7 +10,11 @@ define(
   function (template, BullionGraph, SpotOverview) {
   var StackPanel = Backbone.View.extend({
   
-
+    events: {
+      'click .tabular': 'clickTabular',
+      'click .graph': 'clickGraph'
+    
+    },
     template: template,
     id: "dashboard-stack",
     subviews: {},
@@ -18,7 +22,7 @@ define(
 
     initialize: function(options) {
       this.options = options;
-
+      this.selected = "neither";
       // if(!this.collection) {
       //   this.collection = new BullionTypes();
       //   this.collection.fetch();
@@ -60,6 +64,20 @@ define(
       }
     },
        
+    clickTabular: function(options) {
+      $(".tabular").css("background", "darkGray");
+      $(".graph").css("background", "white");
+      this.selected = "tabular";
+    },
+
+    clickGraph: function(options) {
+      $(".graph").css("background", "darkGray");
+      $(".tabular").css("background", "white");
+      this.selected = "graph";
+    },
+
+
+
     close: function() {
       if(this.subviews.spotOverview) {
         this.subviews.spotOverview.close();

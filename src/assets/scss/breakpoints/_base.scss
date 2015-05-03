@@ -14,11 +14,12 @@
 .middle {
     text-align: center;
     background-color: gray;
+    // default coloration is white for unclicked
     .tabular {
         background-color: white;
     }
     .graph {
-        background-color: black;
+        background-color: white;
     }
 }
 
