@@ -7,6 +7,17 @@
 /**********************************
  * Sidebar
  *********************************/
+.middle {
+  text-align: center;
+  background-color: gray;
+}
+.middle .tabular {
+  background-color: white;
+}
+.middle .graph {
+  background-color: black;
+}
+
 .ungrid {
   float: none;
   margin: auto;

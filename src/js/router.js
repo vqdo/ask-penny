@@ -1,7 +1,9 @@
 define(["backbone", "app"], function(Backbone, app) {
     var APRouter = Backbone.Router.extend({
 
-      routes: {       
+      routes: {    
+        "":                            "login",   
+        "login(/)":                    "login", 
         "dashboard(/)":                "dashboard",  
         "dashboard/add":               "add",
         "dashboard/stack/:bullion":    "stack"
@@ -16,13 +18,17 @@ define(["backbone", "app"], function(Backbone, app) {
      */
     require([
       //- dependencies
+      'view/loginprompt',
       'view/dashboard', 
       'view/dash_summary',
       'view/add_item',
       'view/dash_stack'
     ], 
-    function(Dashboard, DashSummary, AddPanel, DashStack) {    
+    function(LoginPrompt, Dashboard, DashSummary, AddPanel, DashStack) {    
 
+      router.on('route:login', function() {
+        app.changeView(LoginPrompt);
+      });
       router.on('route:dashboard', function(id) {    
         app.changeView(Dashboard);
         app.getView().setContentView(DashSummary);
@@ -41,9 +47,9 @@ define(["backbone", "app"], function(Backbone, app) {
         this.navigate("dashboard/stack/" + bullionType, {trigger: true});
       });     
 
-    });
+      Backbone.history.start();
 
-    Backbone.history.start();
+    });
 
     return APRouter;
 });
