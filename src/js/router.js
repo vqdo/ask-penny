@@ -2,11 +2,12 @@ define(["backbone", "app"], function(Backbone, app) {
     var APRouter = Backbone.Router.extend({
 
       routes: {    
-        "":                            "login",   
-        "login(/)":                    "login", 
-        "dashboard(/)":                "dashboard",  
-        "dashboard/stack/:bullion/add": "add",
-        "dashboard/stack/:bullion":    "stack"
+        "":                                     "login",   
+        "login(/)":                             "login", 
+        "dashboard(/)":                         "dashboard",  
+        "dashboard/stack/:bullion/add":         "add",        
+        "dashboard/stack/:bullion/:id(/)":      "view",        
+        "dashboard/stack/:bullion":             "stack",
       }
 
     });
@@ -22,9 +23,10 @@ define(["backbone", "app"], function(Backbone, app) {
       'view/dashboard', 
       'view/dash_summary',
       'view/add_item',
+      'view/item_detail',   
       'view/dash_stack'
     ], 
-    function(LoginPrompt, Dashboard, DashSummary, AddPanel, DashStack) {    
+    function(LoginPrompt, Dashboard, DashSummary, AddPanel, ItemDetailPanel, DashStack) {    
 
       router.on('route:login', function() {
         app.changeView(LoginPrompt);
@@ -49,7 +51,16 @@ define(["backbone", "app"], function(Backbone, app) {
           pageId: bullionType
         });
         this.navigate("dashboard/stack/" + bullionType, {trigger: true});
-      });     
+      });   
+
+      router.on('route:view', function(id, bullionType) {
+        app.changeView(Dashboard);
+        app.getView().setContentView(ItemDetailPanel, {
+          itemId: id,
+          pageId: bullionType
+        });
+        this.navigate("dashboard/stack/" + bullionType + "/" + id, {trigger: true});
+      }); 
 
       Backbone.history.start();
 

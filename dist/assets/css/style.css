@@ -15,6 +15,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
 }
 
+.dash-subpanel {
+  max-width: 600px;
+}
+.dash-subpanel h1 {
+  font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+}
+
 /**********************************
  * Sidebar
  *********************************/
@@ -32,6 +39,29 @@ h1, h2, h3, h4, h5, h6 {
 .ungrid {
   float: none;
   margin: auto;
+}
+
+/**********************************
+ * Add Item
+ *********************************/
+.detail-info table {
+  font: normal 11px Helvetica, Arial, sans-serif;
+}
+.detail-info table td {
+  padding: 4px 10px;
+}
+.detail-info table td:first-child {
+  font-weight: bold;
+  text-align: right;
+}
+.detail-info table .bullion-image {
+  width: 50px;
+  height: 50px;
+}
+.detail-info .bullion-image {
+  border: 1px solid #222;
+  width: 120px;
+  height: 120px;
 }
 
 /**********************************
