@@ -22,7 +22,7 @@ define(
 
     initialize: function(options) {
       this.options = options;
-      this.selected = "neither";
+
       // if(!this.collection) {
       //   this.collection = new BullionTypes();
       //   this.collection.fetch();
@@ -48,10 +48,19 @@ define(
 
       this.renderGraph();
 
+
       console.log(this.subviews.spotOverview.collection.attributes)
       // this.renderGraph();
+
+      // wishful thinking
+      $(".tabular").css("background", "darkGray");
+      $(".graph").css("background", "white");
       return this;
     },
+
+
+
+
 
     renderGraph: function() {
       if(!this.subviews.graph) {
@@ -67,13 +76,18 @@ define(
     clickTabular: function(options) {
       $(".tabular").css("background", "darkGray");
       $(".graph").css("background", "white");
-      this.selected = "tabular";
+
+      $(".table-prices").show();
+
     },
 
     clickGraph: function(options) {
       $(".graph").css("background", "darkGray");
       $(".tabular").css("background", "white");
-      this.selected = "graph";
+
+      $(".table-prices").hide();
+
+
     },
 
 

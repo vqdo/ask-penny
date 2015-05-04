@@ -6,24 +6,33 @@ $screen-lg-min: 1200px;
 /**********************
  * Colors
  **********************/
-$white:      #FFF;
-$smoke:      #F2F2F2;
-$light_gray: #999;
-$gray:       #666;
-$dark_gray:  #333;
-$black:		 #000;
+$white:      	#FFF;
+$smoke:      	#F2F2F2;
+$lighter_gray:	#CCC;
+$light_gray: 	#999;
+$gray:       	#666;
+$dark_gray:  	#333;
+$black:		 	#222;
 
-$red: #AD2719;
+$blue:		 	#093B5C;
+
+$red: 			#AD2719;
+$green: 		#30D146;
+$gold:			#F0D824;
 
 /**********************
  * Fonts
  **********************/
 $font-stack: Helvetica, Arial, sans-serif;
+$headline-stack: "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
 
 @function paragraph($size) {
     @return normal $size $font-stack;
 }
 
+@function headline($size) {
+	@return normal $size $headline-stack;
+}
 
 @mixin center-col() {
     float: none;

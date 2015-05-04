@@ -18,13 +18,11 @@ define(['vendor/tpl!/templates/bullion/spot_overview.html', 'model/bulliontypes'
       _.each(this.collection.attributes, function(item) {
         //console.log(template(JSON.stringify(item)));
         //template(item);
-        console.log(this.options.id + " " + item.name);
         if(this.options.id && item.name !== this.options.id) {
           return;
         }
         this.$el.append(template(item));
       }, this);
-      console.log(this.collection.attributes);
 
       return this;
     },

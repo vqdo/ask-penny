@@ -18,6 +18,16 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template)
       return this;
     },
 
+    _setActiveLink: function(pageId) {
+      // Remove currently active links
+      $('#menu .active').removeClass('active');
+
+      var target = "#link-" + (pageId? pageId : "home");
+      console.log(target);
+      
+      $(target).addClass('active');
+    },
+
     setContentView: function(View, options) {
       if(this.currentView) {
         //TODO: dont close if its the same view
@@ -25,10 +35,10 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template)
         this.currentView.close();
       }
 
-      
       this.currentView = new View(options);
-
       this.currentView.render().$el.appendTo(this.contentFrame);
+
+      this._setActiveLink(options && options.pageId);      
     },
 
     getContentView: function() {
