@@ -10,7 +10,11 @@ define(
   function (template, BullionGraph, SpotOverview) {
   var StackPanel = Backbone.View.extend({
   
-
+    events: {
+      'click .tabular': 'clickTabular',
+      'click .graph': 'clickGraph'
+    
+    },
     template: template,
     id: "dashboard-stack",
     subviews: {},
@@ -43,10 +47,19 @@ define(
 
       this.renderGraph();
 
+
       console.log(this.subviews.spotOverview.collection.attributes)
       // this.renderGraph();
+
+      // wishful thinking
+      $(".tabular").css("background", "darkGray");
+      $(".graph").css("background", "white");
       return this;
     },
+
+
+
+
 
     renderGraph: function() {
       if(!this.subviews.graph) {
@@ -59,6 +72,25 @@ define(
       }
     },
        
+    clickTabular: function(options) {
+      $(".tabular").css("background", "darkGray");
+      $(".graph").css("background", "white");
+
+      $(".table-prices").show();
+
+    },
+
+    clickGraph: function(options) {
+      $(".graph").css("background", "darkGray");
+      $(".tabular").css("background", "white");
+
+      $(".table-prices").hide();
+
+
+    },
+
+
+
     close: function() {
       if(this.subviews.spotOverview) {
         this.subviews.spotOverview.close();

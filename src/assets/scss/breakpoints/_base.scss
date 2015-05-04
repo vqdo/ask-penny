@@ -31,14 +31,19 @@ h1, h2, h3, h4, h5, h6 {
  * Sidebar
  *********************************/
 
+.hidden {
+    visibility: hidden;
+}
+
 .middle {
     text-align: center;
-    background-color: gray;
+    background-color: lightGray;
+    // default coloration is white for unclicked
     .tabular {
-        background-color: white;
+        background-color: darkGray;
     }
     .graph {
-        background-color: black;
+        background-color: white;
     }
 }
 
