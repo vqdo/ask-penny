@@ -245,6 +245,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /**********************************
+ * Item detail
+ *********************************/
+.submit-btn {
+    background: $light-gray;
+    color: $white;
+    width: 180px;
+    font-size: 11px;
+    border: 0;
+}
+
+.cancel-btn {
+    background: $white;
+    color: $light-gray;
+    border: 0;
+    font-size: 11px;
+    padding-top: 5px;
+
+}
+
+/**********************************
  * Header
  *********************************/
 header {
@@ -276,6 +296,8 @@ footer {
         color: $gray;
     }
 }
+
+
 
 .fr {
     float: right;

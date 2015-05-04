@@ -1,5 +1,5 @@
 <div class="dash-subpanel detail-info">
-	<h1><span class="glyphicon">TODO</span> Item Detail</h1>
+	<h1><a href="#/dashboard/stack/<%-this.options.pageId%>" class="glyphicon glyphicon-chevron-left"></a> Add Item</h1>
 	<div class="hidden-xs col-sm-3">
 		<img class="bullion-image" src="" alt="">
 	</div>
@@ -67,8 +67,16 @@
 			<tr>
 				<td><%= this.options.pageId %> oz/u</td>
 				<td>0.04</td>
-			</tr>											
+			</tr>			
+
 		</table>
+		<div class="row">
+			<div class="col-xs-3">
+				<button type="button" class="cancel-btn fr">Cancel</button>
+			</div>
+			<div class="col-xs-9">
+				<button type="button" class="submit-btn">Save to My Stack</button>
+			</div>
 	</div>
 
 </div>
