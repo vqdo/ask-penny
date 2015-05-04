@@ -14,6 +14,19 @@ h1, h2, h3, h4, h5, h6 {
         font: headline(16px);
     }
 }
+.canvasjs-chart-credit {
+    display: none;
+}
+.go-container {
+    position: relative;
+    .glyphicon {
+        display: block;
+        position: absolute;
+            top: 50%;
+            right: 10px;
+        transform: translate(0, -50%);
+    }
+}
 /**********************************
  * Sidebar
  *********************************/
@@ -102,6 +115,28 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px;
 }
 
+.stack-value {
+    background: $blue;
+    color: $white;
+    margin: 10px 0;
+    padding: 10px;
+
+    h1 {
+        color: $lighter-gray;
+        font: headline(16px);
+        margin: 0;
+        text-transform: uppercase;
+    }
+    .value-total {
+        font: headline(48px);
+    }
+    .value-change {
+        font: headline(24px);
+        padding: 10px;
+        color: $green;
+    }        
+}
+
 .my-stack {
     background: $white;
     min-height: 300px;
@@ -109,6 +144,26 @@ h1, h2, h3, h4, h5, h6 {
 
     h1 {
         font-size: 18px;
+    }
+}
+#dashboard-stack {
+    .stack-value {
+        h1 {
+            position: absolute;            
+            width: 100%;
+        }
+        .value-change {
+            color: $gold;
+
+            strong {
+                font-weight: normal;
+                opacity: 0.8;
+                text-transform: uppercase;
+            }
+        }
+    }    
+    .bullion-summary .next {
+        display: none;
     }
 }
 
@@ -135,28 +190,6 @@ h1, h2, h3, h4, h5, h6 {
     td {
         width: 33%;
     }
-}
-.stack-value {
-    background: $blue;
-    border-radius: 10px;
-    color: $white;
-    margin: 10px 0;
-    padding: 10px;
-
-    h1 {
-        color: $lighter-gray;
-        font: headline(16px);
-        margin: 0;
-        text-transform: uppercase;
-    }
-    #value-total {
-        font: headline(48px);
-    }
-    #value-change {
-        font: headline(24px);
-        padding: 10px;
-        color: $green;
-    }        
 }
 
 #market-time-change {
@@ -210,6 +243,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #bullion-graph {
+    display: none;
     min-height: 300px;
 }
 

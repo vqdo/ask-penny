@@ -22,6 +22,21 @@ h1, h2, h3, h4, h5, h6 {
   font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
 }
 
+.canvasjs-chart-credit {
+  display: none;
+}
+
+.go-container {
+  position: relative;
+}
+.go-container .glyphicon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(0, -50%);
+}
+
 /**********************************
  * Sidebar
  *********************************/
@@ -99,6 +114,27 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px;
 }
 
+.stack-value {
+  background: #093B5C;
+  color: #FFF;
+  margin: 10px 0;
+  padding: 10px;
+}
+.stack-value h1 {
+  color: #CCC;
+  font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+}
+.stack-value .value-total {
+  font: normal 48px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+}
+.stack-value .value-change {
+  font: normal 24px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+  padding: 10px;
+  color: #30D146;
+}
+
 .my-stack {
   background: #FFF;
   min-height: 300px;
@@ -106,6 +142,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 .my-stack h1 {
   font-size: 18px;
+}
+
+#dashboard-stack .stack-value h1 {
+  position: absolute;
+  width: 100%;
+}
+#dashboard-stack .stack-value .value-change {
+  color: #F0D824;
+}
+#dashboard-stack .stack-value .value-change strong {
+  font-weight: normal;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+#dashboard-stack .bullion-summary .next {
+  display: none;
 }
 
 .bullion-summary {
@@ -128,28 +180,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .bullion-summary td {
   width: 33%;
-}
-
-.stack-value {
-  background: #093B5C;
-  border-radius: 10px;
-  color: #FFF;
-  margin: 10px 0;
-  padding: 10px;
-}
-.stack-value h1 {
-  color: #CCC;
-  font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
-  margin: 0;
-  text-transform: uppercase;
-}
-.stack-value #value-total {
-  font: normal 48px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
-}
-.stack-value #value-change {
-  font: normal 24px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
-  padding: 10px;
-  color: #30D146;
 }
 
 #market-time-change {
@@ -198,6 +228,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #bullion-graph {
+  display: none;
   min-height: 300px;
 }
 
@@ -265,11 +296,26 @@ footer h1 {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  /**********************************
+   * My Stack
+   *********************************/
+  .stack-value {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+  }
+
   /******************
    * Dashboard
    ******************/
   .fluid {
     padding-left: 90px;
+  }
+
+  #bullion-graph {
+    display: block;
+    min-height: 300px;
   }
 
   #menu {
