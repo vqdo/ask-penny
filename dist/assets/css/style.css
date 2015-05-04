@@ -104,6 +104,9 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 300px;
   padding-bottom: 30px;
 }
+.my-stack h1 {
+  font-size: 18px;
+}
 
 .bullion-summary {
   padding-top: 30px;
@@ -155,11 +158,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .table-prices {
+  color: #333;
   width: 100%;
   text-align: center;
 }
-.table-prices th {
+.table-prices thead {
+  border-bottom: 1px solid #F2F2F2;
+  color: #AD2719;
+}
+.table-prices thead th {
+  padding: 10px 0;
+  margin: 0 0 5px 0;
   text-align: center;
+}
+.table-prices td {
+  padding: 5px;
+}
+.table-prices td:first-child {
+  padding-top: 10px;
 }
 
 .col-image td, .col-qty td, .col-weight td, .col-percent td {

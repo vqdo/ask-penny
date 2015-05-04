@@ -4,10 +4,10 @@ define(["backbone", "app"], function(Backbone, app) {
       routes: {    
         "":                                     "login",   
         "login(/)":                             "login", 
-        "dashboard(/)":                         "dashboard",  
+        "dashboard(/)":                         "dashboard",
+        "dashboard/stack/:bullion":             "stack",  
         "dashboard/stack/:bullion/add":         "add",        
-        "dashboard/stack/:bullion/:id(/)":      "view",        
-        "dashboard/stack/:bullion":             "stack",
+        "dashboard/stack/:bullion/view/:id(/)":      "view"
       }
 
     });
@@ -53,13 +53,13 @@ define(["backbone", "app"], function(Backbone, app) {
         this.navigate("dashboard/stack/" + bullionType, {trigger: true});
       });   
 
-      router.on('route:view', function(id, bullionType) {
+      router.on('route:view', function(bullionType, id) {
         app.changeView(Dashboard);
         app.getView().setContentView(ItemDetailPanel, {
           itemId: id,
           pageId: bullionType
         });
-        this.navigate("dashboard/stack/" + bullionType + "/" + id, {trigger: true});
+        this.navigate("dashboard/stack/" + bullionType + "/view/" + id, {trigger: true});
       }); 
 
       Backbone.history.start();
