@@ -1,8 +1,19 @@
+/**********************************
+ * My Stack
+ *********************************/
+ .stack-value {
+    @include border-radius(10px);
+ }
+
 /******************
  * Dashboard
  ******************/
 .fluid {
     padding-left: 90px;
+}
+#bullion-graph {
+    display: block;
+    min-height: 300px;
 }
 #menu {
     width: 90px;

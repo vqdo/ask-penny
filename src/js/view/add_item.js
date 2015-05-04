@@ -6,6 +6,8 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
     initialize: function(options) {
       // optional ctor
       this.options = options;
+
+      console.log(this.options);
     },
 
     render: function() {

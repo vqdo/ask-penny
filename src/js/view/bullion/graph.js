@@ -25,6 +25,8 @@ define(
           return;
         }
 
+        var bullionTotals = this.options.pageId === "gold" | this.options.pageId ==="silver" | this.options.pageId === "platinum";
+
         var graphData = {
           type: "splineArea",
           showInLegend: true,
@@ -35,14 +37,56 @@ define(
           dataPoints: []
         };
 
+        // if (this.options && this.options.pageId) {
+        //   var graphTotalData = {
+        //     type: "splineArea",
+        //     showInLegend: true,
+        //     lineThickness: 2,
+        //     name: "My total " + data.name + "value", 
+        //     color: "#333333",
+        //     markerType: "square",
+        //     dataPoints: []
+        //   };
+        // }
+
+
+        var self = this;
+
+        if(self.options && self.options.pageId) {
+          var graphTotalData = {
+            type: "splineArea",
+            showInLegend: true,
+            lineThickness: 2,
+            name: "My total " + data.name + " value", 
+            color: data.color,
+            markerType: "square",
+            dataPoints: []
+          };
+
+          graphData.color = "black";
+        }
+
         _.each(data.dataPoints, function(point) {
           graphData.dataPoints.push({
             x: new Date(point.x),
             y: point.y
           });
+
+          if(graphTotalData) {
+            graphTotalData.dataPoints.push({
+              x: new Date(point.x),
+              y: point.y * 10
+            });
+          }
         });
 
         dataSet.push(graphData);
+
+        if(graphTotalData) {
+          console.log("Pushing");
+          console.log(graphTotalData);
+          dataSet.push(graphTotalData);
+        }
 
       }, this);
 

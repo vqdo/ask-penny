@@ -1,13 +1,10 @@
-define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) {
-  var AddItemPanel = Backbone.View.extend({
+define(['vendor/tpl!../../templates/item_detail.html', 'app'], function (template) {
+  var ItemDetailPanel = Backbone.View.extend({
     template: template,
-    id: "add",
 
     initialize: function(options) {
       // optional ctor
       this.options = options;
-
-      console.log(this.options);
     },
 
     render: function() {
@@ -26,5 +23,5 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
     }    
   });                 
 
-  return AddItemPanel;
+  return ItemDetailPanel;
 });

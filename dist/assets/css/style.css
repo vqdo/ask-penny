@@ -15,6 +15,28 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
 }
 
+.dash-subpanel {
+  max-width: 600px;
+}
+.dash-subpanel h1 {
+  font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+}
+
+.canvasjs-chart-credit {
+  display: none;
+}
+
+.go-container {
+  position: relative;
+}
+.go-container .glyphicon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(0, -50%);
+}
+
 /**********************************
  * Sidebar
  *********************************/
@@ -36,6 +58,29 @@ h1, h2, h3, h4, h5, h6 {
 .ungrid {
   float: none;
   margin: auto;
+}
+
+/**********************************
+ * Add Item
+ *********************************/
+.detail-info table {
+  font: normal 11px Helvetica, Arial, sans-serif;
+}
+.detail-info table td {
+  padding: 4px 10px;
+}
+.detail-info table td:first-child {
+  font-weight: bold;
+  text-align: right;
+}
+.detail-info table .bullion-image {
+  width: 50px;
+  height: 50px;
+}
+.detail-info .bullion-image {
+  border: 1px solid #222;
+  width: 120px;
+  height: 120px;
 }
 
 /**********************************
@@ -73,10 +118,50 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px;
 }
 
+.stack-value {
+  background: #093B5C;
+  color: #FFF;
+  margin: 10px 0;
+  padding: 10px;
+}
+.stack-value h1 {
+  color: #CCC;
+  font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+}
+.stack-value .value-total {
+  font: normal 48px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+}
+.stack-value .value-change {
+  font: normal 24px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+  padding: 10px;
+  color: #30D146;
+}
+
 .my-stack {
   background: #FFF;
   min-height: 300px;
   padding-bottom: 30px;
+}
+.my-stack h1 {
+  font-size: 18px;
+}
+
+#dashboard-stack .stack-value h1 {
+  position: absolute;
+  width: 100%;
+}
+#dashboard-stack .stack-value .value-change {
+  color: #F0D824;
+}
+#dashboard-stack .stack-value .value-change strong {
+  font-weight: normal;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+#dashboard-stack .bullion-summary .next {
+  display: none;
 }
 
 .bullion-summary {
@@ -101,39 +186,30 @@ h1, h2, h3, h4, h5, h6 {
   width: 33%;
 }
 
-.stack-value {
-  background: #093B5C;
-  border-radius: 10px;
-  color: #FFF;
-  margin: 10px 0;
-  padding: 10px;
-}
-.stack-value h1 {
-  color: #CCC;
-  font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
-  margin: 0;
-  text-transform: uppercase;
-}
-.stack-value #value-total {
-  font: normal 48px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
-}
-.stack-value #value-change {
-  font: normal 24px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
-  padding: 10px;
-  color: #30D146;
-}
-
 #market-time-change {
   font-style: italic;
   font-size: 80%;
 }
 
 .table-prices {
+  color: #333;
   width: 100%;
   text-align: center;
 }
-.table-prices th {
+.table-prices thead {
+  border-bottom: 1px solid #F2F2F2;
+  color: #AD2719;
+}
+.table-prices thead th {
+  padding: 10px 0;
+  margin: 0 0 5px 0;
   text-align: center;
+}
+.table-prices td {
+  padding: 5px;
+}
+.table-prices td:first-child {
+  padding-top: 10px;
 }
 
 .col-image td, .col-qty td, .col-weight td, .col-percent td {
@@ -156,7 +232,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #bullion-graph {
+  display: none;
   min-height: 300px;
+}
+
+/**********************************
+ * Item detail
+ *********************************/
+.submit-btn {
+  background: #999;
+  color: #FFF;
+  width: 180px;
+  font-size: 11px;
+  border: 0;
+}
+
+.cancel-btn {
+  background: #FFF;
+  color: #999;
+  border: 0;
+  font-size: 11px;
+  padding-top: 5px;
 }
 
 /**********************************
@@ -204,11 +300,26 @@ footer h1 {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  /**********************************
+   * My Stack
+   *********************************/
+  .stack-value {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+  }
+
   /******************
    * Dashboard
    ******************/
   .fluid {
     padding-left: 90px;
+  }
+
+  #bullion-graph {
+    display: block;
+    min-height: 300px;
   }
 
   #menu {

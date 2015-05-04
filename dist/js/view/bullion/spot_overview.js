@@ -18,8 +18,12 @@ define(['vendor/tpl!/templates/bullion/spot_overview.html', 'model/bulliontypes'
       _.each(this.collection.attributes, function(item) {
         //console.log(template(JSON.stringify(item)));
         //template(item);
-        if(this.options.id && item.name !== this.options.id) {
-          return;
+        if(this.options.id) {
+          if(item.name !== this.options.id) {
+            return;
+          }
+
+          item.name = "Current Spot";
         }
         this.$el.append(template(item));
       }, this);
