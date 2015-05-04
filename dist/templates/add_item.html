@@ -72,10 +72,15 @@
 		</table>
 		<div class="row">
 			<div class="col-xs-3">
-				<button type="button" class="cancel-btn fr">Cancel</button>
+				<form action="#/dashboard/stack/<%-this.options.pageId%>">
+					<button type="submit" class="cancel-btn fr">Cancel</button>
+				</form>
 			</div>
 			<div class="col-xs-9">
-				<button type="button" class="submit-btn">Save to My Stack</button>
+				<form action="#/dashboard/stack/<%-this.options.pageId%>">
+					<button type="submit" class="submit-btn">Save to My Stack</button>
+				</form>
+
 			</div>
 	</div>
 
