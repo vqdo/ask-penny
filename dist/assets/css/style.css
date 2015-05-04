@@ -40,15 +40,19 @@ h1, h2, h3, h4, h5, h6 {
 /**********************************
  * Sidebar
  *********************************/
+.hidden {
+  visibility: hidden;
+}
+
 .middle {
   text-align: center;
-  background-color: gray;
+  background-color: lightGray;
 }
 .middle .tabular {
-  background-color: white;
+  background-color: darkGray;
 }
 .middle .graph {
-  background-color: black;
+  background-color: white;
 }
 
 .ungrid {
@@ -124,8 +128,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .stack-value {
   background: #093B5C;
+  border-top: 1px solid #FFF;
   color: #FFF;
-  margin: 10px 0;
   padding: 10px;
 }
 .stack-value h1 {
@@ -135,10 +139,10 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 .stack-value .value-total {
-  font: normal 48px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+  font: normal 32px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
 }
 .stack-value .value-change {
-  font: normal 24px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+  font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
   padding: 10px;
   color: #30D146;
 }
@@ -235,11 +239,6 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-#bullion-graph {
-  display: none;
-  min-height: 300px;
-}
-
 /**********************************
  * Item detail
  *********************************/
@@ -266,7 +265,6 @@ header {
   background: #333;
   border-top: 8px solid #222;
   padding: 5px;
-  margin-bottom: 20px;
 }
 header .glyphicon {
   color: #FFF;
@@ -304,6 +302,10 @@ footer h1 {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  #content {
+    padding: 20px 0;
+  }
+
   /**********************************
    * My Stack
    *********************************/
@@ -365,6 +367,14 @@ footer h1 {
   }
 }
 /* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .stack-value .value-total {
+    font-size: 42px;
+  }
+  .stack-value .value-change {
+    font-size: 24px;
+  }
+}
 /* Large devices (large desktops, 1200px and up) */
 
 /*# sourceMappingURL=style.css.map */

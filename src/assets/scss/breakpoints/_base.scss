@@ -31,14 +31,19 @@ h1, h2, h3, h4, h5, h6 {
  * Sidebar
  *********************************/
 
+.hidden {
+    visibility: hidden;
+}
+
 .middle {
     text-align: center;
-    background-color: gray;
+    background-color: lightGray;
+    // default coloration is white for unclicked
     .tabular {
-        background-color: white;
+        background-color: darkGray;
     }
     .graph {
-        background-color: black;
+        background-color: white;
     }
 }
 
@@ -124,8 +129,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .stack-value {
     background: $blue;
+    border-top: 1px solid $white;
     color: $white;
-    margin: 10px 0;
     padding: 10px;
 
     h1 {
@@ -135,10 +140,10 @@ h1, h2, h3, h4, h5, h6 {
         text-transform: uppercase;
     }
     .value-total {
-        font: headline(48px);
+        font: headline(32px);
     }
     .value-change {
-        font: headline(24px);
+        font: headline(16px);
         padding: 10px;
         color: $green;
     }        
@@ -249,10 +254,9 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-#bullion-graph {
-    display: none;
-    min-height: 300px;
+#bullion-graph, #bullion-col {
 }
+
 
 /**********************************
  * Item detail
@@ -281,7 +285,6 @@ header {
     background: $dark_gray;
     border-top: 8px solid $black;
     padding: 5px;
-    margin-bottom: 20px;
 
     .glyphicon {
         color: $white;

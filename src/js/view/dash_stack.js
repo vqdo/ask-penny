@@ -10,7 +10,11 @@ define(
   function (template, BullionGraph, SpotOverview) {
   var StackPanel = Backbone.View.extend({
   
-
+    events: {
+      'click .tabular': 'collActive',
+      'click .graph': 'graphActive'
+    
+    },
     template: template,
     id: "dashboard-stack",
     subviews: {},
@@ -18,8 +22,6 @@ define(
 
     initialize: function(options) {
       this.options = options;
-      var activePanel = this.$el.find('#bullion-coll');
-      activePanel.className += " active-panel";
 
       // if(!this.collection) {
       //   this.collection = new BullionTypes();
@@ -45,10 +47,20 @@ define(
 
       this.renderGraph();
 
+
       console.log(this.subviews.spotOverview.collection.attributes)
       // this.renderGraph();
+      var $activePanel = this.$el.find('#bullion-coll');
+      $activePanel.addClass("active-panel");
+      // wishful thinking
+      $(".tabular").css("background", "darkGray");
+      $(".graph").css("background", "white");
       return this;
     },
+
+
+
+
 
     renderGraph: function() {
       if(!this.subviews.graph) {
@@ -77,21 +89,32 @@ define(
       if(this.model) {
         this.model.unbind("change", this.modelChanged);
       }
-    }
+    },
 
     graphActive: function() {
-      var bullionColl = this.$el.find('#bullion-coll');
-      bullionColl.className = bullionColl.className.replace( /(?:^\s)active-panel(?!\S)/g, '');
-      var bullionGraph = this.$el.find('#bullion-graph');
-      bullionGraph.className += " active-panel";
-    }
+      $(".graph").css("background", "darkGray");
+      $(".tabular").css("background", "white");
+
+      var $activePanel = $('.active-panel');
+      $activePanel.removeClass('active-panel');
+      
+      var $bullionGraph = this.$el.find('#bullion-graph');
+      $bullionGraph.addClass("active-panel");
+
+      this.renderGraph();
+    },
 
     collActive: function() {
-      var bullionGraph = this.$el.find('#bullion-graph');
-      bullionGraph.className = bullionGraph.className.replace( /(?:^\s)active-panel(?!\S)/g, '');
-      var bullionColl = this.$el.find('#bullion-coll');
-      bullionColl.className += " active-panel";
+      var $activePanel = $('.active-panel');
+      $activePanel.removeClass('active-panel');
+      
+      var $bullionColl = this.$el.find('#bullion-coll');
+      $bullionColl.addClass("active-panel");
+
+      $(".tabular").css("background", "darkGray");
+      $(".graph").css("background", "white");
     }
+
   });                 
 
   return StackPanel;
