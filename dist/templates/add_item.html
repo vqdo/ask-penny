@@ -12,27 +12,45 @@
 			</tr>
 			<tr>
 				<td>Metal</td>
-				<td><%= this.options.pageId %></td>
+				<td>
+					<select name="metal_type">
+						<option value="gold">Gold</option>
+						<option value="silver">Silver</option>
+						<option value="platinum">Platinum</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td>Type</td>
-				<td>US Eagle</td>
+				<td>
+					<select name="coin_type">
+						<option value="us_eagle">US Eagle</option>
+						<option value="panda_coin">Panda coin</option>
+						<option value="kreugerrand">Krugerrand</option>
+					</select>
+				</td>
 			</tr>	
 			<tr>
 				<td>Purchase Date</td>
-				<td>04 March 2015</td>
+				<td>
+					<select name="purch_date">
+						<option value="today">Today</option>
+						<option value="yesterday">Yesterday</option>
+						<option value="tuesday">Tuesday</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td>Qty</td>
-				<td>1</td>
+				<td><textarea name="qty" rows="1" cols ="20"></textarea></td>
 			</tr>									
 			<tr>
 				<td>Premium</td>
-				<td>47.00</td>
+				<td><textarea name="premium" rows="1" cols ="20"></textarea></td>
 			</tr>	
 			<tr>
 				<td>Unit Price</td>
-				<td>1250.6</td>
+				<td><textarea name="unit_price" rows="1" cols ="20"></textarea></td>
 			</tr>	
 			<tr>
 				<td><%= this.options.pageId %> %</td>
