@@ -1,22 +1,27 @@
 <div class="my-stack">
-  <div class="col-xs-12 col-sm-5 col-lg-4">
-    <div class="row stack-value">
-      <div id="value-total" class="col-xs-11">
-          $24,495.23<span id="value-change">+3.5%</span>
-          <h1>My Total Stack Value</h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-5 col-lg-4">
+      <div class="row stack-value go-container">
+        <div class="value-total col-xs-12">
+            $24,495.23
+              <span class="value-change">+3.5%</span>
+            <h1>My Total Stack Value</h1>
+        </div>
+
+        <a href="#/dashboard/" class="visible-xs glyphicon glyphicon-chevron-right"></a>
+
       </div>
-      <div class="visible-xs col-xs-1"><a href="#/dashboard/" class="glyphicon glyphicon-chevron-right">special mobile total view</a></div>
+      
+      <p>
+        Market is open <span id="market-time-change" class="fr">closes in 3hr 35 min</span>
+      </p>
+
+      <div id="bullion-summaries"></div>
     </div>
-    
-    <p>
-      Market is open <span id="market-time-change" class="fr">closes in 3hr 35 min</span>
-    </p>
 
-    <div id="bullion-summaries"></div>
-  </div>
-
-  <div class="col-sm-7 col-lg-8">
-    <div id="bullion-graph"></div>
+    <div class="xs-hidden col-sm-7 col-lg-8">
+      <div class="xs-hidden" id="bullion-graph"></div>
+    </div>
   </div>
   
 </div>
