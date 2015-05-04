@@ -1,29 +1,39 @@
 <div class="bullion-summary">
-  <h1>
-    <%- name %> <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%-name%>"></a>
-  </h1>
-<!--   <table class="table-prices">
-    <tr class="table-headers">
-      <td>Bid</td>
-      <td>Ask</td>
-      <td>Change</td>
-    </tr>
-    <tr>
-      <td><%- spot.bid %></td>
-      <td><%- spot.ask %></td>
-      <td><%- spot.change %></td>
-    </tr>
-  </table> -->
-  <div class="data col-xs-4">
-    <%- spot.bid %>
-    <h2>Bid</h2>
+  <div class="overview-spot overview">
+    <h1>
+      <%- name %> 
+      <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%-name%>"></a>
+    </h1>
+    <div class="data col-xs-4">
+      <%- spot.bid %>
+      <h2>Bid</h2>
+    </div>
+    <div class="data col-xs-4">
+      <%- spot.ask %>
+      <h2>Ask</h2>
+    </div>
+    <div class="data col-xs-4">
+      <%- spot.change %>
+      <h2>Change</h2>
+    </div>
   </div>
-  <div class="data col-xs-4">
-    <%- spot.ask %>
-    <h2>Ask</h2>
-  </div>
-  <div class="data col-xs-4">
-    <%- spot.change %>
-    <h2>Change</h2>
+
+  <div class="overview-stack overview">
+    <h1>
+      <%- name %> 
+      <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%-name%>"></a>
+    </h1>  
+    <div class="data col-xs-4">
+      <%= spot.bid %>
+      <h2>Price</h2>
+    </div>
+    <div class="data col-xs-4">
+      <%= changeDaily %>
+      <h2>Daily Change</h2>
+    </div>
+    <div class="data col-xs-4">
+      <%= changeOverall %>
+      <h2>Overall Change</h2>
+    </div>  
   </div>
 </div>

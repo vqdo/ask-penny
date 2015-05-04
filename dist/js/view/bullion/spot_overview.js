@@ -1,6 +1,10 @@
-define(['vendor/tpl!/templates/bullion/spot_overview.html', 'model/bulliontypes'], function (template, BullionTypes) {
+define([
+  'vendor/tpl!/templates/bullion/spot_overview.html', 
+  'model/bulliontypes'], 
+
+  function (spotTemplate, BullionTypes) {
   var SpotOverview = Backbone.View.extend({
-    template: template,
+    template: spotTemplate,
 
     initialize: function(options) {
 
@@ -12,12 +16,9 @@ define(['vendor/tpl!/templates/bullion/spot_overview.html', 'model/bulliontypes'
       this.options = options;
     },
 
-    render: function() {
-      //this.template = template(this.collection.toJSON());   
-      //this.$el.append(this.template(this.collection.toJSON()));
+    render: function(arg) {    
+      console.log(this.template); 
       _.each(this.collection.attributes, function(item) {
-        //console.log(template(JSON.stringify(item)));
-        //template(item);
         if(this.options.id) {
           if(item.name !== this.options.id) {
             return;
@@ -25,11 +26,24 @@ define(['vendor/tpl!/templates/bullion/spot_overview.html', 'model/bulliontypes'
 
           item.name = "Current Spot";
         }
-        this.$el.append(template(item));
+      
+
+        this.$el.append(this.template(item));
       }, this);
 
       return this;
     },
+
+    // switchTemplate: function(template) {
+    //   if(template === "stack") {
+    //     this.template = stackTemplate;
+    //     console.log("Switching to stack template");
+    //   } else {
+    //     this.template = spotTemplate;
+    //   }
+
+    //   this.render();
+    // },
 
     close: function() {
       this.remove();

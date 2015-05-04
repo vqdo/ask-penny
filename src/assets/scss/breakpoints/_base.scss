@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
         display: block;
         position: absolute;
             top: 50%;
-            right: 10px;
+            right: 20px;
         transform: translate(0, -50%);
     }
 }
@@ -157,6 +157,12 @@ h1, h2, h3, h4, h5, h6 {
     h1 {
         font-size: 18px;
     }
+    .middle {
+        display: none;
+    }
+    #bullion-graph {
+        display: none;
+    }
 }
 #dashboard-stack {
     .stack-value {
@@ -202,6 +208,18 @@ h1, h2, h3, h4, h5, h6 {
     td {
         width: 33%;
     }
+
+    /** Toggle between overview tables **/
+    .overview {
+        display: none;
+    }
+}
+.summary-panel-main .overview-spot,
+.summary-panel-stack .middle, 
+.summary-panel-graph .middle, 
+.summary-panel-stack .overview-stack,
+.summary-panel-graph #bullion-graph {
+    display: block;
 }
 
 #market-time-change {
@@ -252,9 +270,6 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align: middle;
     white-space: nowrap;
     position: relative;
-}
-
-#bullion-graph, #bullion-col {
 }
 
 

@@ -13,19 +13,28 @@ define(
     template: template,
     id: "ap-home",
     subviews: {},
+    currentPage: 0,
 
     initialize: function() {
-      // if(!this.collection) {
-      //   this.collection = new BullionTypes();
-      //   this.collection.fetch();
-      // }
+      var self = this;
+
+      this.$el.on('click', '#graph-link', function() {
+        self.toggleDisplay('graph');
+      });
+
+      this.$el.on('click', '#stack-link', function() {
+        self.toggleDisplay('stack');
+      });
+
+      this.$el.on('click', '.mobile-toggle', function(evt) {
+        evt.preventDefault();
+        self.toggleDisplay('stack');
+      });
 
     },
 
     render: function() {
       this.$el.html(this.template());
-
-      console.log(this.subviews.spotOverview);
 
       if(!this.subviews.spotOverview) {
         this.subviews.spotOverview = new SpotOverview({
@@ -34,12 +43,37 @@ define(
         this.subviews.spotOverview.$el
           .appendTo(this.$el.find('#bullion-summaries'));
       } else {
-        this.subviews.spotOverview.render();
+        this.subviews.render();
       }
 
       this.renderGraph();
 
       return this;
+    },
+
+    // ugh
+    // TODO: Convert to bootstrap views
+    toggleDisplay: function(page) {
+      var $target = this.$el.find('.my-stack');
+      if(page === "spot") {
+
+        $target.removeClass('summary-panel-stack')
+          .removeClass('summary-panel-graph');
+        $target.addClass('summary-panel-main');
+
+      } else if(page === "stack") {
+
+        $target.removeClass('summary-panel-main')
+          .removeClass('summary-panel-graph');
+        $target.addClass('summary-panel-stack');
+
+      } else if(page === "graph") {
+
+        $target.removeClass('summary-panel-main')
+          .removeClass('summary-panel-stack');
+        $target.addClass('summary-panel-graph');
+
+      }
     },
 
     renderGraph: function() {
@@ -50,8 +84,14 @@ define(
       }
     },
 
+    renderView: function() {
+
+    },
+
     close: function() {
       this.remove();
+      this.$el.unbind('click');
+
       if(this.subviews.spotOverview) {
         this.subviews.spotOverview.close();
         this.subviews.spotOverview = null;
