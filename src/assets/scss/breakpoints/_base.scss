@@ -117,8 +117,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .stack-value {
     background: $blue;
+    border-top: 1px solid $white;
     color: $white;
-    margin: 10px 0;
     padding: 10px;
 
     h1 {
@@ -128,10 +128,10 @@ h1, h2, h3, h4, h5, h6 {
         text-transform: uppercase;
     }
     .value-total {
-        font: headline(48px);
+        font: headline(32px);
     }
     .value-change {
-        font: headline(24px);
+        font: headline(16px);
         padding: 10px;
         color: $green;
     }        
@@ -274,7 +274,6 @@ header {
     background: $dark_gray;
     border-top: 8px solid $black;
     padding: 5px;
-    margin-bottom: 20px;
 
     .glyphicon {
         color: $white;
