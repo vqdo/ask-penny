@@ -24,7 +24,6 @@ define(
       //   this.collection.fetch();
       // }
       // console.log(this.pageId);
-      console.log(this);
 
 
     },
