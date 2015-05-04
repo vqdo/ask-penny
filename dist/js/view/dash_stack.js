@@ -18,6 +18,8 @@ define(
 
     initialize: function(options) {
       this.options = options;
+      var activePanel = this.$el.find('#bullion-coll');
+      activePanel.className += " active-panel";
 
       // if(!this.collection) {
       //   this.collection = new BullionTypes();
@@ -75,6 +77,20 @@ define(
       if(this.model) {
         this.model.unbind("change", this.modelChanged);
       }
+    }
+
+    graphActive: function() {
+      var bullionColl = this.$el.find('#bullion-coll');
+      bullionColl.className = bullionColl.className.replace( /(?:^\s)active-panel(?!\S)/g, '');
+      var bullionGraph = this.$el.find('#bullion-graph');
+      bullionGraph.className += " active-panel";
+    }
+
+    collActive: function() {
+      var bullionGraph = this.$el.find('#bullion-graph');
+      bullionGraph.className = bullionGraph.className.replace( /(?:^\s)active-panel(?!\S)/g, '');
+      var bullionColl = this.$el.find('#bullion-coll');
+      bullionColl.className += " active-panel";
     }
   });                 
 

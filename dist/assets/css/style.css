@@ -114,6 +114,14 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px;
 }
 
+.dashboard-panel {
+  display: none;
+}
+
+.active-panel {
+  display: block;
+}
+
 .stack-value {
   background: #093B5C;
   color: #FFF;
@@ -350,6 +358,10 @@ footer h1 {
   #menu .glyphicon {
     font-size: 32px;
     line-height: 20px;
+  }
+
+  .dashboard-panel {
+    display: block;
   }
 }
 /* Medium devices (desktops, 992px and up) */
