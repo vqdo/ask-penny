@@ -3,8 +3,9 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template)
     template: template,
     id: "dashboard",
 
-    initialize: function(viewClass) {
+    initialize: function() {
       this.currentView = null;
+      this.options = {};
     },
 
     render: function() {
@@ -35,10 +36,14 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template)
         this.currentView.close();
       }
 
+      this.options = options || this.options;
+      this.render();
+
       this.currentView = new View(options);
       this.currentView.render().$el.appendTo(this.contentFrame);
 
       this._setActiveLink(options && options.pageId);      
+
     },
 
     getContentView: function() {
@@ -46,7 +51,7 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template)
     },
 
     close: function() {
-      this.children().remove();
+      this.$el.children().remove();
       this.unbind();
       this.model.unbind("change", this.modelChanged);
     }    

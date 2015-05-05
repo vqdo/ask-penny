@@ -1,13 +1,23 @@
 <header>
   <div class="row add">
     <div class="col-xs-1">
-      <span class="glyphicon glyphicon-refresh fl"></span>
-    </div>
-    <div class="col-xs-10">
-      <h1>MyStackApp</h1>
-    </div>
-    <div class="col-xs-1">
-      <span class="glyphicon glyphicon-cog fr"></span>
+      <% if (this.options.pageId) { %>
+        <a class="glyphicon glyphicon-chevron-left fl" href="javascript:history.go(-1)"></a>
+        </div>
+        <div class="col-xs-10">
+          <h1>MyStackApp</h1>
+        </div>
+        <div class="col-xs-1">
+        <a class="glyphicon glyphicon-plus fr" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>
+      <% } else { %>
+        <a class="glyphicon glyphicon-refresh fl" href="javascript:history.go(0)"></a>
+        </div>
+        <div class="col-xs-10">
+          <h1>MyStackApp</h1>
+        </div>
+        <div class="col-xs-1">
+        <a class="glyphicon glyphicon-cog fr"></a>
+      <% } %>
     </div>
   </div>
 </header>
