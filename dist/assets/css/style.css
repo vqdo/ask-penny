@@ -60,6 +60,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: auto;
 }
 
+#ap-home .middle {
+  position: absolute;
+  left: 0;
+}
+
 /**********************************
  * Add Item
  *********************************/
@@ -178,8 +183,12 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+#bullion-summaries {
+  padding: 20px 0;
+}
+
 .bullion-summary {
-  padding-top: 30px;
+  padding-top: 20px;
   /** Toggle between overview tables **/
 }
 .bullion-summary h1 {
@@ -202,6 +211,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 .bullion-summary .overview {
   display: none;
+}
+.bullion-summary .overview h1 strong {
+  font: normal 20px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+}
+.bullion-summary .overview h1 .current-value {
+  color: #093B5C;
+  font: normal 11px Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  margin-right: 10px;
 }
 
 .summary-panel-main .overview-spot,
@@ -322,6 +340,10 @@ footer h1 {
 @media (min-width: 768px) {
   #content {
     padding: 20px 0;
+  }
+
+  .middle {
+    display: none !important;
   }
 
   /**********************************

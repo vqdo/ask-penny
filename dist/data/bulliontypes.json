@@ -1,6 +1,7 @@
 [
     {
        "name": "gold",
+       "total": 18243.10,
        "spot": {
             "bid": 1206,
             "ask": 1207.1,
@@ -12,6 +13,7 @@
     },
     {
        "name": "silver",
+       "total": 12243.10,
        "spot": {
             "bid": 16.1,
             "ask": 16.4,
@@ -23,6 +25,7 @@
     },
     {
        "name": "platinum",
+       "total": 200.20,
        "spot": {
             "bid": 1129,
             "ask": 1131.9,

@@ -73,6 +73,8 @@ define(
           .removeClass('summary-panel-stack');
         $target.addClass('summary-panel-graph');
 
+        this.renderGraph();
+
       }
     },
 
@@ -81,6 +83,8 @@ define(
         this.subviews.graph = new BullionGraph({
           el: this.$el.find('#bullion-graph')
         });
+      } else {
+        this.subviews.graph.render();
       }
     },
 

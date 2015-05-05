@@ -107,6 +107,7 @@ define(
       var $bullionColl = this.$el.find('#bullion-coll');
       $bullionColl.addClass("active-panel");
 
+      // TODO: fix
       $(".tabular").css("background", "darkGray");
       $(".graph").css("background", "white");
     }
