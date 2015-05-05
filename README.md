@@ -1,5 +1,12 @@
 # Ask Penny
 
+## How to Run
+Live at http://askpenny.victoriado.com
+
+OR
+
+Locally: npm start and go to localhost:8080
+
 ## Technical Notes
 ### Frameworks and Libraries
 - **BackboneJS** - Front-end framework used for page routing in a single page app architecture and for organizing views. 
@@ -15,7 +22,9 @@
 - **Grunt** - Helps with development.
 
 ## Development Notes
-- **Optimization**: There is no minification or optimization of code. As a result there are over a dozen JS files included on the HTML page. In a production environment, we would concatenate our application code into one or two files. The initial page load time might be somewhat log. 
+
+### Slow Loading
+There is no minification or optimization of code. As a result there are over a dozen JS files included on the HTML page. In a production environment, we would concatenate our application code into one or two files. The initial page load time might be somewhat long. 
 
 ### Validation
 Unfortunately, since the page elements are added dynamically, it's not easy to validate. We personally validated our site by using a site inspector (disabling interfering extensions) and copy and pasting the code into the W3 validator. 
