@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-5 col-lg-4"> 
       <div class="row stack-value">
         <% if (this.options.pageId == 'gold') { %>
-        <div class="value-total col-xs-6">
+        <div class="value-total col-xs-12">
           $18,234.10
           <h1>My Total Gold Value</h1>
         </div>
@@ -87,6 +87,7 @@
       </div>  
     </div> -->
 
+<<<<<<< Updated upstream
         <tr>
           <td class="hidden-xs col-image">
             <a href="#/dashboard/stack/<%= this.options.pageId %>/view/50">
@@ -138,5 +139,61 @@
         </tr>
       </table>
     </div>
+=======
+    <div class="col-xs-12">
+    <h1>My Stack</h1>
+      <table class="table-prices">
+        <thead>
+          <tr>
+            <th class="col-image">Image</th>
+            <th class="col-item">Item</th>
+            <th class="col-qty">Qty</th>
+            <th class="col-weight">Weight/unit(g)</th>
+            <th class="col-percent">%au</th>
+            <th class="col-value">Value</th>
+          </tr>
+        </thead>
+
+      <tr>
+        <td class="col-image">
+          <a href="#/dashboard/stack/<%= this.options.pageId %>/view/50">
+            <span class="glyphicon glyphicon-picture"></span>
+          </a>
+        </td>
+        <td class="col-item">US Eagle</td>
+        <td class="col-qty">1</td>
+        <td class="col-weight">1.244</td>
+        <td class="col-percent">0.917</td>
+        <td class="col-value">1119.10</td>
+      </tr>
+
+      <tr>
+        <td class="col-image">
+          <a href="#/dashboard/stack/<%= this.options.pageId %>/view/50">
+            <span class="glyphicon glyphicon-picture"></span>
+          </a>
+        </td>
+        <td class="col-item">US Eagle</td>
+        <td class="col-qty">5</td>
+        <td class="col-weight">1.244</td>
+        <td class="col-percent">0.917</td>
+        <td class="col-value">5995.50</td>
+      </tr>
+
+      <tr>
+        <td class="col-image">
+          <a href="#/dashboard/stack/<%= this.options.pageId %>/view/50">
+            <span class="glyphicon glyphicon-picture"></span>
+          </a>
+        </td>
+        <td class="col-item">US Eagle</td>
+        <td class="col-qty">5</td>
+        <td class="col-weight">1.244</td>
+        <td class="col-percent">0.917</td>
+        <td class="col-value">5995.50</td>
+      </tr>
+    </table>
+     </div>
+>>>>>>> Stashed changes
   </div>
 </div>
