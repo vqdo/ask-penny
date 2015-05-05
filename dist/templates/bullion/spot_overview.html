@@ -2,7 +2,7 @@
   <div class="overview-spot overview">
     <h1>
       <strong><%- name %></strong>
-      <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%-name%>"></a>
+      <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%=(name === "Current Spot")? "" : name %>"></a>
     </h1>
     <div class="data col-xs-4">
       <%- spot.bid %>
@@ -22,7 +22,7 @@
     <h1>
       <strong><%- name %></strong>
 
-      <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%-name%>"></a>
+      <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%=(name === "Current Spot")? "" : name %>"></a>
 
       <span class="fr current-value">
         My <%- name %> value <strong><%- total %></strong>
