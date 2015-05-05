@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
         display: block;
         position: absolute;
             top: 50%;
-            right: 20px;
+            right: 10px;
         transform: translate(0, -50%);
     }
 }
@@ -37,13 +37,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .middle {
     text-align: center;
-    background-color: lightGray;
-    // default coloration is white for unclicked
+    background-color: $lighter_gray;
+
     .tabular {
-        background-color: darkGray;
+        background-color: $light_gray;
     }
     .graph {
-        background-color: white;
+        background-color: $white;
     }
 }
 
@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .active-panel {
-    display: block;
+    display: block !important;
 }
 .stack-value {
     background: $blue;

@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 10px;
   transform: translate(0, -50%);
 }
 
@@ -46,13 +46,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .middle {
   text-align: center;
-  background-color: lightGray;
+  background-color: #CCC;
 }
 .middle .tabular {
-  background-color: darkGray;
+  background-color: #999;
 }
 .middle .graph {
-  background-color: white;
+  background-color: #FFF;
 }
 
 .ungrid {
@@ -123,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .active-panel {
-  display: block;
+  display: block !important;
 }
 
 .stack-value {
