@@ -1,6 +1,9 @@
 #content {
     padding: 20px 0;
 }
+.middle {
+    display: none !important;
+}
 
 
 /**********************************
@@ -19,6 +22,14 @@
 #bullion-graph {
     display: block;
     min-height: 300px;
+}
+.my-stack {
+    #bullion-graph, .overview-spot {
+        display: block;
+    }
+    .overview-stack {
+        display: none;
+    }
 }
 #menu {
     width: 90px;

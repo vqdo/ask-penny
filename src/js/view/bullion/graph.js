@@ -122,7 +122,6 @@ define(
     },
 
     render: function() {
-      console.log(this.collection);
       if(!this.canvasGraph) {
         this.createCanvasGraph();
       }

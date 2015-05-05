@@ -57,11 +57,7 @@ define(
       $(".graph").css("background", "white");
       return this;
     },
-
-
-
-
-
+    
     renderGraph: function() {
       if(!this.subviews.graph) {
         this.subviews.graph = new BullionGraph({
@@ -111,6 +107,7 @@ define(
       var $bullionColl = this.$el.find('#bullion-coll');
       $bullionColl.addClass("active-panel");
 
+      // TODO: fix
       $(".tabular").css("background", "darkGray");
       $(".graph").css("background", "white");
     }

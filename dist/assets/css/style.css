@@ -46,18 +46,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .middle {
   text-align: center;
-  background-color: lightGray;
+  background-color: #CCC;
 }
 .middle .tabular {
-  background-color: darkGray;
+  background-color: #999;
 }
 .middle .graph {
-  background-color: white;
+  background-color: #FFF;
 }
 
 .ungrid {
   float: none;
   margin: auto;
+}
+
+#ap-home .middle {
+  position: absolute;
+  left: 0;
 }
 
 /**********************************
@@ -123,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .active-panel {
-  display: block;
+  display: block !important;
 }
 
 .stack-value {
@@ -155,6 +160,12 @@ h1, h2, h3, h4, h5, h6 {
 .my-stack h1 {
   font-size: 18px;
 }
+.my-stack .middle {
+  display: none;
+}
+.my-stack #bullion-graph {
+  display: none;
+}
 
 #dashboard-stack .stack-value h1 {
   position: absolute;
@@ -172,8 +183,13 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+#bullion-summaries {
+  padding: 20px 0;
+}
+
 .bullion-summary {
-  padding-top: 30px;
+  padding-top: 20px;
+  /** Toggle between overview tables **/
 }
 .bullion-summary h1 {
   border-bottom: 1px solid #666;
@@ -192,6 +208,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 .bullion-summary td {
   width: 33%;
+}
+.bullion-summary .overview {
+  display: none;
+}
+.bullion-summary .overview h1 strong {
+  font: normal 20px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+}
+.bullion-summary .overview h1 .current-value {
+  color: #093B5C;
+  font: normal 11px Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.summary-panel-main .overview-spot,
+.summary-panel-stack .middle,
+.summary-panel-graph .middle,
+.summary-panel-stack .overview-stack,
+.summary-panel-graph #bullion-graph {
+  display: block;
 }
 
 #market-time-change {
@@ -306,6 +342,10 @@ footer h1 {
     padding: 20px 0;
   }
 
+  .middle {
+    display: none !important;
+  }
+
   /**********************************
    * My Stack
    *********************************/
@@ -326,6 +366,13 @@ footer h1 {
   #bullion-graph {
     display: block;
     min-height: 300px;
+  }
+
+  .my-stack #bullion-graph, .my-stack .overview-spot {
+    display: block;
+  }
+  .my-stack .overview-stack {
+    display: none;
   }
 
   #menu {
