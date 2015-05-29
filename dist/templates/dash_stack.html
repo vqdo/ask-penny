@@ -13,15 +13,11 @@
 
     <div class="col-xs-12 col-sm-7 col-lg-8">
       <div class="clearfix dashboard-panel" id="bullion-graph"></div>
-      <div class="hidden-xs row">
-        <div class="col-xs-11">
-          <div class="form-group has-feedback fr">
-            <input type="text" class="form-control" placeholder="Search..."/>
-            <span class="form-control-feedback glyphicon glyphicon-search"></span>  
-          </div>
-        </div>
-        <div class="col-xs-1">
-          <a class="add glyphicon glyphicon-plus" href="#/dashboard/stack/<%-this.options.pageId%>/add" style="padding:5px"></a>
+      <div class="hidden-xs row search-add-panel">
+        <a class="add glyphicon glyphicon-plus fr" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>
+        <div class="form-group has-feedback fr">
+          <input type="text" class="form-control" placeholder="Search..."/>
+          <span class="form-control-feedback glyphicon glyphicon-search"></span>  
         </div>
       </div>  
     </div>

@@ -1,35 +1,22 @@
 <header>
-  <div class="row add">
-    <% if (this.options.pageId) { %>
-    <div class="col-xs-1">
-      <a class="visible-xs glyphicon glyphicon-chevron-left fl" href="javascript:history.go(-1)"></a>
-      <a class="hidden-xs glyphicon glyphicon-refresh fl" href="javascript:history.go(0)"></a>
-    </div>
+  <div class="container-fluid">
+    <div class="row add">
+      <% if (this.options.pageId) { %>
+        <a class="visible-xs glyphicon glyphicon-chevron-left fl" href="javascript:history.go(-1)"></a>
+        <a class="hidden-xs glyphicon glyphicon-refresh fl" href="javascript:history.go(0)"></a>
 
-    <div class="col-xs-9 col-sm-10">
-      <h1>MyStackApp</h1>
-    </div>
+        <h1 class="app-title fl">MyStackApp</h1>
 
-    <div class="col-xs-1 fr">
-      <a class="visible-xs glyphicon glyphicon-plus fr" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>
-      <a class="hidden-xs glyphicon glyphicon-cog fr" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>      
-    </div>
+        <a class="visible-xs glyphicon glyphicon-plus fr" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>
+        <a class="hidden-xs glyphicon glyphicon-cog fr" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>      
 
     <% } else { %>
-      <div class="col-xs-1">
         <a class="xs-hidden glyphicon glyphicon-refresh fl" href="javascript:history.go(0)"></a>        
-      </div>
-
-
-      <div class="col-xs-9 col-sm-10">
         <h1>MyStackApp</h1>
-      </div>
-
-      <div class="col-xs-1 fr text-right">
         <a class="glyphicon glyphicon-cog"></a>
-      </div>
-      <% } %>
+    <% } %>
     </div>
+  </div>
 </header>
 
 <div id="content"> 

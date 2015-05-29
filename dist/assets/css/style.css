@@ -123,6 +123,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px;
 }
 
+.app-title {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .dashboard-panel {
   display: none;
 }
@@ -233,6 +238,13 @@ h1, h2, h3, h4, h5, h6 {
 #market-time-change {
   font-style: italic;
   font-size: 80%;
+}
+
+.search-add-panel {
+  padding-right: 15px;
+}
+.search-add-panel div {
+  margin-right: 10px;
 }
 
 .table-prices {
