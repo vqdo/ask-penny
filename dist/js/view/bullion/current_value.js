@@ -26,8 +26,9 @@ define(
       if(this.model) {
         var attr = this.model.attributes;
         attr.changeOverall = addDecoration(attr.changeOverall);
-
         attr.changeDaily = attr.changeDaily && addDecoration(attr.changeDaily);        
+      
+        attr.valueBoxWidth = (attr.changeDaily)? 'col-xs-6' : 'col-xs-12';
       }
 
 

@@ -1,15 +1,14 @@
 <div class="row stack-value go-container">
-  <div class="value-total col-xs-6">
+  <div class="value-total <%- valueBoxWidth %>">
       $<%- total %>
-      <span class="value-change"></span>
+
+      <% if(!changeDaily) { %>
+        <!-- Stack summary/overview -->
+        <span class="value-change"><%- changeOverall %></span>
+      <% } %>
       <h1>My Total <%- name %> Value</h1>
 
   </div>
-
-  <% if(!changeDaily) { %>
-    <!-- Stack summary/overview -->
-    <span class="value-change"><%- changeOverall %></span>
-  <% } %>
 
   <% if (changeDaily) { %>
     <!-- Stack bullion -->
