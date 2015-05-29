@@ -8,12 +8,12 @@
         <h1 class="app-title fl">MyStackApp</h1>
 
         <a class="visible-xs glyphicon glyphicon-plus fr" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>
-        <a class="hidden-xs glyphicon glyphicon-cog fr" href="#/dashboard/stack/<%-this.options.pageId%>/add"></a>      
+        <a class="hidden-xs glyphicon glyphicon-cog fr" ></a>      
 
     <% } else { %>
-        <a class="xs-hidden glyphicon glyphicon-refresh fl" href="javascript:history.go(0)"></a>        
-        <h1>MyStackApp</h1>
-        <a class="glyphicon glyphicon-cog"></a>
+        <a class="glyphicon glyphicon-refresh fl" href="javascript:history.go(0)"></a>        
+        <h1 class="app-title fl">MyStackApp</h1>
+        <a class="glyphicon glyphicon-cog fr"></a>
     <% } %>
     </div>
   </div>
