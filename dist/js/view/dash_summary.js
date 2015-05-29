@@ -21,7 +21,7 @@ define(
       console.log(CurrentValue);
       // Initialize views
       this.subviews.spotOverview = new SpotOverview({});
-      this.subviews.currentValue = new CurrentValue({});
+      this.subviews.currentValue = new CurrentValue({bullionType: "all"});
 
       this.$el.on('click', '#graph-link', function() {
         self.toggleDisplay('graph');
@@ -51,7 +51,6 @@ define(
         this.initialized = true;
       } else {
         $.each(this.subviews, function(k, subview) {
-          console.log(subview);
           subview.render();
         });
       }

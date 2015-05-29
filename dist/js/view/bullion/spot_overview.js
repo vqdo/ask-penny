@@ -17,7 +17,6 @@ define([
     },
 
     render: function(arg) {    
-      console.log(this.template); 
       _.each(this.collection.attributes, function(item) {
         if(this.options.id) {
           if(item.name !== this.options.id) {

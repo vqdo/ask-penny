@@ -1,8 +1,26 @@
 <div class="row stack-value go-container">
-  <div class="value-total col-xs-12">
-      $24,495.23
-      <span class="value-change">+3.5%</span>
-      <h1>My Total Stack Value</h1>
+  <div class="value-total col-xs-6">
+      $<%- total %>
+      <span class="value-change"></span>
+      <h1>My Total <%- name %> Value</h1>
+
   </div>
+
+  <% if(!changeDaily) { %>
+    <!-- Stack summary/overview -->
+    <span class="value-change"><%- changeOverall %></span>
+  <% } %>
+
+  <% if (changeDaily) { %>
+    <!-- Stack bullion -->
+    <div class="value-change col-xs-6 text-right">
+      <strong>Daily</strong>
+      <%- changeDaily %>
+      <br>
+      <strong>Overall</strong>
+      <%- changeOverall %>
+    </div>
+  <% }%>
+
   <a class="mobile-toggle visible-xs glyphicon glyphicon-chevron-right"></a>
 </div>

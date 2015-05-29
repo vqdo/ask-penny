@@ -21,18 +21,28 @@ var server = app.listen(process.env.PORT || 8080, function () {
 
   console.log('Listening at http://%s:%s', host, port);
 
-  app.get('/bullion/:user/:type?', function (req, res) {
-    var type = req.params.type;
+  app.get('/bullion/:user/:bullionType?', function (req, res) {
+    var type = req.params.bullionType;
     console.log("Getting bullion type " + type + ' for user ' + req.params.user);    
 
     // TODO: Insert parse code here
     // 
     // Then remove/replace all this:
     var data = dataBullionTypes;
+
+    res.writeHead("200", {'content-type': 'application/json'});    
     if(!type) {
-      res.writeHead("200", {'content-type': 'application/json'});
       res.end(JSON.stringify(data));
-    } else {
+    } else if (type === "all") {
+      // Dashboard main - make up something
+      res.end(JSON.stringify({
+        name: "Stack",
+        total: "24502.40",
+        change: "5",
+        changeOverall: "5",
+      }));
+    } 
+    else {
       var types = dataBullionTypes;     
       for(var i = 0; i < types.length; i++) {
         var current = types[i];
@@ -42,7 +52,7 @@ var server = app.listen(process.env.PORT || 8080, function () {
         }
       }
 
-      res.writeHead("200", {'content-type': 'application/json'});
+      //res.writeHead("200", {'content-type': 'application/json'});
       res.end(JSON.stringify(data));
     }
   });
