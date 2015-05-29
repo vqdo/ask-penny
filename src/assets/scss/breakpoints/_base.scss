@@ -126,6 +126,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px;
 }
 
+.app-title {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .dashboard-panel {
     display:none;
 }
@@ -249,6 +253,15 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 80%;
 }
 
+.search-add-panel {
+    padding-right: 15px;
+
+    div {
+        margin-right: 10px;
+    }
+}
+
+
 .table-prices {
     color: $dark_gray;
     width: 100%;
@@ -346,8 +359,6 @@ footer {
         color: $gray;
     }
 }
-
-
 
 .fr {
     float: right;
