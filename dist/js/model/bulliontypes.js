@@ -4,7 +4,7 @@ define(
 function (app, BullionType) {
   var BullionTypes = Backbone.Model.extend({
     model: BullionType,
-    url: '/data/bulliontypes.json',
+    url: '/bullion/someuser',
     initalize: function() {
 
     }

@@ -8,9 +8,10 @@ define(['app'], function (app) {
         change: 23
       },
       value: 18234.10,
-      dailyChange: 3.5,
+      change: 3.5,
       overallChange: 1.2
     },
+    url: '/bullion/someuser/gold',
     initalize: function() {
 
     }

@@ -25,7 +25,7 @@ define(
           return;
         }
 
-        var bullionTotals = this.options.pageId === "gold" | this.options.pageId ==="silver" | this.options.pageId === "platinum";
+        var bullionTotals = this.options.pageId === "gold" || this.options.pageId ==="silver" || this.options.pageId === "platinum";
 
         var graphData = {
           type: "splineArea",
