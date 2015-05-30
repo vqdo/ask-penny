@@ -50,6 +50,7 @@ define(
 
         this.initialized = true;
       } else {
+        // Render each subview
         $.each(this.subviews, function(k, subview) {
           subview.render();
         });
@@ -61,7 +62,7 @@ define(
     },
 
     // ugh
-    // TODO: Convert to bootstrap views
+    // TODO: Convert to backbone views
     toggleDisplay: function(page) {
       var $target = this.$el.find('.my-stack');
       if(page === "spot") {
@@ -89,16 +90,14 @@ define(
 
     renderGraph: function() {
       if(!this.subviews.graph) {
+        //console.log(this.$el.find('.my-stack').height());
         this.subviews.graph = new BullionGraph({
-          el: this.$el.find('#bullion-graph')
+          el:     this.$el.find('#bullion-graph'),
+          matchHeight: this.$el.find('.my-stack')
         });
       } else {
         this.subviews.graph.render();
       }
-    },
-
-    renderView: function() {
-
     },
 
     close: function() {
