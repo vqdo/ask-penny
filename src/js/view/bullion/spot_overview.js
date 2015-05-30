@@ -17,6 +17,16 @@ define([
     },
 
     render: function(arg) {    
+      var process = function(item) {
+        if(+item.spot.change > 0) {
+          item.spot.change = '+' + item.spot.change;
+          item.changeIndicatorClass = 'value-positive';
+        } else {
+          item.changeIndicatorClass = 'value-negative';
+        }
+        
+        return item;
+      }
       _.each(this.collection.attributes, function(item) {
         if(this.options.id) {
           if(item.name !== this.options.id) {
@@ -25,9 +35,8 @@ define([
 
           item.name = "Current Spot";
         }
-      
 
-        this.$el.append(this.template(item));
+        this.$el.append(this.template(process(item)));
       }, this);
 
       return this;

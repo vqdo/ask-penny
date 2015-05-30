@@ -20,7 +20,7 @@ define(
 
     render: function() {
       var addDecoration = function(value) {
-        return ((+value > 0)? '+' : '-') + value + '%';
+        return ((+value > 0)? '+' : '') + value + '%';
       }
       
       if(this.model) {
