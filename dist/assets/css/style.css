@@ -37,6 +37,10 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate(0, -50%);
 }
 
+.glyphicon:hover {
+  text-decoration: none;
+}
+
 /**********************************
  * Sidebar
  *********************************/
@@ -197,13 +201,30 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   /** Toggle between overview tables **/
 }
+.bullion-summary a {
+  text-decoration: none;
+}
 .bullion-summary h1 {
-  color: #666;
   border-bottom: 1px solid #F2F2F2;
+  border-top: 2px solid #CCC;
   color: #093B5C;
-  font: normal 14px Helvetica, Arial, sans-serif;
+  text-align: center;
   margin-top: 0;
+  padding: 4px 0;
+  position: relative;
+}
+.bullion-summary h1:hover {
+  background: #AD2719;
+  color: #FFF;
+}
+.bullion-summary h1:hover .glyphicon {
+  color: #FFF;
+}
+.bullion-summary h1 .glyphicon {
+  color: #093B5C;
   padding: 5px 0;
+  position: absolute;
+  right: 5px;
 }
 .bullion-summary h2 {
   color: #666;
@@ -213,7 +234,8 @@ h1, h2, h3, h4, h5, h6 {
 .bullion-summary .data {
   font: normal 2em "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
   text-align: center;
-  margin: 0 0 10px 0;
+  margin: 10px 0 10px 0;
+  padding: 10px 0;
 }
 .bullion-summary .data .value-negative {
   color: #AD2719;

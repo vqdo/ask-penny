@@ -1,9 +1,11 @@
 <div class="bullion-summary clearfix">
   <div class="overview-spot overview">
+    <a href="#/dashboard/stack/<%=(name === "Current Spot")? '' : name %>">
     <h1>
       <strong><%- name %></strong>
-      <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%=(name === "Current Spot")? "" : name %>"></a>
+      <span class="next fr glyphicon glyphicon-chevron-right"></span>
     </h1>
+    </a>
     <div class="col-xs-4">
       <div class="data">
         <%- spot.bid %>

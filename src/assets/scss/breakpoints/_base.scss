@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6 {
         transform: translate(0, -50%);
     }
 }
+
+.glyphicon:hover {
+    text-decoration: none;
+}
 /**********************************
  * Sidebar
  *********************************/
@@ -203,13 +207,34 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 20px;
     text-transform: uppercase;    
 
+    a {
+        text-decoration: none;
+    }
+
     h1 {
-        color: $gray;
         border-bottom: 1px solid $smoke;
+        border-top: 2px solid $lighter_gray;
         color: $blue;
-        font: paragraph(14px);
+        text-align: center;
         margin-top: 0;
-        padding: 5px 0;
+        padding: 4px 0;
+        position: relative;
+
+        &:hover {
+            background: $red;
+            color: $white;
+
+            .glyphicon {
+                color: $white;
+            }
+        }
+
+        .glyphicon {
+            color: $blue;
+            padding: 5px 0;
+            position: absolute;
+                right: 5px;
+        }
     }
     h2 {
         color: $gray;
@@ -220,7 +245,8 @@ h1, h2, h3, h4, h5, h6 {
     .data {
         font: headline(2em);
         text-align: center;
-        margin: 0 0 10px 0;
+        margin: 10px 0 10px 0;
+        padding: 10px 0;
 
         .value-negative {
             color: $red;
