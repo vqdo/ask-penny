@@ -426,6 +426,20 @@ footer h1 {
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  #market-status {
+    color: #CCC;
+    font: normal 1.5em "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+    padding: 0.5em 0;
+    text-transform: uppercase;
+  }
+  #market-status .status {
+    background: #30D146;
+    color: #FFF;
+    padding: 3px 7px 0 7px;
+    margin: 0 5px;
+    border-radius: 5px;
+  }
+
   .stack-value .value-total {
     font-size: 42px;
   }
