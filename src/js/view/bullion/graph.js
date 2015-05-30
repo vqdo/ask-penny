@@ -95,9 +95,10 @@ define(
         animationEnabled: true,
 
         axisX: {
-          gridColor: "gray",
-          tickColor: "gray",
-          valueFormatString: "DD/MMM"
+          gridColor: "white",
+          tickColor: "white",
+          valueFormatString: "DD/MMM",
+          labelFontSize: 14
         },
 
         toolTip: {
@@ -105,8 +106,9 @@ define(
         },
 
         axisY: {
-          gridColor: "gray",
-          tickColor: "gray"
+          gridColor: "white",
+          tickColor: "white",
+          labelFontSize: 14
         },
 
         legend: {
