@@ -3,11 +3,12 @@ define(
     'vendor/tpl!../../templates/dash_stack.html', 
     'view/bullion/graph',
     'view/bullion/spot_overview',
+    'view/bullion/current_value',
     'app' 
   ],
 
 
-  function (template, BullionGraph, SpotOverview) {
+  function (template, BullionGraph, SpotOverview, CurrentValue) {
   var StackPanel = Backbone.View.extend({
   
     events: {
@@ -23,6 +24,10 @@ define(
     initialize: function(options) {
       this.options = options;
 
+      // Initialize views
+      this.subviews.spotOverview = new SpotOverview({id: options.pageId});
+      this.subviews.currentValue = new CurrentValue({bullionType: options.pageId});
+
       // if(!this.collection) {
       //   this.collection = new BullionTypes();
       //   this.collection.fetch();
@@ -35,14 +40,17 @@ define(
     render: function() {
       this.$el.html(this.template());
       
-      if(!this.subviews.spotOverview) {
-        this.subviews.spotOverview = new SpotOverview({
-          id: this.options.pageId
-        });
+      if(!this.initialized) {
         this.subviews.spotOverview.$el
           .appendTo(this.$el.find('#bullion-summaries'));
+        this.subviews.currentValue.$el
+          .appendTo(this.$el.find('#current-value'));          
+
+        this.initialized = true;
       } else {
-        this.subviews.spotOverview.render();
+        $.each(this.subviews, function(k, subview) {
+          subview.render();
+        });
       }
 
       this.renderGraph();

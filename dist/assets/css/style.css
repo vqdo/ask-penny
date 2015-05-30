@@ -37,6 +37,10 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate(0, -50%);
 }
 
+.glyphicon:hover {
+  text-decoration: none;
+}
+
 /**********************************
  * Sidebar
  *********************************/
@@ -194,22 +198,50 @@ h1, h2, h3, h4, h5, h6 {
 
 .bullion-summary {
   padding-top: 20px;
+  text-transform: uppercase;
   /** Toggle between overview tables **/
 }
+.bullion-summary a {
+  text-decoration: none;
+}
 .bullion-summary h1 {
-  border-bottom: 1px solid #666;
-  font: normal 14px Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid #F2F2F2;
+  border-top: 2px solid #CCC;
+  color: #093B5C;
+  text-align: center;
   margin-top: 0;
+  padding: 4px 0;
+  position: relative;
+}
+.bullion-summary h1:hover {
+  background: #AD2719;
+  color: #FFF;
+}
+.bullion-summary h1:hover .glyphicon {
+  color: #FFF;
+}
+.bullion-summary h1 .glyphicon {
+  color: #093B5C;
   padding: 5px 0;
+  position: absolute;
+  right: 5px;
 }
 .bullion-summary h2 {
+  color: #666;
   font: normal 11px Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  margin: 7px 0;
+  margin: 0;
 }
 .bullion-summary .data {
+  font: normal 2em "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
   text-align: center;
-  margin: 0 0 10px 0;
+  margin: 10px 0 10px 0;
+  padding: 10px 0;
+}
+.bullion-summary .data .value-negative {
+  color: #AD2719;
+}
+.bullion-summary .data .value-positive {
+  color: #30D146;
 }
 .bullion-summary td {
   width: 33%;
@@ -370,6 +402,20 @@ footer h1 {
   /******************
    * Dashboard
    ******************/
+  #market-status {
+    color: #CCC;
+    font: normal 1.5em "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+    padding: 0.5em 0;
+    text-transform: uppercase;
+  }
+  #market-status .status {
+    background: #30D146;
+    color: #FFF;
+    padding: 3px 7px 0 7px;
+    margin: 0 5px;
+    border-radius: 5px;
+  }
+
   .fluid {
     padding-left: 90px;
   }

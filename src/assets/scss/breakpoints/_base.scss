@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6 {
         transform: translate(0, -50%);
     }
 }
+
+.glyphicon:hover {
+    text-decoration: none;
+}
 /**********************************
  * Sidebar
  *********************************/
@@ -201,21 +205,55 @@ h1, h2, h3, h4, h5, h6 {
 .bullion-summary {
     // width: 100%;
     padding-top: 20px;
+    text-transform: uppercase;    
+
+    a {
+        text-decoration: none;
+    }
 
     h1 {
-        border-bottom: 1px solid $gray;
-        font: paragraph(14px);
+        border-bottom: 1px solid $smoke;
+        border-top: 2px solid $lighter_gray;
+        color: $blue;
+        text-align: center;
         margin-top: 0;
-        padding: 5px 0;
+        padding: 4px 0;
+        position: relative;
+
+        &:hover {
+            background: $red;
+            color: $white;
+
+            .glyphicon {
+                color: $white;
+            }
+        }
+
+        .glyphicon {
+            color: $blue;
+            padding: 5px 0;
+            position: absolute;
+                right: 5px;
+        }
     }
     h2 {
+        color: $gray;
         font: paragraph(11px);
-        font-weight: bold;
-        margin: 7px 0;
+        margin: 0;
+
     }
     .data {
+        font: headline(2em);
         text-align: center;
-        margin: 0 0 10px 0;
+        margin: 10px 0 10px 0;
+        padding: 10px 0;
+
+        .value-negative {
+            color: $red;
+        }
+        .value-positive {
+            color: $green;
+        }
     }
 
     td {

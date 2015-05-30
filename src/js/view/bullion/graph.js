@@ -63,7 +63,7 @@ define(
             dataPoints: []
           };
 
-          graphData.color = "black";
+          graphData.color = "white";
         }
 
         _.each(data.dataPoints, function(point) {
@@ -83,22 +83,22 @@ define(
         dataSet.push(graphData);
 
         if(graphTotalData) {
-          console.log("Pushing");
           console.log(graphTotalData);
           dataSet.push(graphTotalData);
         }
 
       }, this);
 
-        console.log(dataSet);
+      console.log(dataSet);
       graph.CanvasJSChart( 
       {
         animationEnabled: true,
 
         axisX: {
-          gridColor: "Black",
-          tickColor: "Black",
-          valueFormatString: "DD/MMM"
+          gridColor: "white",
+          tickColor: "white",
+          valueFormatString: "DD/MMM",
+          labelFontSize: 14
         },
 
         toolTip: {
@@ -106,8 +106,9 @@ define(
         },
 
         axisY: {
-          gridColor: "Black",
-          tickColor: "Black"
+          gridColor: "white",
+          tickColor: "white",
+          labelFontSize: 14
         },
 
         legend: {
@@ -125,7 +126,12 @@ define(
       if(!this.canvasGraph) {
         this.createCanvasGraph();
       }
-      this.canvasGraph.render();
+
+      console.log("Setting height");
+      // Set height
+      console.log(this.options.matchHeight);
+      this.canvasGraph.options.height = Math.max(300, this.options.matchHeight && this.options.matchHeight.height());
+      this.canvasGraph.render();      
 
       return this;
     },

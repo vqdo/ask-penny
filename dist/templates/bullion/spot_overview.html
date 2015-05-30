@@ -1,20 +1,30 @@
 <div class="bullion-summary clearfix">
   <div class="overview-spot overview">
+    <a href="#/dashboard/stack/<%=(name === "Current Spot")? '' : name %>">
     <h1>
       <strong><%- name %></strong>
-      <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%=(name === "Current Spot")? "" : name %>"></a>
+      <span class="next fr glyphicon glyphicon-chevron-right"></span>
     </h1>
-    <div class="data col-xs-4">
-      <%- spot.bid %>
-      <h2>Bid</h2>
+    </a>
+    <div class="col-xs-4">
+      <div class="data">
+        <%- spot.bid %>
+        <h2>Bid</h2>
+      </div>
     </div>
-    <div class="data col-xs-4">
+    <div class="col-xs-4">
+      <div class="data">
       <%- spot.ask %>
       <h2>Ask</h2>
+      </div>
     </div>
-    <div class="data col-xs-4">
-      <%- spot.change %>
-      <h2>Change</h2>
+    <div class="col-xs-4">
+      <div class="data">
+        <span class="value <%- changeIndicatorClass %>">
+          <%- spot.change %>
+        </span>
+        <h2>Change</h2>
+      </div>
     </div>
   </div>
 
