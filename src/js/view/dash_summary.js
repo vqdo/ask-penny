@@ -5,7 +5,8 @@ define(
     'view/bullion/current_value', 
     'view/bullion/graph',
     'model/inventory',
-    'app' 
+    'app',
+    'facebook' 
     //,'canvasjs'
   ], 
 

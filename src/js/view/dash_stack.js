@@ -5,7 +5,8 @@ define(
     'view/bullion/spot_overview',
     'view/bullion/current_value',
     'model/inventory',
-    'app' 
+    'app',
+    'facebook' 
   ],
 
 
