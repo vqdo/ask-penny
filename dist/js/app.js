@@ -6,7 +6,8 @@ requirejs.config({
 
     paths: {
         tpl: './vendor/tpl',
-        text: './vendor/text',        
+        text: './vendor/text',   
+        fetch_cache: './vendor/fetch-cache.min',
         jquery: ['//code.jquery.com/jquery-2.1.4.min'],
         bootstrap: '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min',
         underscore: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore',
@@ -30,6 +31,9 @@ requirejs.config({
         },
         'facebook' : {
           exports: 'FB'
+        },
+        'fetch_cache' : {
+          deps: ['backbone', 'underscore']
         }
     }
 });
@@ -44,7 +48,7 @@ function   (Backbone) {
     }     
 
     // Initialize router
-    require(['router']);
+    require(['router', 'fetch_cache']);
 
     // window.fbAsyncInit = function() {
       FB.init({

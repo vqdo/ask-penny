@@ -1,6 +1,7 @@
 "use strict";
 
 var express = require('express');
+var http = require('http');
 var app = express();
 
 // Hardcoded data, remove eventually
@@ -15,39 +16,39 @@ getSpotPrice('silver');
 getSpotPrice('platinum');
 
 function getSpotPrice(metal) {
-  var http = require('http');
+    var getPath = function(metal) {
 
-  var host = 'www.quandl.com';
-  var path = '/api/v1/datasets/WSJ/';
+    var path = '/api/v1/datasets/WSJ/',
+        now = new Date();
+    var monthAgo = new Date().setDate(now.getDate()-30);
 
-  switch (metal) {
-    case 'gold':
-      path += 'AU_EIB';
-      break;
-    
-    case 'silver':
-      path += 'AG_EIB';
-      break;
-    
-    case 'platinum':
-      path += 'PL_MKT';
-      break;
+    switch (metal) {
+      case 'gold':
+        path += 'AU_EIB';
+        break;
+      
+      case 'silver':
+        path += 'AG_EIB';
+        break;
+      
+      case 'platinum':
+        path += 'PL_MKT';
+        break;
+    }
+
+    //my auth token
+    path += '.csv?auth_token=3FgBQeN2QPtndN3e8_TK';
+    path += '&trim_start="' + formatDate(monthAgo) +'&trim_end=' + formatDate(now);    
+
+    return path;
   }
 
-  //my auth token
-  path += '.csv?auth_token=3FgBQeN2QPtndN3e8_TK';
-
-
-  var today = new Date();
-  var mo_ago = new Date().setDate(today.getDate()-30);
-
-  console.log('from: ' + formatDate(mo_ago));
-  console.log('to: ' + formatDate(today));
-  path += '&trim_start="' + formatDate(mo_ago) +'&trim_end=' + formatDate(today);
+  // console.log('from: ' + formatDate(mo_ago));
+  // console.log('to: ' + formatDate(today));
   
   var options = {
-    host: host,
-    path: path
+    host: 'www.quandl.com',
+    path: getPath(metal)
   };
 
   var callback = function(response) {
@@ -58,7 +59,6 @@ function getSpotPrice(metal) {
     });
 
     response.on('end', function() {
-      console.log('spot prices for ' + metal + '\n' + str);
       var type = null;
       var color = null;
       switch(metal) {
@@ -92,10 +92,10 @@ function getSpotPrice(metal) {
       var changeDaily = ((datapoints[0].y - datapoints[1].y)/datapoints[0].y).toFixed(2);
       var changeOverall = ((datapoints[0].y - datapoints[datapoints.length-1].y)/datapoints[0].y).toFixed(2);
       spotPrices[spotPrices.length] = {"name":type, "color":color, "dataPoints": datapoints};
-      dailySpot[dailySpot.length] = {"name":metal, "total": datapoints[0].y, "spot":{"bid": bid ,"ask": ask, "change": change}, "ounces":10, "changeDaily": changeDaily, "changeOverall": changeOverall}
-      console.log('latest' + datapoints[0].y);
-      console.log('next' + datapoints[1].y);
-      console.log('first' + datapoints[datapoints.length -1].y);
+      dailySpot[dailySpot.length] = {"name":metal, "total": 0, "spot":{"bid": bid ,"ask": ask, "change": change}, "ounces":10, "changeDaily": changeDaily, "changeOverall": changeOverall}
+      // console.log('latest' + datapoints[0].y);
+      // console.log('next' + datapoints[1].y);
+      // console.log('first' + datapoints[datapoints.length -1].y);
     });
   }
 
@@ -106,11 +106,9 @@ function chopData(str) {
   var lines = str.split(/\r\n|\n/);
   var json = [];
 
-  console.log('chopping' + str);
 
   for (var i=1; i < lines.length; i++) {
     var vals = lines[i].split(',');
-    console.log(String(vals[0]));
     json.push({"x":vals[0], "y": vals[1]});
   }
   return json;
@@ -157,9 +155,9 @@ var server = app.listen(process.env.PORT || 8080, function () {
   });
   
   app.get('/bullion/allspots', function (req, res) {
-    console.log('DATADATADATA');
+    //console.log('DATADATADATA');
     var data = spotPrices;
-    console.log(data);
+    //console.log(data);
     res.writeHead("200", {'content-type': 'application/json'});
     res.end(JSON.stringify(data));
   });
@@ -181,16 +179,21 @@ var server = app.listen(process.env.PORT || 8080, function () {
       res.end(JSON.stringify(data));
     } 
     else if (type === "all") {
-      console.log("ALL");
+      console.log(data);
       var spots = {};
       for(var i = 0; i < data.length; i++) {
         var current = data[i];
         spots[current.name] = current.spot;
       }
 
+      //console.log("daily: " );
+      // console.log(data.reduce(function(acc, item) { return acc + +item.changeDaily }, 0));
+      // console.log(data.reduce(function(acc, item) { return acc + +item.changeOverall }, 0));
       res.end(JSON.stringify({
         name: "Stack",
-        spots: spots
+        spots: spots,
+        changeDaily: (data.reduce(function(acc, item) { return acc + +item.changeDaily }, 0) / data.length).toFixed(2),
+        changeOverall: (data.reduce(function(acc, item) { return acc + +item.changeOverall }, 0) / data.length).toFixed(2)
       }));
     } 
     else {

@@ -29,7 +29,6 @@ define(
 
       var dataSet = [];
       _.each(this.collection.attributes, function(data) {
-        console.log(data);
         if(this.options.pageId && this.options.pageId !== data.name.toLowerCase()) {
           return;
         }
@@ -92,13 +91,12 @@ define(
         dataSet.push(graphData);
 
         if(graphTotalData) {
-          console.log(graphTotalData);
+
           dataSet.push(graphTotalData);
         }
 
       }, this);
 
-      console.log(dataSet);
       graph.CanvasJSChart( 
       {
         animationEnabled: true,
@@ -132,8 +130,6 @@ define(
     },
 
     render: function() {
-
-      console.log("RENDERING!");
       if(!this.canvasGraph) {
         this.createCanvasGraph();
       }

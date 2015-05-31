@@ -32,6 +32,7 @@ define(
       var query = new Parse.Query('Bullion');
       var self = this;
       query.equalTo("metal", self.options.pageId).equalTo("uid", FB.getUserID()).find({
+      //query.equalTo("metal", self.options.pageId).find({  
         success: function(results) {
           self.renderCollection(results);
           self.subviews.currentValue.setInventory(results);   
@@ -52,23 +53,21 @@ define(
         detailView: 'detail-view'
       });
 
-      // TODO: Pass in user id
       this.collection = this.collection || new Inventory();
-      this.collection.fetch({ metal: options.pageId, uid: FB.getUserID() /*, userId: TODO */});
+      this.collection.fetch({ metal: options.pageId, uid: FB.getUserID()});
       this.collection.on('change', this.onCollection, this);
-
-
       console.log(this.collection)
       this.queryParse();
+
     },
 
     onCollection: function(data) {
+      console.log(data);
       this.subviews.currentValue.setInventory(data.attributes);
       this.renderCollection(data.attributes);
     },
 
     renderCollection: function(data) {
-      console.log('successful query ' + data);
       var table = $('.collection');
       var rowCount = $('.collection tr').length;
 

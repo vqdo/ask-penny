@@ -14,7 +14,7 @@ define(
       if(this.options.bullionType) 
         this.model.set('bullionType', options.bullionType);
 
-      this.model.fetch(); 
+      this.model.fetch({cache: true}); 
       this.model.on('change', this.render, this);
 
 
@@ -27,30 +27,36 @@ define(
 
     render: function() {
       var addDecoration = function(value) {
+        console.log(value + " " + isNaN(value));
         if(isNaN(value)) return value;
 
-        return ((+value > 0)? '+' : '') + value + '%';
+        return ((+value > 0)? '+' : '') + (+value).toFixed(2) + '%';
       }
       
       var attr = this.model.attributes;
+
+      // Display Daily+Overall or simple view
       attr.detailView = this.options.detailView;
       attr.valueBoxWidth = (attr.detailView === 'detail-view')? 'col-xs-6' : 'col-xs-12';      
       
-      if(this.model && this.inventory) {     
+      if(!$.isEmptyObject(this.model.attributes) && this.inventory) {     
         var spots = attr.spots || {};
+
+        // Create object containing current spot prices
         if(!attr.spots) {
           spots[this.options.bullionType] = attr.spot;
         }
 
         var total = _.values(this.inventory).reduce(function(acc, data) {
           var type = data.attributes.metal;
+          console.log(type);
           var value = data.attributes.qty * spots[type].bid;
           acc += isNaN(value)? 0 : value;
           return acc;
         }, 0);
       
         attr.changeOverall = addDecoration(attr.changeOverall);
-        attr.changeDaily = attr.changeDaily && addDecoration(attr.changeDaily); 
+        attr.changeDaily =  addDecoration(attr.changeDaily || 0); 
         attr.total = total;      
       }
 

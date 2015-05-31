@@ -28,9 +28,8 @@ define(
         detailView: 'simple-view'
       });
 
-      // TODO: Pass in user id
       this.collection = this.collection || new Inventory();
-      this.collection.fetch({ /*, userId: TODO */});
+      this.collection.fetch({  uid: FB.getUserID()});
       this.collection.on('change', this.onCollection, this);      
 
       this.$el.on('click', '#graph-link', function() {

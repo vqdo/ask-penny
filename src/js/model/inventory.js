@@ -5,7 +5,6 @@ function (app, Item) {
   var Inventory = Backbone.Model.extend({
     model: Item,
     initialize: function() {
-
       Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");      
     },
 
@@ -21,7 +20,7 @@ function (app, Item) {
       var self = this;
 
       // Add constraints
-      console.log(this.metal);
+      console.log(attr.metal);
       if(attr.metal)  query = query.equalTo('metal', attr.metal);
       if(attr.uid) query = query.equalTo('user', attr.uid);
 
@@ -31,6 +30,7 @@ function (app, Item) {
           dfd.resolve(results);
         },
         error: function(error) {
+          console.error(error);
           dfd.reject(error);
         }
       }); 
