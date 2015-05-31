@@ -26,6 +26,21 @@ define(
     id: "dashboard-stack",
     subviews: {},
     pageId: "",
+    data: {},
+
+    queryParse: function() {
+      var query = new Parse.Query('Bullion');
+      var self = this;
+      query.equalTo("metal", self.options.pageId).equalTo("uid", FB.getUserID()).find({
+        success: function(results) {
+          self.renderCollection(results);
+          self.subviews.currentValue.setInventory(results);   
+        },
+        error: function(error) {
+          console.log('You done fucked up');
+        }
+      }); 
+    }, 
 
     initialize: function(options) {
       this.options = options;
@@ -39,21 +54,12 @@ define(
 
       // TODO: Pass in user id
       this.collection = this.collection || new Inventory();
-      this.collection.fetch({ metal: options.pageId /*, userId: TODO */});
+      this.collection.fetch({ metal: options.pageId, uid: FB.getUserID() /*, userId: TODO */});
       this.collection.on('change', this.onCollection, this);
 
-      // var query = new Parse.Query('Bullion');
-      // var self = this;
-      // query.equalTo("metal", options.pageId).find({
-      //   success: function(results) {
-      //     self.renderCollection(results);
-      //     self.subviews.currentValue.setInventory(results);   
-      //   },
-      //   error: function(error) {
-      //     console.log('You done fucked up');
-      //   }
-      // }); 
 
+      console.log(this.collection)
+      this.queryParse();
     },
 
     onCollection: function(data) {
@@ -62,8 +68,14 @@ define(
     },
 
     renderCollection: function(data) {
-      
+      console.log('successful query ' + data);
       var table = $('.collection');
+      var rowCount = $('.collection tr').length;
+
+      for (var i = rowCount - 1; i > 0; i--) {
+        $('.collection tr:last').remove();
+      }
+
       _.each(data, function(obj) {
         var newRow = '<tr>' +  '<td class="hidden-xs col-image">' + 
           '<a href="#/dashboard/stack/' + this.options.pageId + '/view/' + obj.id + '"">' +
@@ -101,7 +113,7 @@ define(
         });
       }
 
-
+      this.queryParse();
       //this.renderGraph();
 
       //console.log(this.subviews.spotOverview.collection.attributes)

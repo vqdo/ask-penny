@@ -10,8 +10,10 @@ function (app, Item) {
     },
 
     fetch: function(attr) {
+
+      console.log(attr)
       attr = attr || {};
-      if(!attr.userId)
+      if(!attr.uid)
         console.warn("Inventory init: No user id passed in.");          
 
       var dfd = new jQuery.Deferred();    
@@ -21,7 +23,7 @@ function (app, Item) {
       // Add constraints
       console.log(this.metal);
       if(attr.metal)  query = query.equalTo('metal', attr.metal);
-      if(attr.userId) query = query.equalTo('user', attr.userId);
+      if(attr.uid) query = query.equalTo('user', attr.uid);
 
       query.find({
         success: function(results) {
