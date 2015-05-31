@@ -41,14 +41,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .middle {
     text-align: center;
-    background-color: $lighter_gray;
+    background: $cranberry;
+    border-top: 1px solid $white;
+    .tabular, .graph {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        color: $white;
 
-    .tabular {
-        background-color: $light_gray;
+        &.selected {
+            color: $cranberry;
+            background: $white;
+        }
     }
-    .graph {
-        background-color: $white;
-    }
+}
+.summary-panel-stack .tabular, .summary-panel-graph .graph {
+    background: $white;
+    color: $cranberry;
 }
 
 .btn {
@@ -190,6 +199,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     #bullion-graph {
         display: none;
+        min-height: 300px;
     }
 }
 #dashboard-stack {
@@ -229,9 +239,8 @@ h1, h2, h3, h4, h5, h6 {
         border-bottom: 1px solid $smoke;
         border-top: 2px solid $lighter_gray;
         color: $blue;
-        text-align: center;
         margin-top: 0;
-        padding: 4px 0;
+        padding: 4px 10px;
         position: relative;
 
         &:hover {
@@ -291,14 +300,16 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
 }
+.summary-panel-main #market-status {
+    display: block !important;
+}
 .summary-panel-main .overview-spot,
-.summary-panel-main #market-status,
 .summary-panel-stack .middle, 
 .summary-panel-graph .middle, 
 .summary-panel-stack .overview-stack,
 .summary-panel-graph #bullion-graph,
- {
-    display: block !important;
+{
+    display: block;
 }
 
 #market-time-change {

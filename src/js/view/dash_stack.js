@@ -13,10 +13,10 @@ define(
   
     events: {
       'click .tabular': function() { 
-        this.setActive($('#bullion-coll'))
+        this.setActive($('#bullion-coll'), $('.btn.tabular'))
       },
       'click .graph': function() { 
-        this.setActive($('#bullion-graph'), this.subviews.graph)
+        this.setActive($('#bullion-graph'), $('.btn.graph'), this.subviews.graph)
       }
     
     },
@@ -31,13 +31,6 @@ define(
       // Initialize views
       this.subviews.spotOverview = new SpotOverview({id: options.pageId});
       this.subviews.currentValue = new CurrentValue({bullionType: options.pageId});
-
-      // if(!this.collection) {
-      //   this.collection = new BullionTypes();
-      //   this.collection.fetch();
-      // }
-      // console.log(this.pageId);
-
 
     },
 
@@ -70,9 +63,7 @@ define(
       var collTable = $('#collection-table');
 
       //console.log(this.subviews.spotOverview.collection.attributes)
-      this.setActive(this.$el.find('#bullion-coll'));
-      //this.$activePanel = this.$el.find('#bullion-coll');
-      //this.$activePanel.addClass("active-panel");
+      this.setActive(this.$el.find('#bullion-coll'), this.$el.find('.btn.tabular'));
       return this;
     },
     
@@ -105,12 +96,15 @@ define(
       }
     },
 
-    setActive: function($el, view) {
+    setActive: function($el, $buttonEl, view) {
       var activeClass = 'active-panel';
       if(this.$activePanel) {
         this.$activePanel.removeClass(activeClass);
       }
       this.$activePanel = $el.addClass(activeClass);
+
+      $('.btn.selected').removeClass('selected');
+      $buttonEl.addClass('selected');
 
       // Ideally pass in just one arg, the view - but good enough
       if(view) {

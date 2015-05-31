@@ -23,6 +23,11 @@
     display: block;
     min-height: 300px;
 }
+.bullion-summary {
+    h1 {
+        text-align: center;
+    }
+}
 .my-stack {
     #bullion-graph, .overview-spot {
         display: block;
