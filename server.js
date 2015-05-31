@@ -45,7 +45,11 @@ function getSpotPrice(metal) {
 
   // console.log('from: ' + formatDate(mo_ago));
   // console.log('to: ' + formatDate(today));
-
+  
+  var options = {
+    host: 'www.quandl.com',
+    path: getPath(metal)
+  };
 
   var callback = function(response) {
     var str = '';
@@ -88,7 +92,7 @@ function getSpotPrice(metal) {
       var changeDaily = ((datapoints[0].y - datapoints[1].y)/datapoints[0].y).toFixed(2);
       var changeOverall = ((datapoints[0].y - datapoints[datapoints.length-1].y)/datapoints[0].y).toFixed(2);
       spotPrices[spotPrices.length] = {"name":type, "color":color, "dataPoints": datapoints};
-      dailySpot[dailySpot.length] = {"name":metal, "total": datapoints[0].y, "spot":{"bid": bid ,"ask": ask, "change": change}, "ounces":10, "changeDaily": changeDaily, "changeOverall": changeOverall}
+      dailySpot[dailySpot.length] = {"name":metal, "total": 0, "spot":{"bid": bid ,"ask": ask, "change": change}, "ounces":10, "changeDaily": changeDaily, "changeOverall": changeOverall}
       // console.log('latest' + datapoints[0].y);
       // console.log('next' + datapoints[1].y);
       // console.log('first' + datapoints[datapoints.length -1].y);
@@ -151,9 +155,9 @@ var server = app.listen(process.env.PORT || 8080, function () {
   });
   
   app.get('/bullion/allspots', function (req, res) {
-    console.log('DATADATADATA');
+    //console.log('DATADATADATA');
     var data = spotPrices;
-    console.log(data);
+    //console.log(data);
     res.writeHead("200", {'content-type': 'application/json'});
     res.end(JSON.stringify(data));
   });
@@ -175,16 +179,21 @@ var server = app.listen(process.env.PORT || 8080, function () {
       res.end(JSON.stringify(data));
     } 
     else if (type === "all") {
-      console.log("ALL");
+      console.log(data);
       var spots = {};
       for(var i = 0; i < data.length; i++) {
         var current = data[i];
         spots[current.name] = current.spot;
       }
 
+      //console.log("daily: " );
+      // console.log(data.reduce(function(acc, item) { return acc + +item.changeDaily }, 0));
+      // console.log(data.reduce(function(acc, item) { return acc + +item.changeOverall }, 0));
       res.end(JSON.stringify({
         name: "Stack",
-        spots: spots
+        spots: spots,
+        changeDaily: data.reduce(function(acc, item) { return acc + +item.changeDaily }, 0) / data.length,
+        changeOverall: data.reduce(function(acc, item) { return acc + +item.changeOverall }, 0) / data.length
       }));
     } 
     else {

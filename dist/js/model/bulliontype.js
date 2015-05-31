@@ -2,13 +2,13 @@ define(['app'], function (app) {
   var BullionType = Backbone.Model.extend({
     defaults: {
       name: 'this is default data',
-      total: 5000,
+      total: 0,
       spot: {
-        bid : 1206,
-        ask : 1207,
-        change: 23
+        bid : 0,
+        ask : 0,
+        change: 0
       },
-      value: 18234.10,
+      value: 0,
     },
     url: function(data) {
       console.log(this);

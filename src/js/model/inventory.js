@@ -5,7 +5,6 @@ function (app, Item) {
   var Inventory = Backbone.Model.extend({
     model: Item,
     initialize: function() {
-
       Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");      
     },
 
@@ -25,7 +24,6 @@ function (app, Item) {
 
       query.find({
         success: function(results) {
-          console.log(results);
           self.set(results);
           dfd.resolve(results);
         },

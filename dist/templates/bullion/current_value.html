@@ -1,6 +1,6 @@
 <div class="row stack-value go-container <%= detailView %>">
   <div class="value-total <%= valueBoxWidth %>">
-      $<%- total %>
+      $<%= (total || 0) %>
 
       <!-- Stack summary/overview -->
       <span class="simple-change value-change"><%- changeOverall %></span>

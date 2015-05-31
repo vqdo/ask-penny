@@ -41,18 +41,6 @@ define(
       this.collection.fetch({ metal: options.pageId /*, userId: TODO */});
       this.collection.on('change', this.onCollection, this);
 
-      // var query = new Parse.Query('Bullion');
-      // var self = this;
-      // query.equalTo("metal", options.pageId).find({
-      //   success: function(results) {
-      //     self.renderCollection(results);
-      //     self.subviews.currentValue.setInventory(results);   
-      //   },
-      //   error: function(error) {
-      //     console.log('You done fucked up');
-      //   }
-      // }); 
-
     },
 
     onCollection: function(data) {

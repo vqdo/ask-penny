@@ -32,6 +32,7 @@
     "serve-static": "^1.9.2"
   },
   "dependencies": {
-    "express": "~4.12.4"
+    "express": "~4.12.4",
+    "backbone-fetch-cache": "~1.5.5"
   }
 }
