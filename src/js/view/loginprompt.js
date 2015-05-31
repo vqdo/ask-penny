@@ -11,7 +11,7 @@ define(['vendor/tpl!../../templates/login.html', 'app', 'facebook'], function (t
 
       console.log(sessionStorage)
       // optional ctor
-      if(sessionStorage.uid != "")
+      if(sessionStorage.uid)
         window.location.href = "#/dashboard"
 
     },
