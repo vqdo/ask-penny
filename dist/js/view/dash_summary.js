@@ -18,10 +18,13 @@ define(
 
     initialize: function() {
       var self = this;
-      console.log(CurrentValue);
+
       // Initialize views
       this.subviews.spotOverview = new SpotOverview({});
-      this.subviews.currentValue = new CurrentValue({bullionType: "all"});
+      this.subviews.currentValue = new CurrentValue({
+        bullionType: "all",
+        detailView: 'simple-view'
+      });
 
       this.$el.on('click', '#graph-link', function() {
         self.toggleDisplay('graph');
@@ -33,6 +36,7 @@ define(
 
       this.$el.on('click', '.mobile-toggle', function(evt) {
         evt.preventDefault();
+        self.subviews.currentValue.toggleView('detail-view');        
         self.toggleDisplay('stack');
       });
 
@@ -72,7 +76,6 @@ define(
         $target.addClass('summary-panel-main');
 
       } else if(page === "stack") {
-
         $target.removeClass('summary-panel-main')
           .removeClass('summary-panel-graph');
         $target.addClass('summary-panel-stack');

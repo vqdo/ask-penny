@@ -1,25 +1,21 @@
-<div class="row stack-value go-container">
-  <div class="value-total <%- valueBoxWidth %>">
+<div class="row stack-value go-container <%= detailView %>">
+  <div class="value-total <%= valueBoxWidth %>">
       $<%- total %>
 
-      <% if(!changeDaily) { %>
-        <!-- Stack summary/overview -->
-        <span class="value-change"><%- changeOverall %></span>
-      <% } %>
+      <!-- Stack summary/overview -->
+      <span class="simple-change value-change"><%- changeOverall %></span>
       <h1>My Total <%- name %> Value</h1>
 
   </div>
 
-  <% if (changeDaily) { %>
     <!-- Stack bullion -->
-    <div class="value-change col-xs-6 text-right">
+    <div class="detail-change value-change col-xs-6 text-right">
       <strong>Daily</strong>
       <%- changeDaily %>
       <br>
       <strong>Overall</strong>
       <%- changeOverall %>
     </div>
-  <% } else { %>
+
     <a class="mobile-toggle visible-xs glyphicon glyphicon-chevron-right"></a>
-  <% } %>
 </div>

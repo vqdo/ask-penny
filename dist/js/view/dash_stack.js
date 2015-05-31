@@ -30,7 +30,10 @@ define(
 
       // Initialize views
       this.subviews.spotOverview = new SpotOverview({id: options.pageId});
-      this.subviews.currentValue = new CurrentValue({bullionType: options.pageId});
+      this.subviews.currentValue = new CurrentValue({
+        bullionType: options.pageId,
+        detailView: 'detail-view'
+      });
 
     },
 
@@ -66,17 +69,6 @@ define(
       this.setActive(this.$el.find('#bullion-coll'), this.$el.find('.btn.tabular'));
       return this;
     },
-    
-    // renderGraph: function() {
-    //   if(!this.subviews.graph) {
-    //     this.subviews.graph = new BullionGraph({
-    //       el: this.$el.find('#bullion-graph'),
-    //       pageId: this.options.pageId
-    //     });
-    //   } else {
-    //     this.subviews.graph.render();
-    //   }
-    // },
        
     close: function() {
       if(this.subviews.spotOverview) {

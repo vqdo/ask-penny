@@ -168,6 +168,18 @@ h1, h2, h3, h4, h5, h6 {
     color: $white;
     padding: 10px;
 
+    &.detail-view {
+        .simple-change, .mobile-toggle {
+            display: none !important;
+        }
+    }
+
+    &.simple-view {
+        .detail-change {
+            display: none;
+        }
+    }
+
     @include linear-gradient(45deg, $blue 0%, $purple 70%,$cranberry 100%);   
 
     h1 {
@@ -201,6 +213,16 @@ h1, h2, h3, h4, h5, h6 {
         display: none;
         min-height: 300px;
     }
+
+    .value-change.detail-change {
+        color: $gold;
+
+        strong {
+            font-weight: normal;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+    }    
 }
 #dashboard-stack {
     .stack-value {
@@ -208,15 +230,7 @@ h1, h2, h3, h4, h5, h6 {
             position: absolute;            
             width: 100%;
         }
-        .value-change {
-            color: $gold;
-
-            strong {
-                font-weight: normal;
-                opacity: 0.8;
-                text-transform: uppercase;
-            }
-        }
+        
     }    
     .bullion-summary .next {
         display: none;

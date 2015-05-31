@@ -18,8 +18,15 @@ define(
       this.model.on('change', this.render, this);
     },
 
+    toggleView: function(isDetailView) {
+      this.options.detailView = isDetailView;
+      this.render();
+    },
+
     render: function() {
       var addDecoration = function(value) {
+        if(isNaN(value)) return value;
+
         return ((+value > 0)? '+' : '') + value + '%';
       }
       
@@ -28,9 +35,9 @@ define(
         attr.changeOverall = addDecoration(attr.changeOverall);
         attr.changeDaily = attr.changeDaily && addDecoration(attr.changeDaily);        
       
-        attr.valueBoxWidth = (attr.changeDaily)? 'col-xs-6' : 'col-xs-12';
+        attr.detailView = this.options.detailView;
+        attr.valueBoxWidth = (attr.detailView === 'detail-view')? 'col-xs-6' : 'col-xs-12';
       }
-
 
       this.$el.html(this.template(this.model.attributes));
       return this;

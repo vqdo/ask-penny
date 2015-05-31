@@ -172,6 +172,12 @@ h1, h2, h3, h4, h5, h6 {
   background: -webkit-linear-gradient(legacy-direction(45deg), #093B5C 0%, #4f1643 70%, #870028 100%);
   background: linear-gradient(45deg, #093B5C 0%, #4f1643 70%, #870028 100%);
 }
+.stack-value.detail-view .simple-change, .stack-value.detail-view .mobile-toggle {
+  display: none !important;
+}
+.stack-value.simple-view .detail-change {
+  display: none;
+}
 .stack-value h1 {
   color: #CCC;
   font: normal 16px "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
@@ -202,18 +208,18 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
   min-height: 300px;
 }
+.my-stack .value-change.detail-change {
+  color: #F0D824;
+}
+.my-stack .value-change.detail-change strong {
+  font-weight: normal;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
 
 #dashboard-stack .stack-value h1 {
   position: absolute;
   width: 100%;
-}
-#dashboard-stack .stack-value .value-change {
-  color: #F0D824;
-}
-#dashboard-stack .stack-value .value-change strong {
-  font-weight: normal;
-  opacity: 0.8;
-  text-transform: uppercase;
 }
 #dashboard-stack .bullion-summary .next {
   display: none;
