@@ -12,7 +12,8 @@ requirejs.config({
         underscore: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore',
         backbone: '//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone',
         canvasjs: './vendor/canvas/jquery.canvasjs.min',
-        typekit: '//use.typekit.net/ppz4eaa'
+        typekit: '//use.typekit.net/ppz4eaa',
+        facebook: '//connect.facebook.net/en_US/sdk'
     },
 
     shim: {
@@ -26,12 +27,15 @@ requirejs.config({
         },
         'canvasjs' : {
             deps: ['jquery']
+        },
+        'facebook' : {
+          exports: 'FB'
         }
     }
 });
 
 // Start the main app logic.
-define(['backbone', 'typekit'],
+define(['backbone', 'typekit', 'facebook'],
 function   (Backbone) {
 
     // Initialize typekit
@@ -41,6 +45,23 @@ function   (Backbone) {
 
     // Initialize router
     require(['router']);
+
+    // window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '480458555443308',
+        xfbml      : true,
+        version    : 'v2.3'
+      });
+    // };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
 
     var APCtrl = function() {
         this.currentView = null;
