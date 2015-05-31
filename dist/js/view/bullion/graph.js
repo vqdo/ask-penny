@@ -8,7 +8,14 @@ define(
     initialize: function(options) {
       this.collection = this.collection || new GraphDataSet();
 
-      this.collection.fetch();      
+      this.collection.fetch({
+        success: function(m, data) {
+          console.log(data);
+        },
+        error: function(m, data) {
+          console.error(data);
+        }
+      });      
       this.collection.on('change', this.render, this);
 
       this.options = options;
@@ -65,13 +72,13 @@ define(
             dataPoints: []
           };
 
-          graphData.color = "white";
+          //graphData.color = "white";
         }
 
         _.each(data.dataPoints, function(point) {
           graphData.dataPoints.push({
             x: new Date(point.x),
-            y: point.y
+            y: +point.y
           });
 
           if(graphTotalData) {
@@ -125,6 +132,7 @@ define(
     },
 
     render: function() {
+
       console.log("RENDERING!");
       if(!this.canvasGraph) {
         this.createCanvasGraph();

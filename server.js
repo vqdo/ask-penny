@@ -8,7 +8,8 @@ var dataBullionTypes = require('./src/data/bulliontypes.json');
 var dataBullionPrices = require('./src/data/bullionprices.json'); 
 
 //query quandl for prices
-var spotPrices = {};
+var spotPrices = [];
+var dailySpot = [];
 getSpotPrice('gold');
 getSpotPrice('silver');
 getSpotPrice('platinum');
@@ -58,17 +59,51 @@ function getSpotPrice(metal) {
 
     response.on('end', function() {
       console.log('spot prices for ' + metal + '\n' + str);
-      spotPrices[metal] = str;
+      var type = null;
+      var color = null;
+      switch(metal) {
+        case 'gold':
+          type = "Gold";
+          color = "#FFD700"
+          break;
+    
+        case 'silver':
+          type = "Silver";
+          color = "#808080"
+          break;
+      
+        case 'platinum':
+          type = "Platinum";
+          color = "#E5E4E2"
+          break;
+      }
+
+      var datapoints = chopData(str);
+      spotPrices[spotPrices.length] = {"name":type, "color":color, "dataPoints": datapoints};
     });
   }
 
   http.request(options, callback).end();
 }
 
+function chopData(str) {
+  var lines = str.split(/\r\n|\n/);
+  var json = [];
+
+  console.log('chopping' + str);
+
+  for (var i=1; i < lines.length; i++) {
+    var vals = lines[i].split(',');
+    console.log(String(vals[0]));
+    json.push({"x":vals[0], "y": vals[1]});
+  }
+  return json;
+}
+
 function formatDate(time) {
   var date = new Date(time);
   var day = date.getDate();
-  var mo = date.getMonth();
+  var mo = date.getMonth() +1;
   var yr = date.getFullYear();
 
   if (day < 10) {
@@ -99,6 +134,19 @@ var server = app.listen(process.env.PORT || 8080, function () {
 
   console.log('Listening at http://%s:%s', host, port);
 
+  app.get('/bullion/dailyspot', function (req, res) {
+    var data = dailySpot;
+    res.writeHead("200", {'content-type': 'application/json'});
+    res.end(JSON.stringify(data));
+  }
+  
+  app.get('/bullion/allspots', function (req, res) {
+    console.log('DATADATADATA');
+    var data = spotPrices;
+    console.log(data);
+    res.writeHead("200", {'content-type': 'application/json'});
+    res.end(JSON.stringify(data));
+  });
 
   app.get('/bullion/:user/:bullionType?', function (req, res) {
     var type = req.params.bullionType;
