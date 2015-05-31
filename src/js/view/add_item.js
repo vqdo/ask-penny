@@ -20,16 +20,16 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
       console.log('Sending to parse!');
       var Bullion = Parse.Object.extend("Bullion");
       var item = new Bullion();
-      item.add("metal", $(".metal_type").val());
-      item.add("type", $(".coin_type").val());
-      item.add("purchase_date", $(".purch_date").val());
-      item.add("qty", $(".qty").val());
-      item.add("premium", $(".premium").val());
-      item.add("unit_price", $(".unit_price").val());
-      item.add("bullion_percent", 0.999);
-      item.add("weight_per_unit", 1.244);
-      item.add("bullion_gpu", "ddddd");
-      item.add("bullion_ozpu", 0.04);
+      item.set("metal", $(".metal_type").val());
+      item.set("type", $(".coin_type").val());
+      item.set("purchase_date", $(".purch_date").val());
+      item.set("qty", $(".qty").val());
+      item.set("premium", $(".premium").val());
+      item.set("unit_price", $(".unit_price").val());
+      item.set("bullion_percent", 0.999);
+      item.set("weight_per_unit", 1.244);
+      item.set("bullion_gpu", "ddddd");
+      item.set("bullion_ozpu", 0.04);
 
       var self = this;
       item.save(null, {
