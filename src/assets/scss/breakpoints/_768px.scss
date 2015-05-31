@@ -16,20 +16,6 @@
 /******************
  * Dashboard
  ******************/
-#market-status {
-  color: $lighter_gray;
-  font: headline(1.5em);
-  padding: 0.5em 0;
-  text-transform: uppercase;
-
-  .status {
-    background: $green;
-    color: $white;
-    padding: 3px 7px 0 7px;
-    margin: 0 5px;
-    border-radius: 5px;
-  }
-}
 .fluid {
     padding-left: 90px;
 }

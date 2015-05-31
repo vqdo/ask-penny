@@ -136,6 +136,20 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+#market-status {
+  color: #CCC;
+  font: normal 1.5em "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
+  padding: 0.5em 0;
+  text-transform: uppercase;
+}
+#market-status .status {
+  background: #30D146;
+  color: #FFF;
+  padding: 3px 7px 0 7px;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
 .active-panel {
   display: block !important;
 }
@@ -262,11 +276,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .summary-panel-main .overview-spot,
+.summary-panel-main #market-status,
 .summary-panel-stack .middle,
 .summary-panel-graph .middle,
 .summary-panel-stack .overview-stack,
 .summary-panel-graph #bullion-graph {
-  display: block;
+  display: block !important;
 }
 
 #market-time-change {
@@ -404,20 +419,6 @@ footer h1 {
   /******************
    * Dashboard
    ******************/
-  #market-status {
-    color: #CCC;
-    font: normal 1.5em "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
-    padding: 0.5em 0;
-    text-transform: uppercase;
-  }
-  #market-status .status {
-    background: #30D146;
-    color: #FFF;
-    padding: 3px 7px 0 7px;
-    margin: 0 5px;
-    border-radius: 5px;
-  }
-
   .fluid {
     padding-left: 90px;
   }

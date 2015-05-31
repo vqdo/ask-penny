@@ -12,8 +12,12 @@ define(
   var StackPanel = Backbone.View.extend({
   
     events: {
-      'click .tabular': 'collActive',
-      'click .graph': 'graphActive'
+      'click .tabular': function() { 
+        this.setActive($('#bullion-coll'))
+      },
+      'click .graph': function() { 
+        this.setActive($('#bullion-graph'), this.subviews.graph)
+      }
     
     },
     template: template,
@@ -72,7 +76,13 @@ define(
         this.subviews.spotOverview.$el
           .appendTo(this.$el.find('#bullion-summaries'));
         this.subviews.currentValue.$el
-          .appendTo(this.$el.find('#current-value'));          
+          .appendTo(this.$el.find('#current-value'));  
+
+        this.subviews.graph = new BullionGraph({
+          el: this.$el.find('#bullion-graph'),
+          pageId: this.options.pageId
+        });                
+        //this.subviews.graph.render();
 
         this.initialized = true;
       } else {
@@ -81,28 +91,26 @@ define(
         });
       }
 
-      this.renderGraph();
 
-      console.log(this.subviews.spotOverview.collection.attributes)
-      // this.renderGraph();
-      var $activePanel = this.$el.find('#bullion-coll');
-      $activePanel.addClass("active-panel");
-      // wishful thinking
-      $(".tabular").css("background", "darkGray");
-      $(".graph").css("background", "white");
+      //this.renderGraph();
+
+      //console.log(this.subviews.spotOverview.collection.attributes)
+      this.setActive(this.$el.find('#bullion-coll'));
+      //this.$activePanel = this.$el.find('#bullion-coll');
+      //this.$activePanel.addClass("active-panel");
       return this;
     },
     
-    renderGraph: function() {
-      if(!this.subviews.graph) {
-        this.subviews.graph = new BullionGraph({
-          el: this.$el.find('#bullion-graph'),
-          pageId: this.options.pageId
-        });
-      } else {
-        this.subviews.graph.render();
-      }
-    },
+    // renderGraph: function() {
+    //   if(!this.subviews.graph) {
+    //     this.subviews.graph = new BullionGraph({
+    //       el: this.$el.find('#bullion-graph'),
+    //       pageId: this.options.pageId
+    //     });
+    //   } else {
+    //     this.subviews.graph.render();
+    //   }
+    // },
        
     close: function() {
       if(this.subviews.spotOverview) {
@@ -122,17 +130,28 @@ define(
       }
     },
 
-    graphActive: function() {
-      $(".graph").css("background", "darkGray");
-      $(".tabular").css("background", "white");
+    setActive: function($el, view) {
+      var activeClass = 'active-panel';
+      if(this.$activePanel) {
+        this.$activePanel.removeClass(activeClass);
+      }
+      this.$activePanel = $el.addClass(activeClass);
 
-      var $activePanel = $('.active-panel');
-      $activePanel.removeClass('active-panel');
+      // Ideally pass in just one arg, the view - but good enough
+      if(view) {
+        view.render();
+      }
+    },
+
+    graphActive: function() {
+
+      //this.$activePanel = $('.active-panel');
+      this.$activePanel.removeClass('active-panel');
       
       var $bullionGraph = this.$el.find('#bullion-graph');
       $bullionGraph.addClass("active-panel");
 
-      this.renderGraph();
+      //this.renderGraph();
     },
 
     collActive: function() {
@@ -142,9 +161,6 @@ define(
       var $bullionColl = this.$el.find('#bullion-coll');
       $bullionColl.addClass("active-panel");
 
-      // TODO: fix
-      $(".tabular").css("background", "darkGray");
-      $(".graph").css("background", "white");
     }
 
   });                 

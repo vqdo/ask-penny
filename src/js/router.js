@@ -7,7 +7,7 @@ define(["backbone", "app"], function(Backbone, app) {
         "dashboard(/)":                         "dashboard",
         "dashboard/stack/:bullion":             "stack",  
         "dashboard/stack/:bullion/add":         "add",        
-        "dashboard/stack/:bullion/view/:id(/)":      "view"
+        "dashboard/stack/:bullion/view/:id(/)": "view"
       }
 
     });

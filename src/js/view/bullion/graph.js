@@ -25,9 +25,11 @@ define(
     createCanvasGraph: function() {
       var graph = this.$el;
 
+      if(!this.collection.attributes) return;
+
       var dataSet = [];
       _.each(this.collection.attributes, function(data) {
-        
+        console.log(data);
         if(this.options.pageId && this.options.pageId !== data.name.toLowerCase()) {
           return;
         }
@@ -70,7 +72,7 @@ define(
             dataPoints: []
           };
 
-          graphData.color = "white";
+          //graphData.color = "white";
         }
 
         _.each(data.dataPoints, function(point) {
@@ -130,14 +132,15 @@ define(
     },
 
     render: function() {
-      console.log(this.collection.attributes);
+
+      console.log("RENDERING!");
       if(!this.canvasGraph) {
         this.createCanvasGraph();
       }
 
-      console.log("Setting height");
       // Set height
-      this.canvasGraph.options.height = Math.max(300, this.options.matchHeight && this.options.matchHeight.height());
+      this.canvasGraph.options.height = Math.max(300, (this.options.matchHeight || 0) && this.options.matchHeight.height());
+      console.log("Setting height to " + this.canvasGraph.options.height);      
       this.canvasGraph.render();      
 
       return this;
