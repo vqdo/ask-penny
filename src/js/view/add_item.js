@@ -24,10 +24,19 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
       //item.add("qty", $("#qty").val());
       //item.add("premium", $("#premium").val());
       //item.add("unit_price", $("#unit_price").val());
-      item.add("bullion_percent", 0.999);
-      item.add("weight_per_unit", 1.244);
-      item.add("bullion_gpu", 1.244);
-      item.add("bullion_ozpu", 0.04);
+      // item.add("bullion_percent", 0.999);
+      // item.add("weight_per_unit", 1.244);
+      item.add("bullion_gpu", "ddddd");
+      // item.add("bullion_ozpu", 0.04);
+
+      item.save(null, {
+        success: function(item) {
+          console.log("success: " + item.id)
+        },
+        failure: function(item, error) {
+          console.log("failure: " + error)
+        }
+      })
       item.save();
     },
 
