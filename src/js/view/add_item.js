@@ -1,7 +1,7 @@
 define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) {
   var AddItemPanel = Backbone.View.extend({
     events: {
-      'click: .submit-btn' : 'sendToParse'
+      'click .submit-btn' : 'sendToParse'
     },
 
     template: template,
@@ -16,22 +16,19 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
 
     sendToParse: function() {
       console.log('Sending to parse!');
-      /*
+      
       Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");
-      var TestObject = Parse.Object.extend("TestObject");
-      var testObject = new TestObject();
-      testObject.save({foo: "bar"}).then(function(object) {
-        alert("yay! it worked");
-      });
-      */
+      var Bullion = Parse.Object.extend("Bullion");
+      var item = new Bullion();
+      item.add("metal", $(".metal_type").value);
+      item.add("type", $(".type").value);
+      item.save();
     },
 
     render: function() {
       this.$el.html(this.template({
           // hardcoded attrs
       }));
-
-      //$(".submit-btn").addEventListener("click", sendToParse);
       return this;
     },
 
