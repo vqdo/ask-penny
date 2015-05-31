@@ -16,6 +16,8 @@ $black:		 	#222;
 
 $blue:		 	#093B5C;
 
+$purple:    #4f1643;
+$cranberry: #870028;
 $red: 			#AD2719;
 $green: 		#30D146;
 $gold:			#F0D824;
@@ -45,5 +47,17 @@ $headline-stack: "alternate-gothic-no-3-d", Helvetica, Arial, sans-serif;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  // Direction has been omitted and happens to be a color-stop
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+ 
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
 }
 

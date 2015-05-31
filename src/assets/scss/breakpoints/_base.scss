@@ -142,10 +142,11 @@ h1, h2, h3, h4, h5, h6 {
     display: block !important;
 }
 .stack-value {
-    background: $blue;
     border-top: 1px solid $white;
     color: $white;
     padding: 10px;
+
+    @include linear-gradient(45deg, $blue 0%, $purple 70%,$cranberry 100%);   
 
     h1 {
         color: $lighter-gray;
@@ -221,7 +222,7 @@ h1, h2, h3, h4, h5, h6 {
         position: relative;
 
         &:hover {
-            background: $red;
+            background: $purple;
             color: $white;
 
             .glyphicon {
@@ -370,7 +371,7 @@ h1, h2, h3, h4, h5, h6 {
  * Header
  *********************************/
 header {
-    background: $dark_gray;
+    background: $purple;
     min-height: 31px;
 
     .glyphicon {
@@ -387,7 +388,7 @@ header {
  * Footer
  *********************************/
 footer {
-    background: $dark-gray;
+    background: $purple;
     min-height: 31px;
 
     h1 {

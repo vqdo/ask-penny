@@ -129,7 +129,6 @@ define(
 
       console.log("Setting height");
       // Set height
-      console.log(this.options.matchHeight);
       this.canvasGraph.options.height = Math.max(300, this.options.matchHeight && this.options.matchHeight.height());
       this.canvasGraph.render();      
 
