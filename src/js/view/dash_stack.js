@@ -27,29 +27,28 @@ define(
 
     initialize: function(options) {
       this.options = options;
-      Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");
+    
       // Initialize views
       this.subviews.spotOverview = new SpotOverview({id: options.pageId});
       this.subviews.currentValue = new CurrentValue({
         bullionType: options.pageId,
         detailView: 'detail-view'
       });
+      
+      Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");
 
-      // if(!this.collection) {
-      //   this.collection = new BullionTypes();
-      //   this.collection.fetch();
-      // }
-      // console.log(this.pageId);
+
       var query = new Parse.Query('Bullion');
       var self = this;
       query.equalTo("metal", options.pageId).find({
         success: function(results) {
           self.renderCollection(results);
+          self.subviews.currentValue.setInventory(results);   
         },
         error: function(error) {
           console.log('You done fucked up');
         }
-      });
+      }); 
 
     },
 

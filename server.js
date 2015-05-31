@@ -78,8 +78,24 @@ function getSpotPrice(metal) {
           break;
       }
 
-      var datapoints = chopData(str);
+      var original = chopData(str);
+      var datapoints = [];
+
+      for(var i = 0; i < original.length; i++) {
+        if(original[i].y) {
+          datapoints.push(original[i]);
+        }
+      }
+      var bid = (datapoints[0].y*0.95).toFixed(2);
+      var ask = (datapoints[0].y*1.05).toFixed(2);
+      var change = (datapoints[0].y - datapoints[1].y).toFixed(2); 
+      var changeDaily = ((datapoints[0].y - datapoints[1].y)/datapoints[0].y).toFixed(2);
+      var changeOverall = ((datapoints[0].y - datapoints[datapoints.length-1].y)/datapoints[0].y).toFixed(2);
       spotPrices[spotPrices.length] = {"name":type, "color":color, "dataPoints": datapoints};
+      dailySpot[dailySpot.length] = {"name":metal, "total": datapoints[0].y, "spot":{"bid": bid ,"ask": ask, "change": change}, "ounces":10, "changeDaily": changeDaily, "changeOverall": changeOverall}
+      console.log('latest' + datapoints[0].y);
+      console.log('next' + datapoints[1].y);
+      console.log('first' + datapoints[datapoints.length -1].y);
     });
   }
 
@@ -135,7 +151,7 @@ var server = app.listen(process.env.PORT || 8080, function () {
   console.log('Listening at http://%s:%s', host, port);
 
   app.get('/bullion/dailyspot', function (req, res) {
-    var data = dailySpot;
+    var data = dataBullionTypes;
     res.writeHead("200", {'content-type': 'application/json'});
     res.end(JSON.stringify(data));
   });
@@ -158,22 +174,27 @@ var server = app.listen(process.env.PORT || 8080, function () {
     // Then remove/replace all this:
 
 
-    var data = dataBullionTypes;
+    var data = dailySpot;
 
     res.writeHead("200", {'content-type': 'application/json'});    
     if(!type) {
       res.end(JSON.stringify(data));
-    } else if (type === "all") {
-      // Dashboard main - make up something
+    } 
+    else if (type === "all") {
+      console.log("ALL");
+      var spots = {};
+      for(var i = 0; i < data.length; i++) {
+        var current = data[i];
+        spots[current.name] = current.spot;
+      }
+
       res.end(JSON.stringify({
         name: "Stack",
-        total: "24502.40",
-        change: "5",
-        changeOverall: "5",
+        spots: spots
       }));
     } 
     else {
-      var types = dataBullionTypes;     
+      var types = dailySpot;     
       for(var i = 0; i < types.length; i++) {
         var current = types[i];
         if(current.name === type) {

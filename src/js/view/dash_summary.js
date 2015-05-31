@@ -26,6 +26,18 @@ define(
         detailView: 'simple-view'
       });
 
+      Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");
+      var query = new Parse.Query('Bullion');
+      var self = this;
+      query.find({
+        success: function(results) {
+          self.subviews.currentValue.setInventory(results);   
+        },
+        error: function(error) {
+          console.log('You done fucked up');
+        }
+      });       
+
       this.$el.on('click', '#graph-link', function() {
         self.toggleDisplay('graph');
       });
