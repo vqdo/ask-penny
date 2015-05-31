@@ -8,7 +8,11 @@ define(['vendor/tpl!../../templates/login.html', 'app', 'facebook'], function (t
     id: "dashboard",
 
     initialize: function() {
+
+      console.log(sessionStorage)
       // optional ctor
+      if(sessionStorage.uid != "")
+        window.location.href = "#/dashboard"
 
     },
 
@@ -25,8 +29,7 @@ define(['vendor/tpl!../../templates/login.html', 'app', 'facebook'], function (t
       FB.login(function(response) {
         if (response.authResponse) {
           window.location.href = "#/dashboard";
-          console.log(FB);
-          console.log(FB.getUserID())
+          sessionStorage.uid = FB.getUserID();
         } else {
           console.log("unable to login")
         }
