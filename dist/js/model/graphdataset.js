@@ -1,7 +1,7 @@
 define(['app', 'model/graphdata'], function (app, GraphData) {
   var GraphDataSet = Backbone.Model.extend({
     model: GraphData,
-    url: '/bullion/alldata',
+    url: '/bullion/allspots',
 
  //    function() {
 
