@@ -16,11 +16,11 @@ define(['app'], function (app) {
     fetch: function(id) {
       // Parse
       var dfd = new jQuery.Deferred();
-      
+      /*
       Parse.query(id, function(data) {
         this.set(data);
         dfd.resolve();
-      }
+      } */
 
       return dfd.promise();
     }

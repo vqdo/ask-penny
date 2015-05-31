@@ -5,7 +5,6 @@ define([
   var ItemDetailPanel = Backbone.View.extend({
     template: template,
 
-    var object = null;
     initialize: function(options) {
       // optional ctor
       this.options = options;
@@ -35,11 +34,6 @@ define([
         this.model.unbind("change", this.modelChanged);
       }
     }
-
-    update: funciton() {
-      var uniqueId = this.options.dbID;
-
-    }    
   });                 
 
   return ItemDetailPanel;

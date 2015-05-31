@@ -8,7 +8,14 @@ define(
     initialize: function(options) {
       this.collection = this.collection || new GraphDataSet();
 
-      this.collection.fetch();      
+      this.collection.fetch({
+        success: function(m, data) {
+          console.log(data);
+        },
+        error: function(m, data) {
+          console.error(data);
+        }
+      });      
       this.collection.on('change', this.render, this);
 
       this.options = options;
@@ -123,6 +130,7 @@ define(
     },
 
     render: function() {
+      console.log(this.collection.attributes);
       if(!this.canvasGraph) {
         this.createCanvasGraph();
       }

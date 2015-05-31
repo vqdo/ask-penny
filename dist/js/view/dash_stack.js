@@ -23,7 +23,7 @@ define(
 
     initialize: function(options) {
       this.options = options;
-
+      Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");
       // Initialize views
       this.subviews.spotOverview = new SpotOverview({id: options.pageId});
       this.subviews.currentValue = new CurrentValue({bullionType: options.pageId});
@@ -33,8 +33,36 @@ define(
       //   this.collection.fetch();
       // }
       // console.log(this.pageId);
+      var query = new Parse.Query('Bullion');
+      var self = this;
+      query.equalTo("metal", options.pageId).find({
+        success: function(results) {
+          self.renderCollection(results);
+        },
+        error: function(error) {
+          console.log('You done fucked up');
+        }
+      });
 
+    },
 
+    renderCollection: function(data) {
+      var arrLength = data.length;
+      //alert('we found' + arrLength + ' matches');
+      var table = $('.collection');
+      for (var i = 0; i < arrLength; i++) {
+        var obj = data[i];
+        var newRow = '<tr>' +  '<td class="hidden-xs col-image">' + 
+          '<a href="#/dashboard/stack/' + this.options.pageId + '/view/' + obj.id + '"">' +
+          '<span class="glyphicon glyphicon-picture"></span></a></td>' + 
+          '<td class="col-item">' + obj.get("type") + '</td>' +
+          '<td class="col-qty">' + obj.get("qty") + '</td>' + 
+          '<td class="col-weight">' + obj.get("weight_per_unit") + '</td>' + 
+          '<td class="col-percent">' + obj.get("bullion_percent") + '</td>' +
+          '<td class="col-value"><a href="#/dashboard/stack/' + this.options.pageId + '/view/' + obj.id + '"">' +
+            obj.get("unit_price") + '</a></td></tr>';
+        table.append(newRow);
+      }
     },
 
     render: function() {
@@ -54,12 +82,6 @@ define(
       }
 
       this.renderGraph();
-
-      //dynamically add rows to graph
-      var collTable = document.getElementById("collection-table");
-      
-
-
 
       console.log(this.subviews.spotOverview.collection.attributes)
       // this.renderGraph();
