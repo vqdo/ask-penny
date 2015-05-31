@@ -64,17 +64,17 @@ function getSpotPrice(metal) {
       switch(metal) {
         case 'gold':
           type = "Gold";
-          color = "#FFD700"
+          color = "#F2EAD0"
           break;
     
         case 'silver':
           type = "Silver";
-          color = "#808080"
+          color = "#CCCCCC"
           break;
       
         case 'platinum':
           type = "Platinum";
-          color = "#E5E4E2"
+          color = "#D1E3E6"
           break;
       }
 
@@ -138,7 +138,7 @@ var server = app.listen(process.env.PORT || 8080, function () {
     var data = dailySpot;
     res.writeHead("200", {'content-type': 'application/json'});
     res.end(JSON.stringify(data));
-  }
+  });
   
   app.get('/bullion/allspots', function (req, res) {
     console.log('DATADATADATA');
