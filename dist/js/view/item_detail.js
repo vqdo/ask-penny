@@ -45,7 +45,7 @@ define([
       console.log('Updating to parse!');
       this.model.update(self.options.itemId).then(function() {
         console.log(this);
-        // window.location.replace('#/dashboard/stack/' + self.options.pageId);
+        window.location.replace('#/dashboard/stack/' + self.options.pageId);
       });
     },
 
