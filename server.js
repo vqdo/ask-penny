@@ -58,6 +58,7 @@ function getSpotPrice(metal) {
 
     response.on('end', function() {
       console.log('spot prices for ' + metal + '\n' + str);
+      spotPrices[metal] = str;
     });
   }
 

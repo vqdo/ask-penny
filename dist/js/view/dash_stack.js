@@ -55,6 +55,9 @@ define(
 
       this.renderGraph();
 
+      //dynamically add rows to graph
+      var collTable = document.getElementById("collection-table");
+
 
       console.log(this.subviews.spotOverview.collection.attributes)
       // this.renderGraph();
