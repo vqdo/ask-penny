@@ -5,7 +5,8 @@ define(
     'view/bullion/spot_overview',
     'view/bullion/current_value',
     'model/inventory',
-    'app' 
+    'app',
+    'facebook' 
   ],
 
 
@@ -38,9 +39,8 @@ define(
 
       // TODO: Pass in user id
       this.collection = this.collection || new Inventory();
-      this.collection.fetch({ metal: options.pageId /*, userId: TODO */});
+      this.collection.fetch({ metal: options.pageId, uid: FB.getUserID() /*, userId: TODO */});
       this.collection.on('change', this.onCollection, this);
-
     },
 
     onCollection: function(data) {

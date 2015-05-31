@@ -1,4 +1,4 @@
-define(['vendor/tpl!../../templates/dashboard.html', 'app'], function (template) {
+define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], function (template) {
   var Dashboard = Backbone.View.extend({
     template: template,
     id: "dashboard",

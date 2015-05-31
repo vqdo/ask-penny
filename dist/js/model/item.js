@@ -62,9 +62,9 @@ define(['app'], function (app) {
           console.log("Fetched from Parse!");
           console.log(data);
           data.set("purchase_date", $("#purch_date_det").val());
-          data.set("qty", $("#qty_det").val());
+          data.set("qty", parseInt($("#qty_det").val()));
           data.set("premium", $("#premium_det").val());
-          data.set("unit_price", $("#unit_price_det").val());
+          data.set("unit_price", parseFloat($("#unit_price_det").val()));
           console.log(data);
           data.save(null, {
             success: function(data) {
