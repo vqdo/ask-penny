@@ -138,7 +138,7 @@ var server = app.listen(process.env.PORT || 8080, function () {
     var data = dailySpot;
     res.writeHead("200", {'content-type': 'application/json'});
     res.end(JSON.stringify(data));
-  }
+  });
   
   app.get('/bullion/allspots', function (req, res) {
     console.log('DATADATADATA');

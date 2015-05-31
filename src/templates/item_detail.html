@@ -20,19 +20,19 @@
 			</tr>	
 			<tr>
 				<td>Purchase Date</td>
-				<td><%= purchase_date %></td>
+				<td><input id="purch_date_det" type="text" value="<%= purchase_date %>"></td>
 			</tr>
 			<tr>
 				<td>Qty</td>
-				<td><%= qty %></td>
+				<td><input id="qty_det" type="text" value="<%= qty %>"></td>
 			</tr>									
 			<tr>
 				<td>Premium</td>
-				<td><%= premium %></td>
+				<td><input id="premium_det" type="text" value="<%= premium %>"></td>
 			</tr>	
 			<tr>
 				<td>Unit Price</td>
-				<td><%= unit_price %></td>
+				<td><input id="unit_price_det" type="text" value="<%= unit_price %>"></td>
 			</tr>	
 			<tr>
 				<td><%= this.options.pageId %></td>
@@ -51,6 +51,23 @@
 				<td><%= bullion_ozpu %></td>
 			</tr>											
 		</table>
+	</div>
+
+	<div class="row">
+			<div class="col-xs-3">
+				<form action="#/dashboard/stack/<%-this.options.pageId%>">
+					<button type="submit" class="update-btn fr">Update</button>
+				</form>
+			</div>
+			<div class="col-xs-9">
+				<!--
+				<form action="#/dashboard/stack/<%-this.options.pageId%>">
+				-->
+				<form>
+					<button type="submit" class="delete-btn">Delete</button>
+				</form>
+
+			</div>
 	</div>
 
 </div>

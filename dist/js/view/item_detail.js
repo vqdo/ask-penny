@@ -3,6 +3,10 @@ define([
   'model/item',
   'app'], function (template, Item) {
   var ItemDetailPanel = Backbone.View.extend({
+    events: {
+      'click .delete-btn' : 'deleteToParse',
+      'click .update-btn' : 'updateToParse'
+    },
     template: template,
 
     initialize: function(options) {
@@ -20,6 +24,28 @@ define([
       var uniqueId = this.options.itemId;
         //prase init
       // var object = Parse.getById(uniqueId);
+    },
+
+    deleteToParse: function(evt) {
+      var self = this;
+      evt.preventDefault();
+      console.log(evt);
+      console.log('Deleting to parse!');
+      this.model.del(self.options.itemId).then(function() {
+        console.log(this);
+        window.location.replace('#/dashboard/stack/' + self.options.pageId);
+      });
+    },
+
+    updateToParse: function(evt) {
+      var self = this;
+      evt.preventDefault();
+      console.log(evt);
+      console.log('Updating to parse!');
+      this.model.update(self.options.itemId).then(function() {
+        console.log(this);
+        // window.location.replace('#/dashboard/stack/' + self.options.pageId);
+      });
     },
 
     render: function() {
