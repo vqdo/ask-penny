@@ -4,11 +4,12 @@ define(
     'view/bullion/graph',
     'view/bullion/spot_overview',
     'view/bullion/current_value',
+    'model/inventory',
     'app' 
   ],
 
 
-  function (template, BullionGraph, SpotOverview, CurrentValue) {
+  function (template, BullionGraph, SpotOverview, CurrentValue, Inventory) {
   var StackPanel = Backbone.View.extend({
   
     events: {
@@ -34,30 +35,35 @@ define(
         bullionType: options.pageId,
         detailView: 'detail-view'
       });
-      
-      Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");
 
+      // TODO: Pass in user id
+      this.collection = this.collection || new Inventory();
+      this.collection.fetch({ metal: options.pageId /*, userId: TODO */});
+      this.collection.on('change', this.onCollection, this);
 
-      var query = new Parse.Query('Bullion');
-      var self = this;
-      query.equalTo("metal", options.pageId).find({
-        success: function(results) {
-          self.renderCollection(results);
-          self.subviews.currentValue.setInventory(results);   
-        },
-        error: function(error) {
-          console.log('You done fucked up');
-        }
-      }); 
+      // var query = new Parse.Query('Bullion');
+      // var self = this;
+      // query.equalTo("metal", options.pageId).find({
+      //   success: function(results) {
+      //     self.renderCollection(results);
+      //     self.subviews.currentValue.setInventory(results);   
+      //   },
+      //   error: function(error) {
+      //     console.log('You done fucked up');
+      //   }
+      // }); 
 
     },
 
+    onCollection: function(data) {
+      this.subviews.currentValue.setInventory(data.attributes);
+      this.renderCollection(data.attributes);
+    },
+
     renderCollection: function(data) {
-      var arrLength = data.length;
-      //alert('we found' + arrLength + ' matches');
+      
       var table = $('.collection');
-      for (var i = 0; i < arrLength; i++) {
-        var obj = data[i];
+      _.each(data, function(obj) {
         var newRow = '<tr>' +  '<td class="hidden-xs col-image">' + 
           '<a href="#/dashboard/stack/' + this.options.pageId + '/view/' + obj.id + '"">' +
           '<span class="glyphicon glyphicon-picture"></span></a></td>' + 
@@ -68,7 +74,8 @@ define(
           '<td class="col-value"><a href="#/dashboard/stack/' + this.options.pageId + '/view/' + obj.id + '"">' +
             obj.get("unit_price") + '</a></td></tr>';
         table.append(newRow);
-      }
+      }, this);
+
     },
 
     render: function() {

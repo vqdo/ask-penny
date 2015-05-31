@@ -36,21 +36,17 @@ define(
       attr.detailView = this.options.detailView;
       attr.valueBoxWidth = (attr.detailView === 'detail-view')? 'col-xs-6' : 'col-xs-12';      
       
-      if(this.model && this.inventory) {
-        console.log(this.model);
+      if(this.model && this.inventory) {     
         var spots = attr.spots || {};
         if(!attr.spots) {
           spots[this.options.bullionType] = attr.spot;
         }
-        console.log(spots);
 
-        var total = this.inventory.reduce(function(acc, data) {
-          var type = data.get('metal');
-          console.log(type[0]);
-          var value = data.get('qty') * spots[type].bid;
+        var total = _.values(this.inventory).reduce(function(acc, data) {
+          var type = data.attributes.metal;
+          var value = data.attributes.qty * spots[type].bid;
           acc += isNaN(value)? 0 : value;
           return acc;
-                    //console.log(data.get('qty'));
         }, 0);
       
         attr.changeOverall = addDecoration(attr.changeOverall);

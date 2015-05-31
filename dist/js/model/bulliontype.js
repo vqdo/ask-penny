@@ -17,7 +17,7 @@ define(['app'], function (app) {
         + '/' + encodeURIComponent(this.get('user') || "someuser")
         + '/' + encodeURIComponent(this.get('bullionType') || "all");
     },
-    initalize: function() {
+    initialize: function() {
 
     }
   });

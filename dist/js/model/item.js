@@ -1,7 +1,7 @@
 define(['app'], function (app) {
   var BullionType = Backbone.Model.extend({
     
-    initalize: function() {
+    initialize: function() {
 
     },
     fetch: function(id) {

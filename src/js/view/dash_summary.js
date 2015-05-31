@@ -4,11 +4,12 @@ define(
     'view/bullion/spot_overview', 
     'view/bullion/current_value', 
     'view/bullion/graph',
+    'model/inventory',
     'app' 
     //,'canvasjs'
   ], 
 
-  function (template, SpotOverview, CurrentValue, BullionGraph) {
+  function (template, SpotOverview, CurrentValue, BullionGraph, Inventory) {
   
   var SummaryPanel = Backbone.View.extend({
     template: template,
@@ -26,17 +27,10 @@ define(
         detailView: 'simple-view'
       });
 
-      Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G", "Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG");
-      var query = new Parse.Query('Bullion');
-      var self = this;
-      query.find({
-        success: function(results) {
-          self.subviews.currentValue.setInventory(results);   
-        },
-        error: function(error) {
-          console.log('You done fucked up');
-        }
-      });       
+      // TODO: Pass in user id
+      this.collection = this.collection || new Inventory();
+      this.collection.fetch({ /*, userId: TODO */});
+      this.collection.on('change', this.onCollection, this);      
 
       this.$el.on('click', '#graph-link', function() {
         self.toggleDisplay('graph');
@@ -52,6 +46,10 @@ define(
         self.toggleDisplay('stack');
       });
 
+    },
+
+    onCollection: function(results) {
+      this.subviews.currentValue.setInventory(results.attributes);
     },
 
     render: function() {
