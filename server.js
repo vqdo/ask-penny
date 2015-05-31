@@ -192,8 +192,8 @@ var server = app.listen(process.env.PORT || 8080, function () {
       res.end(JSON.stringify({
         name: "Stack",
         spots: spots,
-        changeDaily: data.reduce(function(acc, item) { return acc + +item.changeDaily }, 0) / data.length,
-        changeOverall: data.reduce(function(acc, item) { return acc + +item.changeOverall }, 0) / data.length
+        changeDaily: (data.reduce(function(acc, item) { return acc + +item.changeDaily }, 0) / data.length).toFixed(2),
+        changeOverall: (data.reduce(function(acc, item) { return acc + +item.changeOverall }, 0) / data.length).toFixed(2)
       }));
     } 
     else {

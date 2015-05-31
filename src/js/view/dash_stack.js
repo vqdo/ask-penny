@@ -37,9 +37,8 @@ define(
         detailView: 'detail-view'
       });
 
-      // TODO: Pass in user id
       this.collection = this.collection || new Inventory();
-      this.collection.fetch({ metal: options.pageId, uid: FB.getUserID() /*, userId: TODO */});
+      this.collection.fetch({ metal: options.pageId, uid: FB.getUserID()});
       this.collection.on('change', this.onCollection, this);
     },
 

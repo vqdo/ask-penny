@@ -14,7 +14,7 @@ define(
       if(this.options.bullionType) 
         this.model.set('bullionType', options.bullionType);
 
-      this.model.fetch(); 
+      this.model.fetch({cache: true}); 
       this.model.on('change', this.render, this);
 
 
@@ -56,7 +56,7 @@ define(
         }, 0);
       
         attr.changeOverall = addDecoration(attr.changeOverall);
-        attr.changeDaily = attr.changeDaily && addDecoration(attr.changeDaily); 
+        attr.changeDaily =  addDecoration(attr.changeDaily || 0); 
         attr.total = total;      
       }
 
