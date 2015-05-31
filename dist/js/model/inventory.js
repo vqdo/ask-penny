@@ -20,12 +20,13 @@ function (app, Item) {
       var self = this;
 
       // Add constraints
-      console.log(attr.metal);
       if(attr.metal)  query = query.equalTo('metal', attr.metal);
-      if(attr.uid) query = query.equalTo('user', attr.uid);
+      if(attr.uid)    query = query.equalTo('uid', attr.uid);
+      console.log(attr);
 
       query.find({
         success: function(results) {
+          console.log(results);
           self.set(results);
           dfd.resolve(results);
         },
