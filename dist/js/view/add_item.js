@@ -31,10 +31,11 @@ define(['vendor/tpl!../../templates/add_item.html', 'app'], function (template) 
       item.add("bullion_gpu", "ddddd");
       item.add("bullion_ozpu", 0.04);
 
+      var self = this;
       item.save(null, {
         success: function(item) {
           console.log("success: " + item.id)
-          window.location.replace('#/dashboard/stack/' + this.options.pageId);
+          window.location.replace('#/dashboard/stack/' + self.options.pageId);
         },
         failure: function(item, error) {
           console.log("failure: " + error)
