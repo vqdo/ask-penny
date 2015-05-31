@@ -94,7 +94,7 @@ function chopData(str) {
   for (var i=1; i < lines.length; i++) {
     var vals = lines[i].split(',');
     console.log(String(vals[0]));
-    json.push({"x":""+vals[0], "y": vals[1]});
+    json.push({"x":vals[0], "y": vals[1]});
   }
   return json;
 }
@@ -102,7 +102,7 @@ function chopData(str) {
 function formatDate(time) {
   var date = new Date(time);
   var day = date.getDate();
-  var mo = date.getMonth();
+  var mo = date.getMonth() +1;
   var yr = date.getFullYear();
 
   if (day < 10) {

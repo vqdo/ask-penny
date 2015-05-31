@@ -50,13 +50,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .middle {
   text-align: center;
-  background-color: #CCC;
+  background: #870028;
+  border-top: 1px solid #FFF;
 }
-.middle .tabular {
-  background-color: #999;
+.middle .tabular, .middle .graph {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: #FFF;
 }
-.middle .graph {
-  background-color: #FFF;
+.middle .tabular.selected, .middle .graph.selected {
+  color: #870028;
+  background: #FFF;
+}
+
+.summary-panel-stack .tabular, .summary-panel-graph .graph {
+  background: #FFF;
+  color: #870028;
 }
 
 .ungrid {
@@ -190,6 +200,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .my-stack #bullion-graph {
   display: none;
+  min-height: 300px;
 }
 
 #dashboard-stack .stack-value h1 {
@@ -224,9 +235,8 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid #F2F2F2;
   border-top: 2px solid #CCC;
   color: #093B5C;
-  text-align: center;
   margin-top: 0;
-  padding: 4px 0;
+  padding: 4px 10px;
   position: relative;
 }
 .bullion-summary h1:hover {
@@ -275,13 +285,16 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 10px;
 }
 
+.summary-panel-main #market-status {
+  display: block !important;
+}
+
 .summary-panel-main .overview-spot,
-.summary-panel-main #market-status,
 .summary-panel-stack .middle,
 .summary-panel-graph .middle,
 .summary-panel-stack .overview-stack,
 .summary-panel-graph #bullion-graph {
-  display: block !important;
+  display: block;
 }
 
 #market-time-change {
@@ -426,6 +439,10 @@ footer h1 {
   #bullion-graph {
     display: block;
     min-height: 300px;
+  }
+
+  .bullion-summary h1 {
+    text-align: center;
   }
 
   .my-stack #bullion-graph, .my-stack .overview-spot {

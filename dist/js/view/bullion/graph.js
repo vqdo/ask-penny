@@ -78,7 +78,7 @@ define(
         _.each(data.dataPoints, function(point) {
           graphData.dataPoints.push({
             x: new Date(point.x),
-            y: point.y
+            y: +point.y
           });
 
           if(graphTotalData) {
@@ -139,8 +139,11 @@ define(
       }
 
       // Set height
-      this.canvasGraph.options.height = Math.max(300, (this.options.matchHeight || 0) && this.options.matchHeight.height());
-      console.log("Setting height to " + this.canvasGraph.options.height);      
+      // console.log("Match height: " + this.options.matchHeight.height());
+      // var targetHeight = Math.min(Math.max(300, (this.options.matchHeight || 0) && this.options.matchHeight.height()), $(window).height());
+      // this.canvasGraph.options.height = targetHeight;
+      // this.$el.height(targetHeight);
+      // console.log("Setting height to " + targetHeight);      
       this.canvasGraph.render();      
 
       return this;
