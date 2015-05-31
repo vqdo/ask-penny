@@ -1,26 +1,26 @@
 define(['app'], function (app) {
   var BullionType = Backbone.Model.extend({
-    defaults: {
-      name: 'this is default data',
-      total: 5000,
-      spot: {
-        bid : 1206,
-        ask : 1207,
-        change: 23
-      },
-      value: 18234.10,
-    },
+    
     initalize: function() {
 
     },
     fetch: function(id) {
-      // Parse
+      var Bullion = Parse.Object.extend("Bullion");
+      var query = new Parse.Query(Bullion);
       var dfd = new jQuery.Deferred();
-      
-      Parse.query(id, function(data) {
-        this.set(data);
-        dfd.resolve();
-      }
+      var self = this;
+
+      query.get(id, {
+        success: function(data) {
+          console.log("Fetched from Parse!");
+          console.log(data);
+          self.set(data.attributes);
+          dfd.resolve();
+        },
+        error: function(data, error) {
+          console.log("failure: " + error);
+        }
+      });
 
       return dfd.promise();
     }
