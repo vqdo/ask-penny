@@ -134,11 +134,12 @@ var server = app.listen(process.env.PORT || 8080, function () {
 
   console.log('Listening at http://%s:%s', host, port);
 
-  app.get)'/bullion/dailyspot', function (req, res) {
+  app.get('/bullion/dailyspot', function (req, res) {
     var data = dailySpot;
     res.writeHead("200", {'content-type': 'application/json'});
     res.end(JSON.stringify(data));
   }
+  
   app.get('/bullion/allspots', function (req, res) {
     console.log('DATADATADATA');
     var data = spotPrices;
