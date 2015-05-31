@@ -56,12 +56,13 @@ define(
     },
 
     onCollection: function(data) {
+      console.log(data);
       this.subviews.currentValue.setInventory(data.attributes);
       this.renderCollection(data.attributes);
     },
 
     renderCollection: function(data) {
-      
+      console.log(data);
       var table = $('.collection');
       _.each(data, function(obj) {
         var newRow = '<tr>' +  '<td class="hidden-xs col-image">' + 
