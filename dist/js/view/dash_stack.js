@@ -39,20 +39,23 @@ define(
 
       // TODO: Pass in user id
       this.collection = this.collection || new Inventory();
-      this.collection.fetch({ metal: options.pageId /*, userId: TODO */});
+      this.collection.fetch({ metal: options.pageId, uid: FB.getUserID() /*, userId: TODO */});
       this.collection.on('change', this.onCollection, this);
 
-      // var query = new Parse.Query('Bullion');
-      // var self = this;
-      // query.equalTo("metal", options.pageId).find({
-      //   success: function(results) {
-      //     self.renderCollection(results);
-      //     self.subviews.currentValue.setInventory(results);   
-      //   },
-      //   error: function(error) {
-      //     console.log('You done fucked up');
-      //   }
-      // }); 
+
+      console.log(this.collection)
+
+      var query = new Parse.Query('Bullion');
+      var self = this;
+      query.equalTo("metal", options.pageId).equalTo("uid", FB.getUserID()).find({
+        success: function(results) {
+          self.renderCollection(results);
+          self.subviews.currentValue.setInventory(results);   
+        },
+        error: function(error) {
+          console.log('You done fucked up');
+        }
+      }); 
 
     },
 
