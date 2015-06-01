@@ -1,11 +1,10 @@
 # Ask Penny
 
 ## How to Run
-Live at http://askpenny.victoriado.com
 
-OR
+'npm start' from the root directory and go to localhost:8080
 
-Locally: npm start and go to localhost:8080
+You MUST run on localhost:8080 for FB login to work! 
 
 ## Technical Notes
 ### Frameworks and Libraries
