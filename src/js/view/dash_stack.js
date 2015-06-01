@@ -28,20 +28,20 @@ define(
     pageId: "",
     data: {},
 
-    queryParse: function() {
-      var query = new Parse.Query('Bullion');
-      var self = this;
-      query.equalTo("metal", self.options.pageId).equalTo("uid", FB.getUserID()).find({
-      //query.equalTo("metal", self.options.pageId).find({  
-        success: function(results) {
-          self.renderCollection(results);
-          self.subviews.currentValue.setInventory(results);   
-        },
-        error: function(error) {
-          console.log('You done fucked up');
-        }
-      }); 
-    }, 
+    // queryParse: function() {
+    //   var query = new Parse.Query('Bullion');
+    //   var self = this;
+    //   query.equalTo("metal", self.options.pageId).equalTo("uid", FB.getUserID()).find({
+    //   //query.equalTo("metal", self.options.pageId).find({  
+    //     success: function(results) {
+    //       self.renderCollection(results);
+    //       self.subviews.currentValue.setInventory(results);   
+    //     },
+    //     error: function(error) {
+    //       console.log('You done fucked up');
+    //     }
+    //   }); 
+    // }, 
 
     initialize: function(options) {
       this.options = options;
@@ -57,7 +57,7 @@ define(
       this.collection.fetch({ metal: options.pageId, uid: sessionStorage.uid});
       this.collection.on('change', this.onCollection, this);
       console.log(this.collection)
-      this.queryParse();
+      //this.queryParse();
 
     },
 
@@ -65,6 +65,19 @@ define(
       console.log(data);
       this.subviews.currentValue.setInventory(data.attributes);
       this.renderCollection(data.attributes);
+      this.inventory = data.attributes;
+      //this.render();
+
+
+      if(this.subviews.graph) this.subviews.graph.close();
+
+      this.subviews.graph = new BullionGraph({
+        el: this.$el.find('#bullion-graph'),
+        pageId: this.options.pageId,
+        inventory: data.attributes
+      });          
+      
+
     },
 
     renderCollection: function(data) {
@@ -97,22 +110,23 @@ define(
         this.subviews.spotOverview.$el
           .appendTo(this.$el.find('#bullion-summaries'));
         this.subviews.currentValue.$el
-          .appendTo(this.$el.find('#current-value'));  
+          .appendTo(this.$el.find('#current-value'));                
+        //this.subviews.graph.render();
 
         this.subviews.graph = new BullionGraph({
           el: this.$el.find('#bullion-graph'),
-          pageId: this.options.pageId
-        });                
-        //this.subviews.graph.render();
+          pageId: this.options.pageId,
+          inventory: this.inventory
+        });            
 
         this.initialized = true;
       } else {
         $.each(this.subviews, function(k, subview) {
           subview.render();
         });
-      }
+      } 
 
-      this.queryParse();
+      //this.queryParse();
       //this.renderGraph();
 
       //console.log(this.subviews.spotOverview.collection.attributes)

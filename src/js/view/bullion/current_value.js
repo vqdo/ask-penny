@@ -33,13 +33,15 @@ define(
         return ((+value > 0)? '+' : '') + (+value).toFixed(2) + '%';
       }
       
-      var attr = this.model.attributes;
+      var attr = _.clone(this.model.attributes);
 
       // Display Daily+Overall or simple view
       attr.detailView = this.options.detailView;
       attr.valueBoxWidth = (attr.detailView === 'detail-view')? 'col-xs-6' : 'col-xs-12';      
       
-      if(!$.isEmptyObject(this.model.attributes) && this.inventory) {     
+      //var total = attr.total || 0;
+      if(!$.isEmptyObject(attr) && this.inventory) {     
+        console.log("!");
         var spots = attr.spots || {};
 
         // Create object containing current spot prices
@@ -47,18 +49,17 @@ define(
           spots[this.options.bullionType] = attr.spot;
         }
 
-        var total = _.values(this.inventory).reduce(function(acc, data) {
+        attr.total = _.values(this.inventory).reduce(function(acc, data) {
           var type = data.attributes.metal;
           console.log(type);
           var value = data.attributes.qty * spots[type].bid;
           acc += isNaN(value)? 0 : value;
           return acc;
         }, 0);
-      
-        attr.changeOverall = addDecoration(attr.changeOverall);
-        attr.changeDaily =  addDecoration(attr.changeDaily || 0); 
-        attr.total = total;      
       }
+      //attr.total = total;       
+      attr.changeOverall = attr.total ? addDecoration(attr.changeOverall || 0) : addDecoration(0);
+      attr.changeDaily =  attr.total ? addDecoration(attr.changeDaily || 0) : addDecoration(0);    
 
       this.$el.html(this.template(attr));
       return this;

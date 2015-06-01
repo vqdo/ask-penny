@@ -50,6 +50,7 @@ define(
 
     onCollection: function(results) {
       this.subviews.currentValue.setInventory(results.attributes);
+      this.renderGraph(results.attributes);
     },
 
     render: function() {
@@ -101,16 +102,28 @@ define(
       }
     },
 
-    renderGraph: function() {
-      if(!this.subviews.graph) {
-        //console.log(this.$el.find('.my-stack').height());
-        this.subviews.graph = new BullionGraph({
-          el:     this.$el.find('#bullion-graph'),
-          matchHeight: this.$el.find('.my-stack')
-        });
-      } else {
-        this.subviews.graph.render();
-      }
+    renderGraph: function(inventory) {
+      // if(!this.subviews.graph) {
+      //   //if(!inventory) return;
+      //   console.log(inventory);
+      //   //console.log(this.$el.find('.my-stack').height());
+      //   this.subviews.graph = new BullionGraph({
+      //     el:     this.$el.find('#bullion-graph'),
+      //     matchHeight: this.$el.find('.my-stack'),
+      //     inventory: inventory
+      //   });
+      // } else {
+      //   this.subviews.graph.render();
+      // }
+
+      if(this.subviews.graph) this.subviews.graph.close();
+
+      console.log("!");
+      this.subviews.graph = new BullionGraph({
+        el:     this.$el.find('#bullion-graph'),
+        matchHeight: this.$el.find('.my-stack'),
+        inventory: inventory
+      });      
     },
 
     close: function() {

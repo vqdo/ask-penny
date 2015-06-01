@@ -18,12 +18,13 @@ define(
       });      
       this.collection.on('change', this.render, this);
 
-      this.options = options;
+      this.options = options;     
       console.log(this.options);
     },
 
     createCanvasGraph: function() {
       var graph = this.$el;
+      console.log(this.collection);
 
       if(!this.collection.attributes) return;
 
@@ -60,12 +61,12 @@ define(
 
         var self = this;
 
-        if(self.options && self.options.pageId) {
+        if(self.options) {
           var graphTotalData = {
             type: "splineArea",
             showInLegend: true,
             lineThickness: 2,
-            name: "My total " + data.name + " value", 
+            name: "Total " + data.name , 
             color: data.color,
             markerType: "square",
             dataPoints: []
@@ -80,10 +81,17 @@ define(
             y: +point.y
           });
 
-          if(graphTotalData) {
+          if(graphTotalData) {           
+            //var qty;
+
+            var qty = _.values(self.options.inventory).reduce(function(acc, data) {
+              var value = data.attributes.qty ;
+              acc += isNaN(value)? 0 : value;
+              return acc;
+            }, 0);
             graphTotalData.dataPoints.push({
               x: new Date(point.x),
-              y: point.y * 10
+              y: point.y * qty
             });
           }
         });
@@ -130,6 +138,7 @@ define(
     },
 
     render: function() {
+      console.log(this.options.inventory);
       if(!this.canvasGraph) {
         this.createCanvasGraph();
       }
@@ -146,7 +155,7 @@ define(
     },
 
     close: function() {
-      this.remove();
+      this.$el.children().remove();
       this.unbind();
 
       if(this.collection) {
