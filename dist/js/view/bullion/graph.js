@@ -84,8 +84,11 @@ define(
           if(graphTotalData) {           
             //var qty;
 
-            var qty = _.values(self.options.inventory).reduce(function(acc, data) {
-              var value = data.attributes.qty ;
+            var qty = _.values(self.options.inventory).reduce(function(acc, metal_data) {
+              var value = 0;
+              if (metal_data.attributes.metal ===  data.name.toLowerCase()) {
+                value = metal_data.attributes.qty;
+              }
               acc += isNaN(value)? 0 : value;
               return acc;
             }, 0);
@@ -93,6 +96,7 @@ define(
               x: new Date(point.x),
               y: point.y * qty
             });
+
           }
         });
 
