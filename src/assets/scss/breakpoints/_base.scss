@@ -387,7 +387,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /**********************************
- * Item detail
+ * Add Item
  *********************************/
 .submit-btn {
     background: $light-gray;
@@ -398,6 +398,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cancel-btn {
+    background: $white;
+    color: $light-gray;
+    border: 0;
+    font-size: 11px;
+    padding-top: 5px;
+
+}
+
+/**********************************
+ * Item detail
+ *********************************/
+.update-btn {
+    background: $light-gray;
+    color: $white;
+    width: 180px;
+    font-size: 11px;
+    border: 0;
+}
+
+.delete-btn {
     background: $white;
     color: $light-gray;
     border: 0;
