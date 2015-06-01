@@ -29,7 +29,7 @@ define(
       });
 
       this.collection = this.collection || new Inventory();
-      this.collection.fetch({  uid: FB.getUserID()});
+      this.collection.fetch({  uid: sessionStorage.uid});
       this.collection.on('change', this.onCollection, this);      
 
       this.$el.on('click', '#graph-link', function() {
