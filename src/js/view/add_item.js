@@ -20,7 +20,7 @@ define(['vendor/tpl!../../templates/add_item.html', 'app', 'facebook'], function
       console.log('Sending to parse!');
       var Bullion = Parse.Object.extend("Bullion");
       var item = new Bullion();
-      item.set("uid", FB.getUserID());
+      item.set("uid", sessionStorage.uid);
       item.set("metal", $(".metal_type").val());
       item.set("type", $(".coin_type").val());
       item.set("purchase_date", $(".purch_date").val());

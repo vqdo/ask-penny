@@ -38,7 +38,7 @@ define(
       });
 
       this.collection = this.collection || new Inventory();
-      this.collection.fetch({ metal: options.pageId, uid: FB.getUserID()});
+      this.collection.fetch({ metal: options.pageId, uid: sessionStorage.uid});
       this.collection.on('change', this.onCollection, this);
     },
 
