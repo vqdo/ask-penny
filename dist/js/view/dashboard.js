@@ -36,11 +36,13 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], functio
       }
 
       this.options = options || this.options;
+      this.render();       
+      console.log(this.options);
 
       this.currentView = new View(options);
       this.currentView.render().$el.appendTo(this.contentFrame);
 
-      this._setActiveLink(options && options.pageId);      
+      this._setActiveLink(options && options.pageId);     
 
     },
 
