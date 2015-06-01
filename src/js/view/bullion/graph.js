@@ -10,7 +10,7 @@ define(
 
       this.collection.fetch({
         success: function(m, data) {
-          console.log(data);
+          //console.log(data);
         },
         error: function(m, data) {
           console.error(data);
@@ -19,12 +19,10 @@ define(
       this.collection.on('change', this.render, this);
 
       this.options = options;     
-      console.log(this.options);
     },
 
     createCanvasGraph: function() {
       var graph = this.$el;
-      console.log(this.collection);
 
       if(!this.collection.attributes) return;
 
@@ -142,7 +140,6 @@ define(
     },
 
     render: function() {
-      console.log(this.options.inventory);
       if(!this.canvasGraph) {
         this.createCanvasGraph();
       }

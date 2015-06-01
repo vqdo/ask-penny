@@ -16,6 +16,41 @@ define([
       this.options = options;
     },
 
+    setInventory: function(inventory) {
+      if(!this.collection.attributes) return;
+
+      // var self = this;
+      // console.log(inventory);
+      // console.log(this.collection);      
+      // var getModel = function(metal) {
+      //   var model = null;
+      //   _.each(self.collection.attributes, function(item) {
+      //     if(item.name === metal) {
+      //       model = item;
+      //     }
+      //   });
+
+      //   return model;
+      // }
+
+      // var models = [];
+      // _.each(inventory, function(item) {
+      //   var attr = item.attributes;
+      //   var metal = attr.metal;
+      //   var model = getModel(metal);
+      //   console.log(metal);
+      //   console.log(attr);
+      //   console.log(model);
+
+      //   model.qty += attr.qty || 0;
+      //   model.ounces += attr.bullion_ozpu || 0;
+      //   models.push(model);
+      // });
+
+      // this.collection.set(model);
+      // console.log(this.collection);
+    },
+
     render: function(arg) {    
       var process = function(item) {
         if(+item.spot.change > 0) {
