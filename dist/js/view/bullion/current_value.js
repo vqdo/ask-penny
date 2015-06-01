@@ -52,10 +52,11 @@ define(
         attr.total = _.values(this.inventory).reduce(function(acc, data) {
           var type = data.attributes.metal;
           console.log(type);
-          var value = data.attributes.qty * spots[type].bid;
+          var value = data.attributes.qty * (spots[type].bid * 1.05263);
           acc += isNaN(value)? 0 : value;
           return acc;
         }, 0);
+        attr.total = attr.total.toFixed(2);
       }
       //attr.total = total;       
       attr.changeOverall = attr.total ? addDecoration(attr.changeOverall || 0) : addDecoration(0);
