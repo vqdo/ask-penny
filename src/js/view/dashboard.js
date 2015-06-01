@@ -30,14 +30,12 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], functio
     },
 
     setContentView: function(View, options) {
+      var self = this;
       if(this.currentView) {
-        //TODO: dont close if its the same view
-
         this.currentView.close();
       }
 
       this.options = options || this.options;
-      this.render();
 
       this.currentView = new View(options);
       this.currentView.render().$el.appendTo(this.contentFrame);

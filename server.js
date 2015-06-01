@@ -165,8 +165,7 @@ var server = app.listen(process.env.PORT || 8080, function () {
   app.get('/bullion/:user/:bullionType?', function (req, res) {
     var type = req.params.bullionType;
 
-    console.log("Getting bullion type " + type + ' for user ' + req.params.user);    
-
+    
     // TODO: Insert parse code here
     // 
     // Then remove/replace all this:
@@ -179,7 +178,6 @@ var server = app.listen(process.env.PORT || 8080, function () {
       res.end(JSON.stringify(data));
     } 
     else if (type === "all") {
-      console.log(data);
       var spots = {};
       for(var i = 0; i < data.length; i++) {
         var current = data[i];
