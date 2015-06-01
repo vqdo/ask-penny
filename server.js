@@ -92,7 +92,7 @@ function getSpotPrice(metal) {
       var changeDaily = ((datapoints[0].y - datapoints[1].y)/datapoints[0].y).toFixed(2);
       var changeOverall = ((datapoints[0].y - datapoints[datapoints.length-1].y)/datapoints[0].y).toFixed(2);
       spotPrices[spotPrices.length] = {"name":type, "color":color, "dataPoints": datapoints};
-      dailySpot[dailySpot.length] = {"name":metal, "total": 0, "spot":{"bid": bid ,"ask": ask, "change": change}, "ounces":10, "changeDaily": changeDaily, "changeOverall": changeOverall}
+      dailySpot[dailySpot.length] = {"name":metal, "total": 0, "spot":{"bid": bid ,"ask": ask, "change": change}, "ounces":0, "changeDaily": changeDaily, "changeOverall": changeOverall}
       // console.log('latest' + datapoints[0].y);
       // console.log('next' + datapoints[1].y);
       // console.log('first' + datapoints[datapoints.length -1].y);

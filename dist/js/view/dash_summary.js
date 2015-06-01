@@ -51,6 +51,7 @@ define(
     onCollection: function(results) {
       this.subviews.currentValue.setInventory(results.attributes);
       this.renderGraph(results.attributes);
+      this.subviews.spotOverview.setInventory(results.attributes);
     },
 
     render: function() {

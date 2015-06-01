@@ -27,7 +27,7 @@ define(
 
     render: function() {
       var addDecoration = function(value) {
-        console.log(value + " " + isNaN(value));
+        //console.log(value + " " + isNaN(value));
         if(isNaN(value)) return value;
 
         return ((+value > 0)? '+' : '') + (+value).toFixed(2) + '%';
@@ -41,7 +41,6 @@ define(
       
       //var total = attr.total || 0;
       if(!$.isEmptyObject(attr) && this.inventory) {     
-        console.log("!");
         var spots = attr.spots || {};
 
         // Create object containing current spot prices
@@ -51,7 +50,7 @@ define(
 
         attr.total = _.values(this.inventory).reduce(function(acc, data) {
           var type = data.attributes.metal;
-          console.log(type);
+          //console.log(type);
           var value = data.attributes.qty * (spots[type].bid * 1.05263);
           acc += isNaN(value)? 0 : value;
           return acc;
