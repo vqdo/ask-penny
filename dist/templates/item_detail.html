@@ -35,27 +35,27 @@
 				<td><input id="unit_price_det" type="text" value="<%= unit_price %>"></td>
 			</tr>	
 			<tr>
-				<td><%= this.options.pageId %></td>
-				<td><%= bullion_percent %></td>
+				<td><%= this.options.pageId %> %</td>
+				<td><textarea class="percent" rows="1" cols ="20"></textarea></td>
 			</tr>	
 			<tr>
 				<td>Weight/unit (g)</td>
-				<td><%= weight_per_unit %></td>
+				<td><textarea class="weight" rows="1" cols ="20"></textarea></td>
 			</tr>	
 			<tr>
 				<td><%= this.options.pageId %> g/u</td>
-				<td><%= bullion_gpu %></td>
+				<td><textarea class="bullion_gpu" rows="1" cols ="20"></textarea></td>
 			</tr>	
 			<tr>
-				<td><%= this.options.pageId %> oz/u</td>
-				<td><%= bullion_ozpu %></td>
+				<td><%= this.options.pageId %> ozt/u</td>
+				<td><textarea class="bullion_ozpu" rows="1" cols ="20"></textarea></td>
 			</tr>											
 		</table>
 
 	<div class="row">
 			<div class="col-xs-5">
 				<form>
-					<button type="submit" class="update-btn fr">Update</button>
+					<button type="submit" class="delete-btn fr">Delete</button>
 				</form>
 			</div>
 			<div class="col-xs-5">
@@ -63,8 +63,9 @@
 				<form action="#/dashboard/stack/<%-this.options.pageId%>">
 				-->
 				<form>
-					<button type="submit" class="delete-btn">Delete</button>
+					<button type="submit" class="update-btn">Update</button>
 				</form>
+
 
 			</div>
 	</div>

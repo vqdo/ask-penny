@@ -27,10 +27,12 @@ define(['vendor/tpl!../../templates/add_item.html', 'app', 'facebook'], function
       item.set("qty", parseFloat($(".qty").val()));
       item.set("premium", $(".premium").val());
       item.set("unit_price", parseFloat($(".unit_price").val()));
-      item.set("bullion_percent", 0.999);
-      item.set("weight_per_unit", 1.244);
-      item.set("bullion_gpu", 0.322);
-      item.set("bullion_ozpu", 0.04);
+      var percent = parseFloat($(".percent").val());
+      item.set("bullion_percent", percent);
+      var weight = parseFloat($(".weight").val());
+      item.set("weight_per_unit", weight);
+      item.set("bullion_gpu", percent * weight);
+      item.set("bullion_ozpu", (percent * weight)/31.3);
 
       console.log(FB.getUserID())
       console.log(item)

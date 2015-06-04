@@ -96,6 +96,8 @@ define(
           '<td class="col-qty">' + obj.get("qty") + '</td>' + 
           '<td class="col-weight">' + obj.get("weight_per_unit") + '</td>' + 
           '<td class="col-percent">' + obj.get("bullion_percent") + '</td>' +
+          '<td class="col-weight">' + obj.get("bullion_gpu") + '</td>' + 
+          '<td class="col-percent">' + obj.get("bullion_ozpu") + '</td>' +
           '<td class="col-value"><a href="#/dashboard/stack/' + this.options.pageId + '/view/' + obj.id + '"">' +
             obj.get("unit_price") + '</a></td></tr>';
         table.append(newRow);
