@@ -56,7 +56,7 @@ module.exports = function(grunt) {
           compass: true
         },
         files: {
-          '<%= project.dest.assets %>/css/style.css': '<%= project.src.css %>'
+          '<%= project.dest.assets %>/css/style.css': '<%= project.src.css %>/style.scss'
         }
       }
     },    
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: '<%= project.src.css %>/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev']
+        tasks: ['sass:dist']
       },
       copy: {
         files: ['<%= project.src.root %>/**/*.{html,csv}', '<%= project.src.assets %>/images/*', '<%= project.src.js %>/**/*'],
@@ -144,4 +144,5 @@ module.exports = function(grunt) {
   ]);
 
   grunt.loadNpmTasks('grunt-contrib-copy'); 
+  // grunt.loadNpmTasks('grunt-contrib-requirejs');
 };
