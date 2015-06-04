@@ -77,7 +77,20 @@ module.exports = function(grunt) {
       //   files: "<%= project.src.root %>/**/*.jade",
       //   tasks: ['jade:compile']
       // }
-    },   
+    },
+
+    // requirejs: {
+    //   compile: {
+    //     options: {
+    //       baseUrl: "./",
+    //       paths: { jquery: ['http://code.jquery.com/jquery-2.1.4.min']},
+    //       mainConfigFile: "<%= project.src.js %>/app.js",
+    //       name: "<%= project.src.js %>/view/*.js",
+    //       // include: "<%= project.src.js.view.bullion %>/*.js",
+    //       out: "<%= project.src.js %>/optimized.js"
+    //     }
+    //   }
+    // },
 
     copy: {
       main: {
@@ -139,6 +152,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass:dev',
     'copy:main',
+    // 'requirejs',
     //'jade:compile',
     'watch'
   ]);
