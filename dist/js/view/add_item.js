@@ -45,7 +45,7 @@ define(['vendor/tpl!../../templates/add_item.html', 'app', 'facebook'], function
           window.location.replace('#/dashboard/stack/' + self.options.pageId);
         },
         failure: function(item, error) {
-          console.log("failure: " + error)
+          console.error("failure: " + error)
         }
       })
     },

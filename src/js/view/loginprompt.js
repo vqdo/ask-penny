@@ -31,7 +31,7 @@ define(['vendor/tpl!../../templates/login.html', 'app', 'facebook'], function (t
           window.location.href = "#/dashboard";
           sessionStorage.uid = FB.getUserID();
         } else {
-          console.log("unable to login")
+          console.error("unable to login")
         }
       });
     },
