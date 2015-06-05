@@ -31,8 +31,10 @@ define(['vendor/tpl!../../templates/add_item.html', 'app', 'facebook'], function
       item.set("bullion_percent", percent);
       var weight = parseFloat($(".weight").val());
       item.set("weight_per_unit", weight);
-      item.set("bullion_gpu", percent * weight);
-      item.set("bullion_ozpu", parseFloat(((percent * weight)/31.3).toFixed(2)));
+      var gpu = parseFloat((percent * weight).toFixed(2));
+      item.set("bullion_gpu", gpu);
+      var ozpu = parseFloat(((percent * weight)/31.3).toFixed(2));
+      item.set("bullion_ozpu", ozpu);
 
       console.log(FB.getUserID())
       console.log(item)
