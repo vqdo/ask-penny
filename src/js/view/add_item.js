@@ -21,16 +21,20 @@ define(['vendor/tpl!../../templates/add_item.html', 'app', 'facebook'], function
       var Bullion = Parse.Object.extend("Bullion");
       var item = new Bullion();
       item.set("uid", sessionStorage.uid);
-      item.set("metal", $(".metal_type").val());
+      item.set("metal", $(".metal_type").html());
       item.set("type", $(".coin_type").val());
       item.set("purchase_date", $(".purch_date").val());
       item.set("qty", parseFloat($(".qty").val()));
       item.set("premium", $(".premium").val());
       item.set("unit_price", parseFloat($(".unit_price").val()));
-      item.set("bullion_percent", 0.999);
-      item.set("weight_per_unit", 1.244);
-      item.set("bullion_gpu", 0.322);
-      item.set("bullion_ozpu", 0.04);
+      var percent = parseFloat($(".percent").val());
+      item.set("bullion_percent", percent);
+      var weight = parseFloat($(".weight").val());
+      item.set("weight_per_unit", weight);
+      var gpu = parseFloat((percent * weight).toFixed(2));
+      item.set("bullion_gpu", gpu);
+      var ozpu = parseFloat(((percent * weight)/31.3).toFixed(2));
+      item.set("bullion_ozpu", ozpu);
 
       console.log(FB.getUserID())
       console.log(item)
@@ -41,7 +45,7 @@ define(['vendor/tpl!../../templates/add_item.html', 'app', 'facebook'], function
           window.location.replace('#/dashboard/stack/' + self.options.pageId);
         },
         failure: function(item, error) {
-          console.log("failure: " + error)
+          console.error("failure: " + error)
         }
       })
     },

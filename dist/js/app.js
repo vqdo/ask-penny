@@ -8,7 +8,7 @@ requirejs.config({
         tpl: './vendor/tpl',
         text: './vendor/text',   
         fetch_cache: './vendor/fetch-cache.min',
-        jquery: ['//code.jquery.com/jquery-2.1.4.min'],
+        jquery: ['http://code.jquery.com/jquery-2.1.4.min'],
         bootstrap: '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min',
         underscore: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore',
         backbone: '//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone',

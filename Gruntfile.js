@@ -56,7 +56,7 @@ module.exports = function(grunt) {
           compass: true
         },
         files: {
-          '<%= project.dest.assets %>/css/style.css': '<%= project.src.css %>'
+          '<%= project.dest.assets %>/css/style.css': '<%= project.src.css %>/style.scss'
         }
       }
     },    
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: '<%= project.src.css %>/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev']
+        tasks: ['sass:dist']
       },
       copy: {
         files: ['<%= project.src.root %>/**/*.{html,csv}', '<%= project.src.assets %>/images/*', '<%= project.src.js %>/**/*'],
@@ -77,7 +77,20 @@ module.exports = function(grunt) {
       //   files: "<%= project.src.root %>/**/*.jade",
       //   tasks: ['jade:compile']
       // }
-    },   
+    },
+
+    // requirejs: {
+    //   compile: {
+    //     options: {
+    //       baseUrl: "./",
+    //       paths: { jquery: ['http://code.jquery.com/jquery-2.1.4.min']},
+    //       mainConfigFile: "<%= project.src.js %>/app.js",
+    //       name: "<%= project.src.js %>/view/*.js",
+    //       // include: "<%= project.src.js.view.bullion %>/*.js",
+    //       out: "<%= project.src.js %>/optimized.js"
+    //     }
+    //   }
+    // },
 
     copy: {
       main: {
@@ -139,9 +152,11 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass:dev',
     'copy:main',
+    // 'requirejs',
     //'jade:compile',
     'watch'
   ]);
 
   grunt.loadNpmTasks('grunt-contrib-copy'); 
+  // grunt.loadNpmTasks('grunt-contrib-requirejs');
 };
