@@ -21,7 +21,7 @@ define(['vendor/tpl!../../templates/add_item.html', 'app', 'facebook'], function
       var Bullion = Parse.Object.extend("Bullion");
       var item = new Bullion();
       item.set("uid", sessionStorage.uid);
-      item.set("metal", $(".metal_type").val());
+      item.set("metal", $(".metal_type").html());
       item.set("type", $(".coin_type").val());
       item.set("purchase_date", $(".purch_date").val());
       item.set("qty", parseFloat($(".qty").val()));
@@ -32,7 +32,7 @@ define(['vendor/tpl!../../templates/add_item.html', 'app', 'facebook'], function
       var weight = parseFloat($(".weight").val());
       item.set("weight_per_unit", weight);
       item.set("bullion_gpu", percent * weight);
-      item.set("bullion_ozpu", (percent * weight)/31.3);
+      item.set("bullion_ozpu", parseFloat(((percent * weight)/31.3).toFixed(2)));
 
       console.log(FB.getUserID())
       console.log(item)
