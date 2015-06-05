@@ -50,7 +50,6 @@ define(
 
         attr.total = _.values(this.inventory).reduce(function(acc, data) {
           var type = data.attributes.metal;
-          //console.log(type);
           var value = data.attributes.qty * (spots[type].bid * 1.05263);
           acc += isNaN(value)? 0 : value;
           return acc;

@@ -66,12 +66,32 @@ function   (Backbone) {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-
     var APCtrl = function() {
         this.currentView = null;
         var frame = $('#frame');
-
         var self = this;
+        var shared = {
+          inventory: {
+            gold: {items: [], count: 0}, silver: {items: [], count: 0}, platinum: {items: [], count: 0}
+          }
+        };
+
+        this.setSharedVariable = function(keyOrMap, value) {
+          if($.isPlainObject(keyOrMap)) {
+            // If map passed in, add all k-v pairs
+            $.each(keyOrMap, function(k, v) {
+              shared[k] = v; 
+            });
+          } else {
+            shared[keyOrMap] = value;
+          }
+          //console.log("Set to ");
+          //console.log(shared);
+        }
+
+        this.getSharedVariable = function(key) {
+          return shared[key];
+        }
 
         /**
          * Initialize app view

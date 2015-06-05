@@ -1,8 +1,10 @@
 define([
   'vendor/tpl!/templates/bullion/spot_overview.html', 
-  'model/bulliontypes'], 
+  'model/bulliontypes',
+  'model/inventory',
+  'app'], 
 
-  function (spotTemplate, BullionTypes) {
+  function (spotTemplate, BullionTypes, Inventory, app) {
   var SpotOverview = Backbone.View.extend({
     template: spotTemplate,
 
@@ -12,6 +14,12 @@ define([
 
       this.collection.fetch();      
       this.collection.on('change', this.render, this);
+
+      this.inventory = this.inventory || new Inventory();
+      this.inventory.fetch({}, true).then(function(stuff) {
+        console.log(stuff);
+      });
+      this.inventory.on('change', this.render, this);      
 
       this.options = options;
     },
@@ -52,16 +60,26 @@ define([
     },
 
     render: function(arg) {    
+      this.$el.children().remove();
+      var inventory = app.getSharedVariable('inventory');
+      console.log(inventory);
       var process = function(item) {
+        if(isNaN(item.spot.change)) 
+          return item.spot.change;
+
         if(+item.spot.change > 0) {
           item.spot.change = '+' + item.spot.change;
           item.changeIndicatorClass = 'value-positive';
-        } else {
+        } else if(+item.spot.change < 0) {
           item.changeIndicatorClass = 'value-negative';
+        } else {
+          item.changeIndicatorClass = '';
         }
         
         return item;
       }
+
+      var currentSpot = app.getSharedVariable('spots') || {};
       _.each(this.collection.attributes, function(item) {
         if(this.options.id) {
           if(item.name !== this.options.id) {
@@ -71,8 +89,14 @@ define([
           item.name = "Current Spot";
         }
 
+        item.ounces = inventory[item.name].count || 0;
+        item.total = (item.ounces * item.spot.bid / 0.95).toFixed(2);
+        currentSpot[item.name] = item;
         this.$el.append(this.template(process(item)));
       }, this);
+
+      // Cache for later
+      app.setSharedVariable('spots', currentSpot);
 
       return this;
     },
