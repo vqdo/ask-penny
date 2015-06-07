@@ -1,1 +1,9 @@
-define(["app"],function(a){var b=Backbone.Model.extend({initialize:function(){}});return b});
+define(['app'], function (app) {
+  var GraphData = Backbone.Model.extend({
+    initialize: function() {
+
+    }
+  });
+
+  return GraphData;
+});

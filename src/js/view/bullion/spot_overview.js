@@ -87,8 +87,15 @@ define([
           }
           //PURPOSE?
         }
-        item.ounces = inventory[item.name].count || 0;
-        item.total = (item.ounces * item.spot.bid / 0.95).toFixed(2);
+
+        var oz = 0;
+        var premiums = 0;
+        _.each(inventory[item.name].items, function(obj) {
+          oz += obj.attributes.bullion_ozpu * obj.attributes.qty;
+          premiums += parseFloat(obj.attributes.premium) * obj.attributes.qty;
+        }, this);
+        item.ounces = oz || 0;
+        item.total = (oz * item.spot.bid + premiums).toFixed(2);
         currentSpot[item.name] = item;
 
         item.displayName = (this.options.id)? 'Current Spot' : item.name;

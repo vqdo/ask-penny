@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], function (template) {
   var Dashboard = Backbone.View.extend({
     template: template,
@@ -64,6 +63,3 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], functio
 
   return Dashboard;
 });
-=======
-define(["vendor/tpl!../../templates/dashboard.html","app","facebook"],function(a){var b=Backbone.View.extend({template:a,id:"dashboard",initialize:function(){this.currentView=null,this.options={}},render:function(){return this.$el.html(this.template({})),this.contentFrame=this.$el.find("#wrapper"),this},_setActiveLink:function(a){$("#menu .active").removeClass("active");var b="#link-"+(a?a:"home");console.log(b),$(b).addClass("active")},setContentView:function(a,b){this.currentView&&this.currentView.close(),this.options=b||this.options,this.render(),console.log(this.options),this.currentView=new a(b),this.currentView.render().$el.appendTo(this.contentFrame),this._setActiveLink(b&&b.pageId)},getContentView:function(){return this.currentView},close:function(){this.$el.children().remove(),this.unbind(),this.model.unbind("change",this.modelChanged)}});return b});
->>>>>>> fe14298115419e2e088d5129a389dff29ee47deb

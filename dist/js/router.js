@@ -1,1 +1,70 @@
-define(["backbone","app"],function(a,b){var c=a.Router.extend({routes:{"":"login","login(/)":"login","dashboard(/)":"dashboard","dashboard/stack/:bullion":"stack","dashboard/stack/:bullion/add":"add","dashboard/stack/:bullion/view/:id(/)":"view"}}),d=new c;return require(["view/loginprompt","view/dashboard","view/dash_summary","view/add_item","view/item_detail","view/dash_stack"],function(c,e,f,g,h,i){d.on("route:login",function(){b.changeView(c)}),d.on("route:dashboard",function(a){b.changeView(e),b.getView().setContentView(f),this.navigate("dashboard",{trigger:!0})}),d.on("route:add",function(a){b.changeView(e),b.getView().setContentView(g,{pageId:a}),this.navigate("dashboard/stack/"+a+"/add",{trigger:!0})}),d.on("route:stack",function(a){b.changeView(e),b.getView().setContentView(i,{pageId:a}),this.navigate("dashboard/stack/"+a,{trigger:!0})}),d.on("route:view",function(a,c){b.changeView(e),b.getView().setContentView(h,{itemId:c,pageId:a}),this.navigate("dashboard/stack/"+a+"/view/"+c,{trigger:!0})}),a.history.start()}),c});
+define(["backbone", "app"], function(Backbone, app) {
+    var APRouter = Backbone.Router.extend({
+
+      routes: {    
+        "":                                     "login",   
+        "login(/)":                             "login", 
+        "dashboard(/)":                         "dashboard",
+        "dashboard/stack/:bullion":             "stack",  
+        "dashboard/stack/:bullion/add":         "add",        
+        "dashboard/stack/:bullion/view/:id(/)": "view"
+      }
+
+    });
+
+    var router = new APRouter();
+
+    /**
+     * Dashboard routing
+     */
+    require([
+      //- dependencies
+      'view/loginprompt',
+      'view/dashboard', 
+      'view/dash_summary',
+      'view/add_item',
+      'view/item_detail',   
+      'view/dash_stack'
+    ], 
+    function(LoginPrompt, Dashboard, DashSummary, AddPanel, ItemDetailPanel, DashStack) {    
+
+      router.on('route:login', function() {
+        app.changeView(LoginPrompt);
+      });
+      router.on('route:dashboard', function(id) {    
+        app.changeView(Dashboard);
+        app.getView().setContentView(DashSummary);
+        this.navigate("dashboard", {trigger: true});
+      });
+
+      router.on('route:add', function(bullionType) {     
+        app.changeView(Dashboard);
+        app.getView().setContentView(AddPanel, {
+          pageId: bullionType
+        });
+        this.navigate("dashboard/stack/" + bullionType + "/add", {trigger: true});
+      });  
+
+      router.on('route:stack', function(bullionType) {     
+        app.changeView(Dashboard);
+        app.getView().setContentView(DashStack, {
+          pageId: bullionType
+        });
+        this.navigate("dashboard/stack/" + bullionType, {trigger: true});
+      });   
+
+      router.on('route:view', function(bullionType, id) {
+        app.changeView(Dashboard);
+        app.getView().setContentView(ItemDetailPanel, {
+          itemId: id,
+          pageId: bullionType
+        });
+        this.navigate("dashboard/stack/" + bullionType + "/view/" + id, {trigger: true});
+      }); 
+
+      Backbone.history.start();
+
+    });
+
+    return APRouter;
+});
