@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 define(
 ['app', 'model/item'], 
 
@@ -94,3 +95,6 @@ function (app, Item) {
 
   return Inventory;
 });
+=======
+define(["app","model/item"],function(a,b){var c=Backbone.Model.extend({model:b,initialize:function(){Parse.initialize("pgIVxlWiJTswWbYnHqclimNwHZwdShkL48VmHZ8G","Km1O6v0inoToEdisAMV80HoxEKIMwMUB3Yt5G1TG")},fetch:function(b,c){b=b||{};var d=new jQuery.Deferred;if(c){var e=a.getSharedVariable("inventory");if(e&&(e.length>=3||e[b.metal])){var f=b.metal?e[b.metal]:e;d.resolve(f)}}b.uid||console.warn("Inventory init: No user id passed in.");var g=new Parse.Query("Bullion"),h=this;return b.metal&&(g=g.equalTo("metal",b.metal)),g=g.equalTo("uid",b.uid||sessionStorage.uid),g.find({success:function(c){var e=a.getSharedVariable("inventory")||{},f=function(a){return $.isArray(a)?a.reduce(function(a,b){var c=(+b.attributes.qty||0)*(+b.attributes.bullion_ozpu||0);return a+c},0):console.error("not an array!",a)};b.metal?e[b.metal]={items:c,count:f(c)}:($.each(e,function(a,b){b.items=[]}),$.each(c,function(a,b){var c=e[b.attributes.metal].items;c.push(b)}),$.each(e,function(a,b){b.count=f(b.items)}),console.log(e)),a.setSharedVariable("inventory",e),d.resolve(c),h.set(c)},error:function(a){console.error(a),d.reject(a)}}),d.promise()}});return c});
+>>>>>>> fe14298115419e2e088d5129a389dff29ee47deb

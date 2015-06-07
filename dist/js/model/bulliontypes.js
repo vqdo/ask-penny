@@ -1,14 +1,1 @@
-define(
-['app', 'model/bulliontype'], 
-
-function (app, BullionType) {
-  var BullionTypes = Backbone.Model.extend({
-    model: BullionType,
-    url: '/bullion/someuser',
-    initalize: function() {
-
-    }
-  });
-
-  return BullionTypes;
-});
+define(["app","model/bulliontype"],function(a,b){var c=Backbone.Model.extend({model:b,url:"/bullion/someuser",initalize:function(){}});return c});
