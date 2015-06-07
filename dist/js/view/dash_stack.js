@@ -150,6 +150,7 @@ define(
       if(this.model) {
         this.model.unbind("change", this.modelChanged);
       }
+
     },
 
     setActive: function($el, $buttonEl, view) {

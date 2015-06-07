@@ -47,7 +47,8 @@ define(
         if(!attr.spots) {
           spots[this.options.bullionType] = attr.spot;
         }
-
+        console.log('TOTAL CALC');
+        console.log(this.inventory);
         attr.total = _.values(this.inventory).reduce(function(acc, data) {
           var type = data.attributes.metal;
           var value = data.attributes.qty * (spots[type].bid * 1.05263);

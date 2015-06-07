@@ -61,6 +61,8 @@ function (app, Item) {
               $.each(inventory, function(i, items) { items.items = []});
 
               $.each(results, function(i, result) {
+                console.log(inventory);
+                console.log(result.attributes.metal);
                 var items = inventory[result.attributes.metal].items;
                 items.push(result);
               });

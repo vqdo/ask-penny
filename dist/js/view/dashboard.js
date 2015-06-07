@@ -30,6 +30,7 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], functio
     },
 
     setContentView: function(View, options) {
+      console.log("set content view");
       var self = this;
       if(this.currentView) {
         this.currentView.close();
@@ -38,6 +39,9 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], functio
       this.options = options || this.options;
       this.render();       
       console.log(this.options);
+
+      //NO
+      //this.options = {};
 
       this.currentView = new View(options);
       this.currentView.render().$el.appendTo(this.contentFrame);

@@ -85,13 +85,13 @@ define([
           if(item.name !== this.options.id) {
             return;
           }
-
-          item.name = "Current Spot";
+          //PURPOSE?
         }
-
         item.ounces = inventory[item.name].count || 0;
         item.total = (item.ounces * item.spot.bid / 0.95).toFixed(2);
         currentSpot[item.name] = item;
+
+        item.displayName = (this.options.id)? 'Current Spot' : item.name;
         this.$el.append(this.template(process(item)));
       }, this);
 
