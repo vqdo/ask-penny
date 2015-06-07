@@ -2,6 +2,7 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], functio
   var Dashboard = Backbone.View.extend({
     template: template,
     id: "dashboard",
+    previousView: null,
 
     initialize: function() {
       this.currentView = null;
@@ -32,16 +33,14 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], functio
     setContentView: function(View, options) {
       console.log("set content view");
       var self = this;
+
+      this.previousView = this.currentView;      
       if(this.currentView) {
         this.currentView.close();
       }
 
       this.options = options || this.options;
       this.render();       
-      console.log(this.options);
-
-      //NO
-      //this.options = {};
 
       this.currentView = new View(options);
       this.currentView.render().$el.appendTo(this.contentFrame);
@@ -57,7 +56,9 @@ define(['vendor/tpl!../../templates/dashboard.html', 'app', 'facebook'], functio
     close: function() {
       this.$el.children().remove();
       this.unbind();
-      this.model.unbind("change", this.modelChanged);
+
+
+      //this.model.unbind("change", this.modelChanged);
     }    
   });                 
 

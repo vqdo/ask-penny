@@ -1,1 +1,12 @@
-define(["app","model/graphdata"],function(a,b){var c=Backbone.Model.extend({model:b,url:"/bullion/allspots",initalize:function(){}});return c});
+define(['app', 'model/graphdata'], function (app, GraphData) {
+  var GraphDataSet = Backbone.Model.extend({
+    model: GraphData,
+    url: '/bullion/allspots',
+
+    initalize: function() {
+
+    }
+  });
+
+  return GraphDataSet;
+});
