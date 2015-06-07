@@ -21,6 +21,7 @@ define(
     initialize: function() {
       var self = this;
 
+
       // Initialize views
       this.subviews.spotOverview = new SpotOverview({});
       this.subviews.currentValue = new CurrentValue({
@@ -104,19 +105,6 @@ define(
     },
 
     renderGraph: function(inventory) {
-      // if(!this.subviews.graph) {
-      //   //if(!inventory) return;
-      //   console.log(inventory);
-      //   //console.log(this.$el.find('.my-stack').height());
-      //   this.subviews.graph = new BullionGraph({
-      //     el:     this.$el.find('#bullion-graph'),
-      //     matchHeight: this.$el.find('.my-stack'),
-      //     inventory: inventory
-      //   });
-      // } else {
-      //   this.subviews.graph.render();
-      // }
-
       if(this.subviews.graph) this.subviews.graph.close();
 
       console.log("!");

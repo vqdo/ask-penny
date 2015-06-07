@@ -85,14 +85,14 @@ define(
             var qty = _.values(self.options.inventory).reduce(function(acc, metal_data) {
               var value = 0;
               if (metal_data.attributes.metal ===  data.name.toLowerCase()) {
-                value = metal_data.attributes.qty;
+                value = metal_data.attributes.qty * (point.y * 0.95 * metal_data.attributes.bullion_ozpu + parseFloat(metal_data.attributes.premium));
               }
               acc += isNaN(value)? 0 : value;
               return acc;
             }, 0);
             graphTotalData.dataPoints.push({
               x: new Date(point.x),
-              y: point.y * qty
+              y: qty
             });
 
           }

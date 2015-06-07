@@ -8,7 +8,7 @@ requirejs.config({
         tpl: './vendor/tpl',
         text: './vendor/text',   
         fetch_cache: './vendor/fetch-cache.min',
-        jquery: ['//code.jquery.com/jquery-2.1.4.min'],
+        jquery: ['http://code.jquery.com/jquery-2.1.4.min'],
         bootstrap: '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min',
         underscore: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore',
         backbone: '//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone',
@@ -66,12 +66,32 @@ function   (Backbone) {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-
     var APCtrl = function() {
         this.currentView = null;
         var frame = $('#frame');
-
         var self = this;
+        var shared = {
+          inventory: {
+            gold: {items: [], count: 0}, silver: {items: [], count: 0}, platinum: {items: [], count: 0}
+          }
+        };
+
+        this.setSharedVariable = function(keyOrMap, value) {
+          if($.isPlainObject(keyOrMap)) {
+            // If map passed in, add all k-v pairs
+            $.each(keyOrMap, function(k, v) {
+              shared[k] = v; 
+            });
+          } else {
+            shared[keyOrMap] = value;
+          }
+          //console.log("Set to ");
+          //console.log(shared);
+        }
+
+        this.getSharedVariable = function(key) {
+          return shared[key];
+        }
 
         /**
          * Initialize app view

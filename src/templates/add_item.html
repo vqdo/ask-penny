@@ -12,32 +12,29 @@
 			</tr>
 			<tr>
 				<td>Metal</td>
-				<td>
-					<select class="metal_type">
-						<option value="gold">Gold</option>
-						<option value="silver">Silver</option>
-						<option value="platinum">Platinum</option>
-					</select>
-				</td>
+				<td><text class="metal_type"><%= this.options.pageId %></text></td>
 			</tr>
 			<tr>
 				<td>Type</td>
 				<td>
 					<select class="coin_type">
-						<option value="us_eagle">US Eagle</option>
-						<option value="panda_coin">Panda coin</option>
-						<option value="kreugerrand">Krugerrand</option>
+						<option value="Bullion Bar">Bullion bar</option>
+						<option value="Credit Suisse">Credit Suisse</option>
+						<option value="Shotgun Shell">Shotgun Shell</option>
+						<option value="Round">Round</option>
+						<option value="Kreugerrand">Krugerrand</option>
+						<option value="Chinese Panda Coin">Chinese Panda Coin</option>
+						<option value="US Eagle">US Eagle</option>
+						<option value="Buffalo Coin">Buffalo Coin</option>
+						<option value="Maple Leaf">Maple Leaf</option>
+
 					</select>
 				</td>
 			</tr>	
 			<tr>
 				<td>Purchase Date</td>
 				<td>
-					<select class="purch_date">
-						<option value="today">Today</option>
-						<option value="yesterday">Yesterday</option>
-						<option value="tuesday">Tuesday</option>
-					</select>
+					<input type="date" rows="1" cols="20"class="purch_date">
 				</td>
 			</tr>
 			<tr>
@@ -54,20 +51,12 @@
 			</tr>	
 			<tr>
 				<td><%= this.options.pageId %> %</td>
-				<td>0.999</td>
+				<td><textarea class="percent" rows="1" cols ="20"></textarea></td>
 			</tr>	
 			<tr>
 				<td>Weight/unit (g)</td>
-				<td>1.244</td>
+				<td><textarea class="weight" rows="1" cols ="20"></textarea></td>
 			</tr>	
-			<tr>
-				<td><%= this.options.pageId %> g/u</td>
-				<td>1.244</td>
-			</tr>	
-			<tr>
-				<td><%= this.options.pageId %> oz/u</td>
-				<td>0.04</td>
-			</tr>			
 
 		</table>
 		<div class="row">
@@ -81,7 +70,7 @@
 				<form action="#/dashboard/stack/<%-this.options.pageId%>">
 				-->
 				<form>
-					<button type="submit" class="submit-btn">Save to My Stack!!</button>
+					<button type="submit" class="submit-btn">Save to My Stack</button>
 				</form>
 
 			</div>

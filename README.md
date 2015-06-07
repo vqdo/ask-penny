@@ -1,10 +1,9 @@
 # Ask Penny
 
+<<<<<<< HEAD
 ## How to Run
 
-'npm start' from the root directory and go to localhost:8080
-
-You MUST run on localhost:8080 for FB login to work! 
+Run locally: npm install, npm start, and go to localhost:8080
 
 ## Technical Notes
 ### Frameworks and Libraries
@@ -18,19 +17,18 @@ You MUST run on localhost:8080 for FB login to work!
 ### Other Tools
 - **SASS** - Compiles to CSS, with useful functionality like variables and functions.
 - **NodeJS** - Web server. 
+- **Parse** - BaaS
+- **Quandl** - Stock price data
+- **Facebook Login** - Keeps track of users
 - **Grunt** - Helps with development.
 
 ## Development Notes
 
-### Slow Loading
-There is no minification or optimization of code. As a result there are over a dozen JS files included on the HTML page. In a production environment, we would concatenate our application code into one or two files. The initial page load time might be somewhat long. 
+### CRUD + Backend
+We chose to use Parse to handle the backend of our app. When a user wants to add an item we create a Bullion object and add the appropriate attributes to it (metal_type, quantity, premium, etc) and send it to Parse. We append the unique object IDs to url path in order to identify the object from the backend when we need to read, update, or delete it. 
 
-### Validation
-Unfortunately, since the page elements are added dynamically, it's not easy to validate. We personally validated our site by using a site inspector (disabling interfering extensions) and copy and pasting the code into the W3 validator. 
+### Fetch current and historical price of gold
+As suggested we used Quandl to obtain the spot prices of gold, silver, and platinum. Specifically we used the Wall Street Journal's precious metal data. We set the time range from the current day to 30 days before. We use the most recent data for the spot price, and use the rest of the datapoints for the graphs to track the changes. 
 
-:( Sorry!!!!
-
-### Backbone Integration
-BackboneJS is a front-end MVC framework, which we chose for its native support of single page applications. 
-
-There is a single HTML page (index.html) with a single JS entry point (app.js). We needed to dynamically fetch partial HTML pages from our file server and render them on the page. We decided to separate the JS views from the HTML templates. 
+### User log in
+We are using Facebook login to keep track of users. We associate their Facebook loginid with their bullion items so we know only to retrieve their items for display in their collection and to prevent them from accessing/modifying other user's items. 

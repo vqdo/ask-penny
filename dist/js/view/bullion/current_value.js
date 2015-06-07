@@ -48,10 +48,12 @@ define(
           spots[this.options.bullionType] = attr.spot;
         }
 
+        console.log('attrs');
+        console.log(this.inventory.attributes);
         attr.total = _.values(this.inventory).reduce(function(acc, data) {
+          console.log(data.attributes);
           var type = data.attributes.metal;
-          //console.log(type);
-          var value = data.attributes.qty * (spots[type].bid * 1.05263);
+          var value = data.attributes.qty * (spots[type].bid * data.attributes.bullion_ozpu + parseFloat(data.attributes.premium));
           acc += isNaN(value)? 0 : value;
           return acc;
         }, 0);
