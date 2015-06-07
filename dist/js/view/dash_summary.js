@@ -73,7 +73,7 @@ define(
         });
       }
 
-      this.renderGraph();
+      this.renderGraph(this.collection.attributes);
 
       return this;
     },
@@ -99,7 +99,7 @@ define(
           .removeClass('summary-panel-stack');
         $target.addClass('summary-panel-graph');
 
-        this.renderGraph();
+        this.renderGraph(this.collection.attributes);
 
       }
     },
@@ -107,7 +107,8 @@ define(
     renderGraph: function(inventory) {
       if(this.subviews.graph) this.subviews.graph.close();
 
-      console.log("!");
+      console.log("inventory");
+      console.log(inventory);
       this.subviews.graph = new BullionGraph({
         el:     this.$el.find('#bullion-graph'),
         matchHeight: this.$el.find('.my-stack'),

@@ -94,7 +94,7 @@ define([
           oz += obj.attributes.bullion_ozpu * obj.attributes.qty;
           premiums += parseFloat(obj.attributes.premium) * obj.attributes.qty;
         }, this);
-        item.ounces = oz || 0;
+        item.ounces = oz.toFixed(2) || 0;
         item.total = (oz * item.spot.bid + premiums).toFixed(2);
         currentSpot[item.name] = item;
 
