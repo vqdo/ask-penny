@@ -79,6 +79,33 @@ module.exports = function(grunt) {
       // }
     },
 
+    uglify: {
+      my_target: {
+        files: {
+          '<%= project.dest.js%>/view/add_item.js' : ['<%= project.src.js%>/view/add_item.js'],
+          '<%= project.dest.js%>/view/dash_stack.js' : ['<%= project.src.js%>/view/dash_stack.js'],
+          '<%= project.dest.js%>/view/dash_summary.js' : ['<%= project.src.js%>/view/dash_summary.js'],
+          '<%= project.dest.js%>/view/dashboard.js' : ['<%= project.src.js%>/view/dashboard.js'],
+          '<%= project.dest.js%>/view/item_detail.js' : ['<%= project.src.js%>/view/item_detail.js'],
+          '<%= project.dest.js%>/view/loginprompt.js' : ['<%= project.src.js%>/view/loginprompt.js'],
+          '<%= project.dest.js%>/view/sidebar.js' : ['<%= project.src.js%>/view/sidebar.js'],
+          '<%= project.dest.js%>/view/bullion/current_value.js' : ['<%= project.src.js%>/view/bullion/current_value.js'],
+          '<%= project.dest.js%>/view/bullion/graph.js' : ['<%= project.src.js%>/view/bullion/graph.js'],
+          '<%= project.dest.js%>/view/bullion/spot_overview.js' : ['<%= project.src.js%>/view/bullion/spot_overview.js'],
+          '<%= project.dest.js%>/model/bulliontype.js' : ['<%= project.src.js%>/model/bulliontype.js'],
+          '<%= project.dest.js%>/model/bulliontypes.js' : ['<%= project.src.js%>/model/bulliontypes.js'],
+          '<%= project.dest.js%>/model/graphdata.js' : ['<%= project.src.js%>/model/graphdata.js'],
+          '<%= project.dest.js%>/model/graphdataset.js' : ['<%= project.src.js%>/model/graphdataset.js'],
+          '<%= project.dest.js%>/model/inventory.js' : ['<%= project.src.js%>/model/inventory.js'],
+          '<%= project.dest.js%>/model/item.js' : ['<%= project.src.js%>/model/item.js'],
+          '<%= project.dest.js%>/vendor/text.js' : ['<%= project.src.js%>/vendor/text.js'],
+          '<%= project.dest.js%>/vendor/tpl.js' : ['<%= project.src.js%>/vendor/tpl.js'],
+          '<%= project.dest.js%>/app.js' : ['<%= project.src.js%>/app.js'],
+          '<%= project.dest.js%>/router.js' : ['<%= project.src.js%>/router.js']
+        }
+      }
+    },
+
     // requirejs: {
     //   compile: {
     //     options: {
@@ -152,11 +179,13 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass:dev',
     'copy:main',
+    'uglify',
     // 'requirejs',
     //'jade:compile',
     'watch'
   ]);
 
   grunt.loadNpmTasks('grunt-contrib-copy'); 
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   // grunt.loadNpmTasks('grunt-contrib-requirejs');
 };

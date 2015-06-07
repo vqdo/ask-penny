@@ -2,7 +2,7 @@
   <div class="overview-spot overview">
     <a href="#/dashboard/stack/<%=(name === "Current Spot")? '' : name %>">
     <h1>
-      <strong><%- name %></strong>
+      <strong><%- displayName %></strong>
       <span class="next fr glyphicon glyphicon-chevron-right"></span>
     </h1>
     </a>
@@ -30,7 +30,7 @@
 
   <div class="xs-visible overview-stack overview">
     <h1>
-      <strong><%- name %></strong>
+      <strong><%- displayName %></strong>
 
       <a class="next fr glyphicon glyphicon-chevron-right" href="#/dashboard/stack/<%=(name === "Current Spot")? "" : name %>"></a>
 

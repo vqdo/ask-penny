@@ -21,6 +21,7 @@ define(
     initialize: function() {
       var self = this;
 
+
       // Initialize views
       this.subviews.spotOverview = new SpotOverview({});
       this.subviews.currentValue = new CurrentValue({

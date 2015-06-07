@@ -1,5 +1,8 @@
 # Ask Penny
 
+<<<<<<< HEAD
+## How to Run
+
 Run locally: npm install, npm start, and go to localhost:8080
 
 ## Technical Notes
@@ -16,7 +19,7 @@ Run locally: npm install, npm start, and go to localhost:8080
 - **NodeJS** - Web server. 
 - **Parse** - BaaS
 - **Quandl** - Stock price data
-- ** Facebook Login** - Keeps track of users
+- **Facebook Login** - Keeps track of users
 - **Grunt** - Helps with development.
 
 ## Development Notes
