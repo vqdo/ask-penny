@@ -1,6 +1,5 @@
 # Ask Penny
 
-<<<<<<< HEAD
 ## How to Run
 
 Run locally: npm install, npm start, and go to localhost:8080
